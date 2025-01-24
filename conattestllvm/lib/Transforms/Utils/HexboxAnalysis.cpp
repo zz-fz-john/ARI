@@ -75,21 +75,23 @@ namespace {
     *
     *************************************************************************/
     Json::Value & AddFunctionToJSON(Function & F){
+        //获取函数的名称并将其转化为字符串
         std::string name = F.getName().str();
         Json::Value *Fnode;
         Json::Value *Attr;
         std::string str;
         raw_string_ostream type_name_stream(str);
-        F.getType()->print(type_name_stream);
+        F.getType()->print(type_name_stream);//获取该函数的类型信息
 
-
+        //在JSON根对象中创建或者获取一个名为name的节点
         Fnode = &OutputJsonRoot[name];
         Attr = &(*Fnode)["Attr"];
 
-
+        //设置函数的属性，如函数的类型，地址是否被获取，LLVM类型等
         (*Attr)["Type"]="Function";
         (*Attr)["Address Taken"]= F.hasAddressTaken();
         (*Attr)["LLVM_Type"] = type_name_stream.str();
+        //获取函数的调试信息，找到所有调用该函数的指令，并将调用者信息添加到 JSON 中。
         DISubprogram * SP = F.getSubprogram();
         if ( SP ){
             std::string filename = SP->getFile()->getFilename().str();
@@ -101,12 +103,13 @@ namespace {
             //AMI controller policy
             std::map<std::string, int>::iterator controller_it;
             controller_it = controller_filename.find(filename);
-            if(controller_it != controller_filename.end()){
+            if(controller_it != controller_filename.end()){//如果是controller函数，则新增一个属性
                 (*Attr)["Controller"] = filename;
             }
         }
 
         //Adds Callers
+        //添加调用者信息，遍历函数的用户，找到所有调用该函数的指令，并将调用者信息添加到 JSON 中
         std::vector<Json::Value> Cons;
         for (User * U: F.users()){
             if (Instruction * Inst = dyn_cast<Instruction>(U)){
@@ -118,6 +121,7 @@ namespace {
         }
 
         //Adds Callees
+        //添加被调用者信息：遍历函数的基本块和指令，找到所有被该函数调用的函数，并将被调用者信息添加到 JSON 中
         for ( BasicBlock &BB : F ){
             for ( Instruction & I : BB ){
                 if ( CallSite cs = CallSite(&I) ){
@@ -146,7 +150,7 @@ namespace {
                             }
                             delete Inst;
                         }else{
-                            add_indirect_calls(*Fnode, F, I, cs);
+                            add_indirect_calls(*Fnode, F, I, cs);//通过类型匹配来处理间接调用
                         }
                     }
                 }
@@ -155,15 +159,16 @@ namespace {
         return (*Fnode);
     }
 
-
+    //向一个json对象中添加或更新连接信息
     void add_connection(Json::Value & Fnode, std::string name ,std::string type){
+        // 定义一个指向 JSON 值的指针 Connections
         Json::Value *Connections;
         Connections = &Fnode["Connections"][name];
         (*Connections)["Type"] = type;
         (*Connections)["Count"] = (*Connections)["Count"].asUInt64() + 1;
     }
 
-
+    //进行类型匹配，判断调用者和callee是否匹配
     bool TypesEqual(Type *T1,Type *T2,unsigned depth = 0){
 
         if ( T1 == T2 ){
@@ -235,30 +240,40 @@ namespace {
         return false;
     }
 
-
+    //处理间接调用，并将相关信息添加到json对象中
     void add_indirect_calls(Json::Value & Fnode, Function & F, Instruction & I, CallSite & cs ){
+        // 定义字符串和输出流，用于存储和输出被调用者的名称和类型
         std::string str;
         raw_string_ostream callee_name(str);
         std::string str2;
         raw_string_ostream callee_type_str(str2);
+        // 定义一个指向函数类型的指针和一个指向 JSON 值的指针
         FunctionType * IndirectType;
         Json::Value *Indirect;
+        // 打印指令 I 到 callee_name 输出流中，获取对应的callsite指令
         I.print(callee_name);
+        // 在 JSON 根对象中创建或获取一个内容为callee指令的节点
         Indirect = &OutputJsonRoot[callee_name.str()];
+        // 标志该节点是间接调用点
         (*Indirect)["Attr"]["Type"] = "Indirect";
 
-
+        //设置该间接调用点的所在函数
         (*Indirect)["Attr"]["Function"] = I.getFunction()->getName().str();
-
+        // 与所在函数对应的json节点建立连接
         add_connection(Fnode,callee_name.str(),"Indirect Call Type");
+         // 获取间接调用的函数类型并打印到 callee_type_str 输出流中
         IndirectType = cs.getFunctionType();
         IndirectType->print(callee_type_str);
+        //在对应的indirect callsite节点中，设置LLVMType为该间接调用点对应的类型信息（函数类型以及参数类型）
         (*Indirect)["Attr"]["LLVMType"] = callee_type_str.str();
+        // 遍历模块中的所有函数，检查是否有与间接调用类型匹配且地址被获取的函数
         for (Function & Funct : F.getParent()->getFunctionList()){
             //if ( IndirectType == Funct.getFunctionType() &&
             if ( TypesEqual(IndirectType,Funct.getFunctionType()) &&
                  Funct.hasAddressTaken() ){
+                // 在所属的函数中建立连接，也就是call graph
                 add_connection(Fnode,Funct.getName().str(),"Indirect Call");
+                //在indirect callsite对应的节点中建立连接，指令级别的graph
                 add_connection(*Indirect,Funct.getName().str(),"Indirect Call");
             }
         }
@@ -431,7 +446,7 @@ namespace {
 
     static unsigned dd_class_id;
 
-
+    //获取潜在的被调用函数
     static void getPotentialCallees(CallInst * CI,SmallSet<Function *,32> &Callees){
         Function *Callee = CI->getCalledFunction();
 
@@ -504,13 +519,18 @@ namespace {
 
     }
 
-
+    //从一个 Value 对象中提取一个常量整数地址，并返回该地址，同时返回与该地址相关的类型。
     unsigned getConstIntToPtr(Value * V,Type * &ty){
         unsigned addr = 0;
+        // 检查 V 是否是 IntToPtrInst 类型的指令
         if (IntToPtrInst * I2P = dyn_cast<IntToPtrInst>(V)){
+            // 获取 IntToPtrInst 的操作数
             Value *Val = I2P->getOperand(0);
+            // 检查操作数是否是 ConstantInt 类型
             if (ConstantInt * CInt = dyn_cast<ConstantInt>(Val)){
+                // 获取常量整数值，并限制其范围为 0xFFFFFFFF
                 addr = CInt->getValue().getLimitedValue(0xFFFFFFFF);
+                // 获取 IntToPtrInst 的类型
                 ty = I2P->getType();
 
                 errs() << "Int: " << addr << "\n";
@@ -519,15 +539,15 @@ namespace {
             }else{
                 return 0;
             }
-        }else if (Instruction * I = dyn_cast<Instruction>(V)){
-            for (unsigned i=0;i<I->getNumOperands();i++){
-                addr = getConstIntToPtr(I->getOperand(i),ty);
+        }else if (Instruction * I = dyn_cast<Instruction>(V)){// 检查 V 是否是 Instruction 类型
+            for (unsigned i=0;i<I->getNumOperands();i++){// 遍历指令的所有操作数
+                addr = getConstIntToPtr(I->getOperand(i),ty);// 递归调用 getConstIntToPtr 函数
                 if (addr){
                     return addr;
                 }
             }
-        }else if (ConstantExpr * C = dyn_cast<ConstantExpr>(V)){
-            Instruction *Instr = C->getAsInstruction();
+        }else if (ConstantExpr * C = dyn_cast<ConstantExpr>(V)){// 检查 V 是否是 ConstantExpr 类型
+            Instruction *Instr = C->getAsInstruction();// 将 ConstantExpr 转换为指令
             addr = getConstIntToPtr(Instr,ty);
             delete(Instr);
         }else{
@@ -683,13 +703,13 @@ namespace {
 
 
 
-
+    //获取使用该全局变量的函数
     void addFunctionUses(GlobalVariable & GV, Value * V, Module & M){
          for (User * U : V->users()){ //users of global variables
              Json::Value * Global;
              Function * F = nullptr;
 
-             if ( Instruction * I = dyn_cast<Instruction>(U) ) {
+             if ( Instruction * I = dyn_cast<Instruction>(U) ) {//如果使用该全局变量的用户是一个指令，获取使用该变量的指令以及该指令所在的函数
                  F = I->getFunction();
                  Global = &OutputJsonRoot[GV.getName().str()];
                  add_connection(*Global,F->getName().str(),"Data");
@@ -724,13 +744,13 @@ namespace {
                         if(GV.getName().str() == DIG->getLinkageName() || GV.getName().str() == DIG->getDisplayName()){
                             // errs() << "condition branch entered\n";
                             // errs() << DIG->getDisplayName();
-                            (*Global)["Attr"]["Filename"] = DIG->getFile()->getFilename().str();
+                            (*Global)["Attr"]["Filename"] = DIG->getFile()->getFilename().str();//获取该函数所在的文件
 
                             std::string filename = DIG->getFile()->getFilename().str();
                             //AMI controller policy
                             std::map<std::string, int>::iterator controller_it;
                             controller_it = controller_filename.find(filename);
-                            if(controller_it != controller_filename.end()){
+                            if(controller_it != controller_filename.end()){//该函数所在的文件是一个controller文件，则添加一个新的属性。
                                 (*Global)["Attr"]["Controller"] = filename;
                                 // errs() << "********" << "\n";
                             }
@@ -739,7 +759,7 @@ namespace {
                 }
                 //ends commend
 
-             }else if ( Constant * C = dyn_cast<Constant>(U) ){
+             }else if ( Constant * C = dyn_cast<Constant>(U) ){//如果是该全局变量的用户是一个常量类型，则递归遍历
                  addFunctionUses(GV,C,M);
              }else{
                  errs() << "Unknown Use";
