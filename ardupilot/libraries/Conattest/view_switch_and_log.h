@@ -22,8 +22,8 @@ typedef struct {
 
 typedef struct {
     Element buffer[BUFFER_SIZE];
-    _Atomic head;
-    _Atomic tail;
+    _Atomic  size_t head;
+    _Atomic  size_t tail;
 } RingBuffer;
 
 bool push(RingBuffer* ringBuffer, Element value);
