@@ -8,8 +8,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 #include <stdatomic.h>
+
 
 #define BUFFER_SIZE 10000000  // Change this according to your requirements
 
@@ -22,8 +22,8 @@ typedef struct {
 
 typedef struct {
     Element buffer[BUFFER_SIZE];
-    _Atomic  size_t head;
-    _Atomic  size_t tail;
+    _Atomic head;
+    _Atomic tail;
 } RingBuffer;
 
 bool push(RingBuffer* ringBuffer, Element value);
