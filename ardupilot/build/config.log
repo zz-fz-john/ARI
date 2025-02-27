@@ -1,13 +1,13 @@
-# project  configured on Tue Jun 20 23:53:46 2023 by
-# waf 1.9.2 (abi 99, python 2070cf0 on linux2)
-# using /home/ari-new-ae/conattest/ardupilot/modules/waf/waf-light --disable-tests configure --board=sitl
+# project  configured on Thu Feb 27 17:43:27 2025 by
+# waf 1.9.2 (abi 99, python 20712f0 on linux2)
+# using /home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot/modules/waf/waf-light --disable-tests configure --board=sitl
 #
 ----------------------------------------
 Setting top to
-/home/ari-new-ae/conattest/ardupilot
+/home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot
 ----------------------------------------
 Setting out to
-/home/ari-new-ae/conattest/ardupilot/build
+/home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot/build
 ----------------------------------------
 Autoconfiguration
 enabled
@@ -16,27 +16,63 @@ Setting board to
 sitl
 ---------------------------------------------
 Checking for program 'arm-linux-gnueabihf-ar'
-/usr/bin/arm-linux-gnueabihf-ar
-find program=['arm-linux-gnueabihf-ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
+/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar
+find program=['arm-linux-gnueabihf-ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
 ---------------------------------------------
 Using toolchain
 arm-linux-gnueabihf
 ---------------------------------------------
 Checking for 'g++' (C++ compiler)
-find program=['arm-linux-gnueabihf-g++', 'arm-linux-gnueabihf-c++'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='CXX' -> ['clang++']
-['clang++', '-dM', '-E', '-']
-out: #define _LP64 1
+find program=['arm-linux-gnueabihf-g++', 'arm-linux-gnueabihf-c++'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CXX' -> ['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-dM', '-E', '-']
+out: #define _ILP32 1
+#define __APCS_32__ 1
+#define __ARMEL__ 1
+#define __ARM_32BIT_STATE 1
+#define __ARM_ACLE 200
+#define __ARM_ARCH 6
+#define __ARM_ARCH_6KZ__ 1
+#define __ARM_ARCH_ISA_ARM 1
+#define __ARM_ARCH_ISA_THUMB 1
+#define __ARM_EABI__ 1
+#define __ARM_FEATURE_CLZ 1
+#define __ARM_FEATURE_DSP 1
+#define __ARM_FEATURE_LDREX 0x4
+#define __ARM_FEATURE_QBIT 1
+#define __ARM_FEATURE_SAT 1
+#define __ARM_FEATURE_SIMD32 1
+#define __ARM_FP 0xc
+#define __ARM_FP16_ARGS 1
+#define __ARM_FP16_FORMAT_IEEE 1
+#define __ARM_PCS 1
+#define __ARM_PCS_VFP 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 4
+#define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_VFPV2__ 1
 #define __ATOMIC_ACQUIRE 2
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_CONSUME 1
 #define __ATOMIC_RELAXED 0
 #define __ATOMIC_RELEASE 3
 #define __ATOMIC_SEQ_CST 5
-#define __BIGGEST_ALIGNMENT__ 16
+#define __BIGGEST_ALIGNMENT__ 8
+#define __BITINT_MAXWIDTH__ 128
+#define __BOOL_WIDTH__ 8
 #define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __CHAR16_TYPE__ unsigned short
 #define __CHAR32_TYPE__ unsigned int
 #define __CHAR_BIT__ 8
+#define __CHAR_UNSIGNED__ 1
+#define __CLANG_ATOMIC_BOOL_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR_LOCK_FREE 2
+#define __CLANG_ATOMIC_INT_LOCK_FREE 2
+#define __CLANG_ATOMIC_LLONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_LONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_POINTER_LOCK_FREE 2
+#define __CLANG_ATOMIC_SHORT_LOCK_FREE 2
+#define __CLANG_ATOMIC_WCHAR_T_LOCK_FREE 2
 #define __CONSTANT_CFSTRINGS__ 1
 #define __DBL_DECIMAL_DIG__ 17
 #define __DBL_DENORM_MIN__ 4.9406564584124654e-324
@@ -55,12 +91,24 @@ out: #define _LP64 1
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __ELF__ 1
 #define __FINITE_MATH_ONLY__ 0
-#define __FLOAT128__ 1
+#define __FLT16_DECIMAL_DIG__ 5
+#define __FLT16_DENORM_MIN__ 5.9604644775390625e-8F16
+#define __FLT16_DIG__ 3
+#define __FLT16_EPSILON__ 9.765625e-4F16
+#define __FLT16_HAS_DENORM__ 1
+#define __FLT16_HAS_INFINITY__ 1
+#define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_MANT_DIG__ 11
+#define __FLT16_MAX_10_EXP__ 4
+#define __FLT16_MAX_EXP__ 16
+#define __FLT16_MAX__ 6.5504e+4F16
+#define __FLT16_MIN_10_EXP__ (-4)
+#define __FLT16_MIN_EXP__ (-13)
+#define __FLT16_MIN__ 6.103515625e-5F16
 #define __FLT_DECIMAL_DIG__ 9
 #define __FLT_DENORM_MIN__ 1.40129846e-45F
 #define __FLT_DIG__ 6
 #define __FLT_EPSILON__ 1.19209290e-7F
-#define __FLT_EVAL_METHOD__ 0
 #define __FLT_HAS_DENORM__ 1
 #define __FLT_HAS_INFINITY__ 1
 #define __FLT_HAS_QUIET_NAN__ 1
@@ -72,7 +120,6 @@ out: #define _LP64 1
 #define __FLT_MIN_EXP__ (-125)
 #define __FLT_MIN__ 1.17549435e-38F
 #define __FLT_RADIX__ 2
-#define __FXSR__ 1
 #define __GCC_ATOMIC_BOOL_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
@@ -93,6 +140,7 @@ out: #define _LP64 1
 #define __GNUC_STDC_INLINE__ 1
 #define __GNUC__ 4
 #define __GXX_ABI_VERSION 1002
+#define __ILP32__ 1
 #define __INT16_C_SUFFIX__ 
 #define __INT16_FMTd__ "hd"
 #define __INT16_FMTi__ "hi"
@@ -103,125 +151,138 @@ out: #define _LP64 1
 #define __INT32_FMTi__ "i"
 #define __INT32_MAX__ 2147483647
 #define __INT32_TYPE__ int
-#define __INT64_C_SUFFIX__ L
-#define __INT64_FMTd__ "ld"
-#define __INT64_FMTi__ "li"
-#define __INT64_MAX__ 9223372036854775807L
-#define __INT64_TYPE__ long int
+#define __INT64_C_SUFFIX__ LL
+#define __INT64_FMTd__ "lld"
+#define __INT64_FMTi__ "lli"
+#define __INT64_MAX__ 9223372036854775807LL
+#define __INT64_TYPE__ long long int
 #define __INT8_C_SUFFIX__ 
 #define __INT8_FMTd__ "hhd"
 #define __INT8_FMTi__ "hhi"
 #define __INT8_MAX__ 127
 #define __INT8_TYPE__ signed char
-#define __INTMAX_C_SUFFIX__ L
-#define __INTMAX_FMTd__ "ld"
-#define __INTMAX_FMTi__ "li"
-#define __INTMAX_MAX__ 9223372036854775807L
-#define __INTMAX_TYPE__ long int
+#define __INTMAX_C_SUFFIX__ LL
+#define __INTMAX_FMTd__ "lld"
+#define __INTMAX_FMTi__ "lli"
+#define __INTMAX_MAX__ 9223372036854775807LL
+#define __INTMAX_TYPE__ long long int
 #define __INTMAX_WIDTH__ 64
-#define __INTPTR_FMTd__ "ld"
-#define __INTPTR_FMTi__ "li"
-#define __INTPTR_MAX__ 9223372036854775807L
-#define __INTPTR_TYPE__ long int
-#define __INTPTR_WIDTH__ 64
+#define __INTPTR_FMTd__ "d"
+#define __INTPTR_FMTi__ "i"
+#define __INTPTR_MAX__ 2147483647
+#define __INTPTR_TYPE__ int
+#define __INTPTR_WIDTH__ 32
 #define __INT_FAST16_FMTd__ "hd"
 #define __INT_FAST16_FMTi__ "hi"
 #define __INT_FAST16_MAX__ 32767
 #define __INT_FAST16_TYPE__ short
+#define __INT_FAST16_WIDTH__ 16
 #define __INT_FAST32_FMTd__ "d"
 #define __INT_FAST32_FMTi__ "i"
 #define __INT_FAST32_MAX__ 2147483647
 #define __INT_FAST32_TYPE__ int
-#define __INT_FAST64_FMTd__ "ld"
-#define __INT_FAST64_FMTi__ "li"
-#define __INT_FAST64_MAX__ 9223372036854775807L
-#define __INT_FAST64_TYPE__ long int
+#define __INT_FAST32_WIDTH__ 32
+#define __INT_FAST64_FMTd__ "lld"
+#define __INT_FAST64_FMTi__ "lli"
+#define __INT_FAST64_MAX__ 9223372036854775807LL
+#define __INT_FAST64_TYPE__ long long int
+#define __INT_FAST64_WIDTH__ 64
 #define __INT_FAST8_FMTd__ "hhd"
 #define __INT_FAST8_FMTi__ "hhi"
 #define __INT_FAST8_MAX__ 127
 #define __INT_FAST8_TYPE__ signed char
+#define __INT_FAST8_WIDTH__ 8
 #define __INT_LEAST16_FMTd__ "hd"
 #define __INT_LEAST16_FMTi__ "hi"
 #define __INT_LEAST16_MAX__ 32767
 #define __INT_LEAST16_TYPE__ short
+#define __INT_LEAST16_WIDTH__ 16
 #define __INT_LEAST32_FMTd__ "d"
 #define __INT_LEAST32_FMTi__ "i"
 #define __INT_LEAST32_MAX__ 2147483647
 #define __INT_LEAST32_TYPE__ int
-#define __INT_LEAST64_FMTd__ "ld"
-#define __INT_LEAST64_FMTi__ "li"
-#define __INT_LEAST64_MAX__ 9223372036854775807L
-#define __INT_LEAST64_TYPE__ long int
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_FMTd__ "lld"
+#define __INT_LEAST64_FMTi__ "lli"
+#define __INT_LEAST64_MAX__ 9223372036854775807LL
+#define __INT_LEAST64_TYPE__ long long int
+#define __INT_LEAST64_WIDTH__ 64
 #define __INT_LEAST8_FMTd__ "hhd"
 #define __INT_LEAST8_FMTi__ "hhi"
 #define __INT_LEAST8_MAX__ 127
 #define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST8_WIDTH__ 8
 #define __INT_MAX__ 2147483647
-#define __LDBL_DECIMAL_DIG__ 21
-#define __LDBL_DENORM_MIN__ 3.64519953188247460253e-4951L
-#define __LDBL_DIG__ 18
-#define __LDBL_EPSILON__ 1.08420217248550443401e-19L
+#define __INT_WIDTH__ 32
+#define __LDBL_DECIMAL_DIG__ 17
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_DIG__ 15
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
 #define __LDBL_HAS_DENORM__ 1
 #define __LDBL_HAS_INFINITY__ 1
 #define __LDBL_HAS_QUIET_NAN__ 1
-#define __LDBL_MANT_DIG__ 64
-#define __LDBL_MAX_10_EXP__ 4932
-#define __LDBL_MAX_EXP__ 16384
-#define __LDBL_MAX__ 1.18973149535723176502e+4932L
-#define __LDBL_MIN_10_EXP__ (-4931)
-#define __LDBL_MIN_EXP__ (-16381)
-#define __LDBL_MIN__ 3.36210314311209350626e-4932L
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_MAX_10_EXP__ 308
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN__ 2.2250738585072014e-308L
 #define __LITTLE_ENDIAN__ 1
+#define __LLONG_WIDTH__ 64
 #define __LONG_LONG_MAX__ 9223372036854775807LL
-#define __LONG_MAX__ 9223372036854775807L
-#define __LP64__ 1
-#define __MMX__ 1
+#define __LONG_MAX__ 2147483647L
+#define __LONG_WIDTH__ 32
 #define __NO_INLINE__ 1
-#define __NO_MATH_INLINES 1
+#define __OBJC_BOOL_IS_BOOL 0
+#define __OPENCL_MEMORY_SCOPE_ALL_SVM_DEVICES 3
+#define __OPENCL_MEMORY_SCOPE_DEVICE 2
+#define __OPENCL_MEMORY_SCOPE_SUB_GROUP 4
+#define __OPENCL_MEMORY_SCOPE_WORK_GROUP 1
+#define __OPENCL_MEMORY_SCOPE_WORK_ITEM 0
 #define __ORDER_BIG_ENDIAN__ 4321
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __ORDER_PDP_ENDIAN__ 3412
-#define __POINTER_WIDTH__ 64
+#define __PIC__ 2
+#define __PIE__ 2
+#define __POINTER_WIDTH__ 32
 #define __PRAGMA_REDEFINE_EXTNAME 1
-#define __PTRDIFF_FMTd__ "ld"
-#define __PTRDIFF_FMTi__ "li"
-#define __PTRDIFF_MAX__ 9223372036854775807L
-#define __PTRDIFF_TYPE__ long int
-#define __PTRDIFF_WIDTH__ 64
+#define __PTRDIFF_FMTd__ "d"
+#define __PTRDIFF_FMTi__ "i"
+#define __PTRDIFF_MAX__ 2147483647
+#define __PTRDIFF_TYPE__ int
+#define __PTRDIFF_WIDTH__ 32
 #define __REGISTER_PREFIX__ 
 #define __SCHAR_MAX__ 127
 #define __SHRT_MAX__ 32767
+#define __SHRT_WIDTH__ 16
 #define __SIG_ATOMIC_MAX__ 2147483647
 #define __SIG_ATOMIC_WIDTH__ 32
 #define __SIZEOF_DOUBLE__ 8
 #define __SIZEOF_FLOAT__ 4
-#define __SIZEOF_INT128__ 16
 #define __SIZEOF_INT__ 4
-#define __SIZEOF_LONG_DOUBLE__ 16
+#define __SIZEOF_LONG_DOUBLE__ 8
 #define __SIZEOF_LONG_LONG__ 8
-#define __SIZEOF_LONG__ 8
-#define __SIZEOF_POINTER__ 8
-#define __SIZEOF_PTRDIFF_T__ 8
+#define __SIZEOF_LONG__ 4
+#define __SIZEOF_POINTER__ 4
+#define __SIZEOF_PTRDIFF_T__ 4
 #define __SIZEOF_SHORT__ 2
-#define __SIZEOF_SIZE_T__ 8
+#define __SIZEOF_SIZE_T__ 4
 #define __SIZEOF_WCHAR_T__ 4
 #define __SIZEOF_WINT_T__ 4
-#define __SIZE_FMTX__ "lX"
-#define __SIZE_FMTo__ "lo"
-#define __SIZE_FMTu__ "lu"
-#define __SIZE_FMTx__ "lx"
-#define __SIZE_MAX__ 18446744073709551615UL
-#define __SIZE_TYPE__ long unsigned int
-#define __SIZE_WIDTH__ 64
-#define __SSE2_MATH__ 1
-#define __SSE2__ 1
-#define __SSE_MATH__ 1
-#define __SSE__ 1
+#define __SIZE_FMTX__ "X"
+#define __SIZE_FMTo__ "o"
+#define __SIZE_FMTu__ "u"
+#define __SIZE_FMTx__ "x"
+#define __SIZE_MAX__ 4294967295U
+#define __SIZE_TYPE__ unsigned int
+#define __SIZE_WIDTH__ 32
 #define __STDC_HOSTED__ 1
 #define __STDC_UTF_16__ 1
 #define __STDC_UTF_32__ 1
-#define __STDC_VERSION__ 201112L
+#define __STDC_VERSION__ 201710L
 #define __STDC__ 1
+#define __THUMB_INTERWORK__ 1
 #define __UINT16_C_SUFFIX__ 
 #define __UINT16_FMTX__ "hX"
 #define __UINT16_FMTo__ "ho"
@@ -236,13 +297,13 @@ out: #define _LP64 1
 #define __UINT32_FMTx__ "x"
 #define __UINT32_MAX__ 4294967295U
 #define __UINT32_TYPE__ unsigned int
-#define __UINT64_C_SUFFIX__ UL
-#define __UINT64_FMTX__ "lX"
-#define __UINT64_FMTo__ "lo"
-#define __UINT64_FMTu__ "lu"
-#define __UINT64_FMTx__ "lx"
-#define __UINT64_MAX__ 18446744073709551615UL
-#define __UINT64_TYPE__ long unsigned int
+#define __UINT64_C_SUFFIX__ ULL
+#define __UINT64_FMTX__ "llX"
+#define __UINT64_FMTo__ "llo"
+#define __UINT64_FMTu__ "llu"
+#define __UINT64_FMTx__ "llx"
+#define __UINT64_MAX__ 18446744073709551615ULL
+#define __UINT64_TYPE__ long long unsigned int
 #define __UINT8_C_SUFFIX__ 
 #define __UINT8_FMTX__ "hhX"
 #define __UINT8_FMTo__ "hho"
@@ -250,21 +311,21 @@ out: #define _LP64 1
 #define __UINT8_FMTx__ "hhx"
 #define __UINT8_MAX__ 255
 #define __UINT8_TYPE__ unsigned char
-#define __UINTMAX_C_SUFFIX__ UL
-#define __UINTMAX_FMTX__ "lX"
-#define __UINTMAX_FMTo__ "lo"
-#define __UINTMAX_FMTu__ "lu"
-#define __UINTMAX_FMTx__ "lx"
-#define __UINTMAX_MAX__ 18446744073709551615UL
-#define __UINTMAX_TYPE__ long unsigned int
+#define __UINTMAX_C_SUFFIX__ ULL
+#define __UINTMAX_FMTX__ "llX"
+#define __UINTMAX_FMTo__ "llo"
+#define __UINTMAX_FMTu__ "llu"
+#define __UINTMAX_FMTx__ "llx"
+#define __UINTMAX_MAX__ 18446744073709551615ULL
+#define __UINTMAX_TYPE__ long long unsigned int
 #define __UINTMAX_WIDTH__ 64
-#define __UINTPTR_FMTX__ "lX"
-#define __UINTPTR_FMTo__ "lo"
-#define __UINTPTR_FMTu__ "lu"
-#define __UINTPTR_FMTx__ "lx"
-#define __UINTPTR_MAX__ 18446744073709551615UL
-#define __UINTPTR_TYPE__ long unsigned int
-#define __UINTPTR_WIDTH__ 64
+#define __UINTPTR_FMTX__ "X"
+#define __UINTPTR_FMTo__ "o"
+#define __UINTPTR_FMTu__ "u"
+#define __UINTPTR_FMTx__ "x"
+#define __UINTPTR_MAX__ 4294967295U
+#define __UINTPTR_TYPE__ unsigned int
+#define __UINTPTR_WIDTH__ 32
 #define __UINT_FAST16_FMTX__ "hX"
 #define __UINT_FAST16_FMTo__ "ho"
 #define __UINT_FAST16_FMTu__ "hu"
@@ -277,12 +338,12 @@ out: #define _LP64 1
 #define __UINT_FAST32_FMTx__ "x"
 #define __UINT_FAST32_MAX__ 4294967295U
 #define __UINT_FAST32_TYPE__ unsigned int
-#define __UINT_FAST64_FMTX__ "lX"
-#define __UINT_FAST64_FMTo__ "lo"
-#define __UINT_FAST64_FMTu__ "lu"
-#define __UINT_FAST64_FMTx__ "lx"
-#define __UINT_FAST64_MAX__ 18446744073709551615UL
-#define __UINT_FAST64_TYPE__ long unsigned int
+#define __UINT_FAST64_FMTX__ "llX"
+#define __UINT_FAST64_FMTo__ "llo"
+#define __UINT_FAST64_FMTu__ "llu"
+#define __UINT_FAST64_FMTx__ "llx"
+#define __UINT_FAST64_MAX__ 18446744073709551615ULL
+#define __UINT_FAST64_TYPE__ long long unsigned int
 #define __UINT_FAST8_FMTX__ "hhX"
 #define __UINT_FAST8_FMTo__ "hho"
 #define __UINT_FAST8_FMTu__ "hhu"
@@ -301,12 +362,12 @@ out: #define _LP64 1
 #define __UINT_LEAST32_FMTx__ "x"
 #define __UINT_LEAST32_MAX__ 4294967295U
 #define __UINT_LEAST32_TYPE__ unsigned int
-#define __UINT_LEAST64_FMTX__ "lX"
-#define __UINT_LEAST64_FMTo__ "lo"
-#define __UINT_LEAST64_FMTu__ "lu"
-#define __UINT_LEAST64_FMTx__ "lx"
-#define __UINT_LEAST64_MAX__ 18446744073709551615UL
-#define __UINT_LEAST64_TYPE__ long unsigned int
+#define __UINT_LEAST64_FMTX__ "llX"
+#define __UINT_LEAST64_FMTo__ "llo"
+#define __UINT_LEAST64_FMTu__ "llu"
+#define __UINT_LEAST64_FMTx__ "llx"
+#define __UINT_LEAST64_MAX__ 18446744073709551615ULL
+#define __UINT_LEAST64_TYPE__ long long unsigned int
 #define __UINT_LEAST8_FMTX__ "hhX"
 #define __UINT_LEAST8_FMTo__ "hho"
 #define __UINT_LEAST8_FMTu__ "hhu"
@@ -314,54 +375,92 @@ out: #define _LP64 1
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ 
-#define __VERSION__ "4.2.1 Compatible Clang 3.9.1 (tags/RELEASE_391/rc2)"
-#define __WCHAR_MAX__ 2147483647
-#define __WCHAR_TYPE__ int
+#define __VERSION__ "Clang 16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __VFP_FP__ 1
+#define __WCHAR_MAX__ 4294967295U
+#define __WCHAR_TYPE__ unsigned int
+#define __WCHAR_UNSIGNED__ 1
 #define __WCHAR_WIDTH__ 32
+#define __WINT_MAX__ 4294967295U
 #define __WINT_TYPE__ unsigned int
 #define __WINT_UNSIGNED__ 1
 #define __WINT_WIDTH__ 32
-#define __amd64 1
-#define __amd64__ 1
+#define __arm 1
+#define __arm__ 1
 #define __clang__ 1
-#define __clang_major__ 3
-#define __clang_minor__ 9
-#define __clang_patchlevel__ 1
-#define __clang_version__ "3.9.1 (tags/RELEASE_391/rc2)"
+#define __clang_literal_encoding__ "UTF-8"
+#define __clang_major__ 16
+#define __clang_minor__ 0
+#define __clang_patchlevel__ 0
+#define __clang_version__ "16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __clang_wide_literal_encoding__ "UTF-32"
 #define __gnu_linux__ 1
-#define __k8 1
-#define __k8__ 1
 #define __linux 1
 #define __linux__ 1
 #define __llvm__ 1
-#define __tune_k8__ 1
+#define __pic__ 2
+#define __pie__ 2
 #define __unix 1
 #define __unix__ 1
-#define __x86_64 1
-#define __x86_64__ 1
 #define linux 1
 #define unix 1
 
-from /home/ari-new-ae/conattest/ardupilot: Could not find gcc/g++ (only Clang), if renamed try eg: CC=gcc48 CXX=g++48 waf configure
+from /home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot: Could not find gcc/g++ (only Clang), if renamed try eg: CC=gcc48 CXX=g++48 waf configure
 not found
 ---------------------------------------------
 Checking for 'clang++' (C++ compiler)
-find program=['arm-linux-gnueabihf-gcc'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='CROSS_GCC' -> ['/usr/bin/arm-linux-gnueabihf-gcc']
-find program=['arm-linux-gnueabihf-ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
-find program=['clang++'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='CXX' -> ['clang++']
-['clang++', '-dM', '-E', '-']
-out: #define _LP64 1
+find program=['arm-linux-gnueabihf-gcc'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CROSS_GCC' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-gcc']
+find program=['arm-linux-gnueabihf-ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['clang++'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CXX' -> ['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-dM', '-E', '-']
+out: #define _ILP32 1
+#define __APCS_32__ 1
+#define __ARMEL__ 1
+#define __ARM_32BIT_STATE 1
+#define __ARM_ACLE 200
+#define __ARM_ARCH 6
+#define __ARM_ARCH_6KZ__ 1
+#define __ARM_ARCH_ISA_ARM 1
+#define __ARM_ARCH_ISA_THUMB 1
+#define __ARM_EABI__ 1
+#define __ARM_FEATURE_CLZ 1
+#define __ARM_FEATURE_DSP 1
+#define __ARM_FEATURE_LDREX 0x4
+#define __ARM_FEATURE_QBIT 1
+#define __ARM_FEATURE_SAT 1
+#define __ARM_FEATURE_SIMD32 1
+#define __ARM_FP 0xc
+#define __ARM_FP16_ARGS 1
+#define __ARM_FP16_FORMAT_IEEE 1
+#define __ARM_PCS 1
+#define __ARM_PCS_VFP 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 4
+#define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_VFPV2__ 1
 #define __ATOMIC_ACQUIRE 2
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_CONSUME 1
 #define __ATOMIC_RELAXED 0
 #define __ATOMIC_RELEASE 3
 #define __ATOMIC_SEQ_CST 5
-#define __BIGGEST_ALIGNMENT__ 16
+#define __BIGGEST_ALIGNMENT__ 8
+#define __BITINT_MAXWIDTH__ 128
+#define __BOOL_WIDTH__ 8
 #define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __CHAR16_TYPE__ unsigned short
 #define __CHAR32_TYPE__ unsigned int
 #define __CHAR_BIT__ 8
+#define __CHAR_UNSIGNED__ 1
+#define __CLANG_ATOMIC_BOOL_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR_LOCK_FREE 2
+#define __CLANG_ATOMIC_INT_LOCK_FREE 2
+#define __CLANG_ATOMIC_LLONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_LONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_POINTER_LOCK_FREE 2
+#define __CLANG_ATOMIC_SHORT_LOCK_FREE 2
+#define __CLANG_ATOMIC_WCHAR_T_LOCK_FREE 2
 #define __CONSTANT_CFSTRINGS__ 1
 #define __DBL_DECIMAL_DIG__ 17
 #define __DBL_DENORM_MIN__ 4.9406564584124654e-324
@@ -380,12 +479,24 @@ out: #define _LP64 1
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __ELF__ 1
 #define __FINITE_MATH_ONLY__ 0
-#define __FLOAT128__ 1
+#define __FLT16_DECIMAL_DIG__ 5
+#define __FLT16_DENORM_MIN__ 5.9604644775390625e-8F16
+#define __FLT16_DIG__ 3
+#define __FLT16_EPSILON__ 9.765625e-4F16
+#define __FLT16_HAS_DENORM__ 1
+#define __FLT16_HAS_INFINITY__ 1
+#define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_MANT_DIG__ 11
+#define __FLT16_MAX_10_EXP__ 4
+#define __FLT16_MAX_EXP__ 16
+#define __FLT16_MAX__ 6.5504e+4F16
+#define __FLT16_MIN_10_EXP__ (-4)
+#define __FLT16_MIN_EXP__ (-13)
+#define __FLT16_MIN__ 6.103515625e-5F16
 #define __FLT_DECIMAL_DIG__ 9
 #define __FLT_DENORM_MIN__ 1.40129846e-45F
 #define __FLT_DIG__ 6
 #define __FLT_EPSILON__ 1.19209290e-7F
-#define __FLT_EVAL_METHOD__ 0
 #define __FLT_HAS_DENORM__ 1
 #define __FLT_HAS_INFINITY__ 1
 #define __FLT_HAS_QUIET_NAN__ 1
@@ -397,7 +508,6 @@ out: #define _LP64 1
 #define __FLT_MIN_EXP__ (-125)
 #define __FLT_MIN__ 1.17549435e-38F
 #define __FLT_RADIX__ 2
-#define __FXSR__ 1
 #define __GCC_ATOMIC_BOOL_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
@@ -418,6 +528,7 @@ out: #define _LP64 1
 #define __GNUC_STDC_INLINE__ 1
 #define __GNUC__ 4
 #define __GXX_ABI_VERSION 1002
+#define __ILP32__ 1
 #define __INT16_C_SUFFIX__ 
 #define __INT16_FMTd__ "hd"
 #define __INT16_FMTi__ "hi"
@@ -428,125 +539,138 @@ out: #define _LP64 1
 #define __INT32_FMTi__ "i"
 #define __INT32_MAX__ 2147483647
 #define __INT32_TYPE__ int
-#define __INT64_C_SUFFIX__ L
-#define __INT64_FMTd__ "ld"
-#define __INT64_FMTi__ "li"
-#define __INT64_MAX__ 9223372036854775807L
-#define __INT64_TYPE__ long int
+#define __INT64_C_SUFFIX__ LL
+#define __INT64_FMTd__ "lld"
+#define __INT64_FMTi__ "lli"
+#define __INT64_MAX__ 9223372036854775807LL
+#define __INT64_TYPE__ long long int
 #define __INT8_C_SUFFIX__ 
 #define __INT8_FMTd__ "hhd"
 #define __INT8_FMTi__ "hhi"
 #define __INT8_MAX__ 127
 #define __INT8_TYPE__ signed char
-#define __INTMAX_C_SUFFIX__ L
-#define __INTMAX_FMTd__ "ld"
-#define __INTMAX_FMTi__ "li"
-#define __INTMAX_MAX__ 9223372036854775807L
-#define __INTMAX_TYPE__ long int
+#define __INTMAX_C_SUFFIX__ LL
+#define __INTMAX_FMTd__ "lld"
+#define __INTMAX_FMTi__ "lli"
+#define __INTMAX_MAX__ 9223372036854775807LL
+#define __INTMAX_TYPE__ long long int
 #define __INTMAX_WIDTH__ 64
-#define __INTPTR_FMTd__ "ld"
-#define __INTPTR_FMTi__ "li"
-#define __INTPTR_MAX__ 9223372036854775807L
-#define __INTPTR_TYPE__ long int
-#define __INTPTR_WIDTH__ 64
+#define __INTPTR_FMTd__ "d"
+#define __INTPTR_FMTi__ "i"
+#define __INTPTR_MAX__ 2147483647
+#define __INTPTR_TYPE__ int
+#define __INTPTR_WIDTH__ 32
 #define __INT_FAST16_FMTd__ "hd"
 #define __INT_FAST16_FMTi__ "hi"
 #define __INT_FAST16_MAX__ 32767
 #define __INT_FAST16_TYPE__ short
+#define __INT_FAST16_WIDTH__ 16
 #define __INT_FAST32_FMTd__ "d"
 #define __INT_FAST32_FMTi__ "i"
 #define __INT_FAST32_MAX__ 2147483647
 #define __INT_FAST32_TYPE__ int
-#define __INT_FAST64_FMTd__ "ld"
-#define __INT_FAST64_FMTi__ "li"
-#define __INT_FAST64_MAX__ 9223372036854775807L
-#define __INT_FAST64_TYPE__ long int
+#define __INT_FAST32_WIDTH__ 32
+#define __INT_FAST64_FMTd__ "lld"
+#define __INT_FAST64_FMTi__ "lli"
+#define __INT_FAST64_MAX__ 9223372036854775807LL
+#define __INT_FAST64_TYPE__ long long int
+#define __INT_FAST64_WIDTH__ 64
 #define __INT_FAST8_FMTd__ "hhd"
 #define __INT_FAST8_FMTi__ "hhi"
 #define __INT_FAST8_MAX__ 127
 #define __INT_FAST8_TYPE__ signed char
+#define __INT_FAST8_WIDTH__ 8
 #define __INT_LEAST16_FMTd__ "hd"
 #define __INT_LEAST16_FMTi__ "hi"
 #define __INT_LEAST16_MAX__ 32767
 #define __INT_LEAST16_TYPE__ short
+#define __INT_LEAST16_WIDTH__ 16
 #define __INT_LEAST32_FMTd__ "d"
 #define __INT_LEAST32_FMTi__ "i"
 #define __INT_LEAST32_MAX__ 2147483647
 #define __INT_LEAST32_TYPE__ int
-#define __INT_LEAST64_FMTd__ "ld"
-#define __INT_LEAST64_FMTi__ "li"
-#define __INT_LEAST64_MAX__ 9223372036854775807L
-#define __INT_LEAST64_TYPE__ long int
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_FMTd__ "lld"
+#define __INT_LEAST64_FMTi__ "lli"
+#define __INT_LEAST64_MAX__ 9223372036854775807LL
+#define __INT_LEAST64_TYPE__ long long int
+#define __INT_LEAST64_WIDTH__ 64
 #define __INT_LEAST8_FMTd__ "hhd"
 #define __INT_LEAST8_FMTi__ "hhi"
 #define __INT_LEAST8_MAX__ 127
 #define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST8_WIDTH__ 8
 #define __INT_MAX__ 2147483647
-#define __LDBL_DECIMAL_DIG__ 21
-#define __LDBL_DENORM_MIN__ 3.64519953188247460253e-4951L
-#define __LDBL_DIG__ 18
-#define __LDBL_EPSILON__ 1.08420217248550443401e-19L
+#define __INT_WIDTH__ 32
+#define __LDBL_DECIMAL_DIG__ 17
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_DIG__ 15
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
 #define __LDBL_HAS_DENORM__ 1
 #define __LDBL_HAS_INFINITY__ 1
 #define __LDBL_HAS_QUIET_NAN__ 1
-#define __LDBL_MANT_DIG__ 64
-#define __LDBL_MAX_10_EXP__ 4932
-#define __LDBL_MAX_EXP__ 16384
-#define __LDBL_MAX__ 1.18973149535723176502e+4932L
-#define __LDBL_MIN_10_EXP__ (-4931)
-#define __LDBL_MIN_EXP__ (-16381)
-#define __LDBL_MIN__ 3.36210314311209350626e-4932L
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_MAX_10_EXP__ 308
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN__ 2.2250738585072014e-308L
 #define __LITTLE_ENDIAN__ 1
+#define __LLONG_WIDTH__ 64
 #define __LONG_LONG_MAX__ 9223372036854775807LL
-#define __LONG_MAX__ 9223372036854775807L
-#define __LP64__ 1
-#define __MMX__ 1
+#define __LONG_MAX__ 2147483647L
+#define __LONG_WIDTH__ 32
 #define __NO_INLINE__ 1
-#define __NO_MATH_INLINES 1
+#define __OBJC_BOOL_IS_BOOL 0
+#define __OPENCL_MEMORY_SCOPE_ALL_SVM_DEVICES 3
+#define __OPENCL_MEMORY_SCOPE_DEVICE 2
+#define __OPENCL_MEMORY_SCOPE_SUB_GROUP 4
+#define __OPENCL_MEMORY_SCOPE_WORK_GROUP 1
+#define __OPENCL_MEMORY_SCOPE_WORK_ITEM 0
 #define __ORDER_BIG_ENDIAN__ 4321
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __ORDER_PDP_ENDIAN__ 3412
-#define __POINTER_WIDTH__ 64
+#define __PIC__ 2
+#define __PIE__ 2
+#define __POINTER_WIDTH__ 32
 #define __PRAGMA_REDEFINE_EXTNAME 1
-#define __PTRDIFF_FMTd__ "ld"
-#define __PTRDIFF_FMTi__ "li"
-#define __PTRDIFF_MAX__ 9223372036854775807L
-#define __PTRDIFF_TYPE__ long int
-#define __PTRDIFF_WIDTH__ 64
+#define __PTRDIFF_FMTd__ "d"
+#define __PTRDIFF_FMTi__ "i"
+#define __PTRDIFF_MAX__ 2147483647
+#define __PTRDIFF_TYPE__ int
+#define __PTRDIFF_WIDTH__ 32
 #define __REGISTER_PREFIX__ 
 #define __SCHAR_MAX__ 127
 #define __SHRT_MAX__ 32767
+#define __SHRT_WIDTH__ 16
 #define __SIG_ATOMIC_MAX__ 2147483647
 #define __SIG_ATOMIC_WIDTH__ 32
 #define __SIZEOF_DOUBLE__ 8
 #define __SIZEOF_FLOAT__ 4
-#define __SIZEOF_INT128__ 16
 #define __SIZEOF_INT__ 4
-#define __SIZEOF_LONG_DOUBLE__ 16
+#define __SIZEOF_LONG_DOUBLE__ 8
 #define __SIZEOF_LONG_LONG__ 8
-#define __SIZEOF_LONG__ 8
-#define __SIZEOF_POINTER__ 8
-#define __SIZEOF_PTRDIFF_T__ 8
+#define __SIZEOF_LONG__ 4
+#define __SIZEOF_POINTER__ 4
+#define __SIZEOF_PTRDIFF_T__ 4
 #define __SIZEOF_SHORT__ 2
-#define __SIZEOF_SIZE_T__ 8
+#define __SIZEOF_SIZE_T__ 4
 #define __SIZEOF_WCHAR_T__ 4
 #define __SIZEOF_WINT_T__ 4
-#define __SIZE_FMTX__ "lX"
-#define __SIZE_FMTo__ "lo"
-#define __SIZE_FMTu__ "lu"
-#define __SIZE_FMTx__ "lx"
-#define __SIZE_MAX__ 18446744073709551615UL
-#define __SIZE_TYPE__ long unsigned int
-#define __SIZE_WIDTH__ 64
-#define __SSE2_MATH__ 1
-#define __SSE2__ 1
-#define __SSE_MATH__ 1
-#define __SSE__ 1
+#define __SIZE_FMTX__ "X"
+#define __SIZE_FMTo__ "o"
+#define __SIZE_FMTu__ "u"
+#define __SIZE_FMTx__ "x"
+#define __SIZE_MAX__ 4294967295U
+#define __SIZE_TYPE__ unsigned int
+#define __SIZE_WIDTH__ 32
 #define __STDC_HOSTED__ 1
 #define __STDC_UTF_16__ 1
 #define __STDC_UTF_32__ 1
-#define __STDC_VERSION__ 201112L
+#define __STDC_VERSION__ 201710L
 #define __STDC__ 1
+#define __THUMB_INTERWORK__ 1
 #define __UINT16_C_SUFFIX__ 
 #define __UINT16_FMTX__ "hX"
 #define __UINT16_FMTo__ "ho"
@@ -561,13 +685,13 @@ out: #define _LP64 1
 #define __UINT32_FMTx__ "x"
 #define __UINT32_MAX__ 4294967295U
 #define __UINT32_TYPE__ unsigned int
-#define __UINT64_C_SUFFIX__ UL
-#define __UINT64_FMTX__ "lX"
-#define __UINT64_FMTo__ "lo"
-#define __UINT64_FMTu__ "lu"
-#define __UINT64_FMTx__ "lx"
-#define __UINT64_MAX__ 18446744073709551615UL
-#define __UINT64_TYPE__ long unsigned int
+#define __UINT64_C_SUFFIX__ ULL
+#define __UINT64_FMTX__ "llX"
+#define __UINT64_FMTo__ "llo"
+#define __UINT64_FMTu__ "llu"
+#define __UINT64_FMTx__ "llx"
+#define __UINT64_MAX__ 18446744073709551615ULL
+#define __UINT64_TYPE__ long long unsigned int
 #define __UINT8_C_SUFFIX__ 
 #define __UINT8_FMTX__ "hhX"
 #define __UINT8_FMTo__ "hho"
@@ -575,21 +699,21 @@ out: #define _LP64 1
 #define __UINT8_FMTx__ "hhx"
 #define __UINT8_MAX__ 255
 #define __UINT8_TYPE__ unsigned char
-#define __UINTMAX_C_SUFFIX__ UL
-#define __UINTMAX_FMTX__ "lX"
-#define __UINTMAX_FMTo__ "lo"
-#define __UINTMAX_FMTu__ "lu"
-#define __UINTMAX_FMTx__ "lx"
-#define __UINTMAX_MAX__ 18446744073709551615UL
-#define __UINTMAX_TYPE__ long unsigned int
+#define __UINTMAX_C_SUFFIX__ ULL
+#define __UINTMAX_FMTX__ "llX"
+#define __UINTMAX_FMTo__ "llo"
+#define __UINTMAX_FMTu__ "llu"
+#define __UINTMAX_FMTx__ "llx"
+#define __UINTMAX_MAX__ 18446744073709551615ULL
+#define __UINTMAX_TYPE__ long long unsigned int
 #define __UINTMAX_WIDTH__ 64
-#define __UINTPTR_FMTX__ "lX"
-#define __UINTPTR_FMTo__ "lo"
-#define __UINTPTR_FMTu__ "lu"
-#define __UINTPTR_FMTx__ "lx"
-#define __UINTPTR_MAX__ 18446744073709551615UL
-#define __UINTPTR_TYPE__ long unsigned int
-#define __UINTPTR_WIDTH__ 64
+#define __UINTPTR_FMTX__ "X"
+#define __UINTPTR_FMTo__ "o"
+#define __UINTPTR_FMTu__ "u"
+#define __UINTPTR_FMTx__ "x"
+#define __UINTPTR_MAX__ 4294967295U
+#define __UINTPTR_TYPE__ unsigned int
+#define __UINTPTR_WIDTH__ 32
 #define __UINT_FAST16_FMTX__ "hX"
 #define __UINT_FAST16_FMTo__ "ho"
 #define __UINT_FAST16_FMTu__ "hu"
@@ -602,12 +726,12 @@ out: #define _LP64 1
 #define __UINT_FAST32_FMTx__ "x"
 #define __UINT_FAST32_MAX__ 4294967295U
 #define __UINT_FAST32_TYPE__ unsigned int
-#define __UINT_FAST64_FMTX__ "lX"
-#define __UINT_FAST64_FMTo__ "lo"
-#define __UINT_FAST64_FMTu__ "lu"
-#define __UINT_FAST64_FMTx__ "lx"
-#define __UINT_FAST64_MAX__ 18446744073709551615UL
-#define __UINT_FAST64_TYPE__ long unsigned int
+#define __UINT_FAST64_FMTX__ "llX"
+#define __UINT_FAST64_FMTo__ "llo"
+#define __UINT_FAST64_FMTu__ "llu"
+#define __UINT_FAST64_FMTx__ "llx"
+#define __UINT_FAST64_MAX__ 18446744073709551615ULL
+#define __UINT_FAST64_TYPE__ long long unsigned int
 #define __UINT_FAST8_FMTX__ "hhX"
 #define __UINT_FAST8_FMTo__ "hho"
 #define __UINT_FAST8_FMTu__ "hhu"
@@ -626,12 +750,12 @@ out: #define _LP64 1
 #define __UINT_LEAST32_FMTx__ "x"
 #define __UINT_LEAST32_MAX__ 4294967295U
 #define __UINT_LEAST32_TYPE__ unsigned int
-#define __UINT_LEAST64_FMTX__ "lX"
-#define __UINT_LEAST64_FMTo__ "lo"
-#define __UINT_LEAST64_FMTu__ "lu"
-#define __UINT_LEAST64_FMTx__ "lx"
-#define __UINT_LEAST64_MAX__ 18446744073709551615UL
-#define __UINT_LEAST64_TYPE__ long unsigned int
+#define __UINT_LEAST64_FMTX__ "llX"
+#define __UINT_LEAST64_FMTo__ "llo"
+#define __UINT_LEAST64_FMTu__ "llu"
+#define __UINT_LEAST64_FMTx__ "llx"
+#define __UINT_LEAST64_MAX__ 18446744073709551615ULL
+#define __UINT_LEAST64_TYPE__ long long unsigned int
 #define __UINT_LEAST8_FMTX__ "hhX"
 #define __UINT_LEAST8_FMTo__ "hho"
 #define __UINT_LEAST8_FMTu__ "hhu"
@@ -639,53 +763,91 @@ out: #define _LP64 1
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ 
-#define __VERSION__ "4.2.1 Compatible Clang 3.9.1 (tags/RELEASE_391/rc2)"
-#define __WCHAR_MAX__ 2147483647
-#define __WCHAR_TYPE__ int
+#define __VERSION__ "Clang 16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __VFP_FP__ 1
+#define __WCHAR_MAX__ 4294967295U
+#define __WCHAR_TYPE__ unsigned int
+#define __WCHAR_UNSIGNED__ 1
 #define __WCHAR_WIDTH__ 32
+#define __WINT_MAX__ 4294967295U
 #define __WINT_TYPE__ unsigned int
 #define __WINT_UNSIGNED__ 1
 #define __WINT_WIDTH__ 32
-#define __amd64 1
-#define __amd64__ 1
+#define __arm 1
+#define __arm__ 1
 #define __clang__ 1
-#define __clang_major__ 3
-#define __clang_minor__ 9
-#define __clang_patchlevel__ 1
-#define __clang_version__ "3.9.1 (tags/RELEASE_391/rc2)"
+#define __clang_literal_encoding__ "UTF-8"
+#define __clang_major__ 16
+#define __clang_minor__ 0
+#define __clang_patchlevel__ 0
+#define __clang_version__ "16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __clang_wide_literal_encoding__ "UTF-32"
 #define __gnu_linux__ 1
-#define __k8 1
-#define __k8__ 1
 #define __linux 1
 #define __linux__ 1
 #define __llvm__ 1
-#define __tune_k8__ 1
+#define __pic__ 2
+#define __pie__ 2
 #define __unix 1
 #define __unix__ 1
-#define __x86_64 1
-#define __x86_64__ 1
 #define linux 1
 #define unix 1
 
-find program=['llvm-ar', 'ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
-find program=['ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
-clang++
+find program=['llvm-ar', 'ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++
 ---------------------------------------------
 Checking for 'gcc' (C compiler)
-find program=['arm-linux-gnueabihf-gcc', 'arm-linux-gnueabihf-cc'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='CC' -> ['clang']
-['clang', '-dM', '-E', '-']
-out: #define _LP64 1
+find program=['arm-linux-gnueabihf-gcc', 'arm-linux-gnueabihf-cc'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CC' -> ['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang', '-dM', '-E', '-']
+out: #define _ILP32 1
+#define __APCS_32__ 1
+#define __ARMEL__ 1
+#define __ARM_32BIT_STATE 1
+#define __ARM_ACLE 200
+#define __ARM_ARCH 6
+#define __ARM_ARCH_6KZ__ 1
+#define __ARM_ARCH_ISA_ARM 1
+#define __ARM_ARCH_ISA_THUMB 1
+#define __ARM_EABI__ 1
+#define __ARM_FEATURE_CLZ 1
+#define __ARM_FEATURE_DSP 1
+#define __ARM_FEATURE_LDREX 0x4
+#define __ARM_FEATURE_QBIT 1
+#define __ARM_FEATURE_SAT 1
+#define __ARM_FEATURE_SIMD32 1
+#define __ARM_FP 0xc
+#define __ARM_FP16_ARGS 1
+#define __ARM_FP16_FORMAT_IEEE 1
+#define __ARM_PCS 1
+#define __ARM_PCS_VFP 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 4
+#define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_VFPV2__ 1
 #define __ATOMIC_ACQUIRE 2
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_CONSUME 1
 #define __ATOMIC_RELAXED 0
 #define __ATOMIC_RELEASE 3
 #define __ATOMIC_SEQ_CST 5
-#define __BIGGEST_ALIGNMENT__ 16
+#define __BIGGEST_ALIGNMENT__ 8
+#define __BITINT_MAXWIDTH__ 128
+#define __BOOL_WIDTH__ 8
 #define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __CHAR16_TYPE__ unsigned short
 #define __CHAR32_TYPE__ unsigned int
 #define __CHAR_BIT__ 8
+#define __CHAR_UNSIGNED__ 1
+#define __CLANG_ATOMIC_BOOL_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR_LOCK_FREE 2
+#define __CLANG_ATOMIC_INT_LOCK_FREE 2
+#define __CLANG_ATOMIC_LLONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_LONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_POINTER_LOCK_FREE 2
+#define __CLANG_ATOMIC_SHORT_LOCK_FREE 2
+#define __CLANG_ATOMIC_WCHAR_T_LOCK_FREE 2
 #define __CONSTANT_CFSTRINGS__ 1
 #define __DBL_DECIMAL_DIG__ 17
 #define __DBL_DENORM_MIN__ 4.9406564584124654e-324
@@ -704,12 +866,24 @@ out: #define _LP64 1
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __ELF__ 1
 #define __FINITE_MATH_ONLY__ 0
-#define __FLOAT128__ 1
+#define __FLT16_DECIMAL_DIG__ 5
+#define __FLT16_DENORM_MIN__ 5.9604644775390625e-8F16
+#define __FLT16_DIG__ 3
+#define __FLT16_EPSILON__ 9.765625e-4F16
+#define __FLT16_HAS_DENORM__ 1
+#define __FLT16_HAS_INFINITY__ 1
+#define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_MANT_DIG__ 11
+#define __FLT16_MAX_10_EXP__ 4
+#define __FLT16_MAX_EXP__ 16
+#define __FLT16_MAX__ 6.5504e+4F16
+#define __FLT16_MIN_10_EXP__ (-4)
+#define __FLT16_MIN_EXP__ (-13)
+#define __FLT16_MIN__ 6.103515625e-5F16
 #define __FLT_DECIMAL_DIG__ 9
 #define __FLT_DENORM_MIN__ 1.40129846e-45F
 #define __FLT_DIG__ 6
 #define __FLT_EPSILON__ 1.19209290e-7F
-#define __FLT_EVAL_METHOD__ 0
 #define __FLT_HAS_DENORM__ 1
 #define __FLT_HAS_INFINITY__ 1
 #define __FLT_HAS_QUIET_NAN__ 1
@@ -721,7 +895,6 @@ out: #define _LP64 1
 #define __FLT_MIN_EXP__ (-125)
 #define __FLT_MIN__ 1.17549435e-38F
 #define __FLT_RADIX__ 2
-#define __FXSR__ 1
 #define __GCC_ATOMIC_BOOL_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
@@ -742,6 +915,7 @@ out: #define _LP64 1
 #define __GNUC_STDC_INLINE__ 1
 #define __GNUC__ 4
 #define __GXX_ABI_VERSION 1002
+#define __ILP32__ 1
 #define __INT16_C_SUFFIX__ 
 #define __INT16_FMTd__ "hd"
 #define __INT16_FMTi__ "hi"
@@ -752,125 +926,138 @@ out: #define _LP64 1
 #define __INT32_FMTi__ "i"
 #define __INT32_MAX__ 2147483647
 #define __INT32_TYPE__ int
-#define __INT64_C_SUFFIX__ L
-#define __INT64_FMTd__ "ld"
-#define __INT64_FMTi__ "li"
-#define __INT64_MAX__ 9223372036854775807L
-#define __INT64_TYPE__ long int
+#define __INT64_C_SUFFIX__ LL
+#define __INT64_FMTd__ "lld"
+#define __INT64_FMTi__ "lli"
+#define __INT64_MAX__ 9223372036854775807LL
+#define __INT64_TYPE__ long long int
 #define __INT8_C_SUFFIX__ 
 #define __INT8_FMTd__ "hhd"
 #define __INT8_FMTi__ "hhi"
 #define __INT8_MAX__ 127
 #define __INT8_TYPE__ signed char
-#define __INTMAX_C_SUFFIX__ L
-#define __INTMAX_FMTd__ "ld"
-#define __INTMAX_FMTi__ "li"
-#define __INTMAX_MAX__ 9223372036854775807L
-#define __INTMAX_TYPE__ long int
+#define __INTMAX_C_SUFFIX__ LL
+#define __INTMAX_FMTd__ "lld"
+#define __INTMAX_FMTi__ "lli"
+#define __INTMAX_MAX__ 9223372036854775807LL
+#define __INTMAX_TYPE__ long long int
 #define __INTMAX_WIDTH__ 64
-#define __INTPTR_FMTd__ "ld"
-#define __INTPTR_FMTi__ "li"
-#define __INTPTR_MAX__ 9223372036854775807L
-#define __INTPTR_TYPE__ long int
-#define __INTPTR_WIDTH__ 64
+#define __INTPTR_FMTd__ "d"
+#define __INTPTR_FMTi__ "i"
+#define __INTPTR_MAX__ 2147483647
+#define __INTPTR_TYPE__ int
+#define __INTPTR_WIDTH__ 32
 #define __INT_FAST16_FMTd__ "hd"
 #define __INT_FAST16_FMTi__ "hi"
 #define __INT_FAST16_MAX__ 32767
 #define __INT_FAST16_TYPE__ short
+#define __INT_FAST16_WIDTH__ 16
 #define __INT_FAST32_FMTd__ "d"
 #define __INT_FAST32_FMTi__ "i"
 #define __INT_FAST32_MAX__ 2147483647
 #define __INT_FAST32_TYPE__ int
-#define __INT_FAST64_FMTd__ "ld"
-#define __INT_FAST64_FMTi__ "li"
-#define __INT_FAST64_MAX__ 9223372036854775807L
-#define __INT_FAST64_TYPE__ long int
+#define __INT_FAST32_WIDTH__ 32
+#define __INT_FAST64_FMTd__ "lld"
+#define __INT_FAST64_FMTi__ "lli"
+#define __INT_FAST64_MAX__ 9223372036854775807LL
+#define __INT_FAST64_TYPE__ long long int
+#define __INT_FAST64_WIDTH__ 64
 #define __INT_FAST8_FMTd__ "hhd"
 #define __INT_FAST8_FMTi__ "hhi"
 #define __INT_FAST8_MAX__ 127
 #define __INT_FAST8_TYPE__ signed char
+#define __INT_FAST8_WIDTH__ 8
 #define __INT_LEAST16_FMTd__ "hd"
 #define __INT_LEAST16_FMTi__ "hi"
 #define __INT_LEAST16_MAX__ 32767
 #define __INT_LEAST16_TYPE__ short
+#define __INT_LEAST16_WIDTH__ 16
 #define __INT_LEAST32_FMTd__ "d"
 #define __INT_LEAST32_FMTi__ "i"
 #define __INT_LEAST32_MAX__ 2147483647
 #define __INT_LEAST32_TYPE__ int
-#define __INT_LEAST64_FMTd__ "ld"
-#define __INT_LEAST64_FMTi__ "li"
-#define __INT_LEAST64_MAX__ 9223372036854775807L
-#define __INT_LEAST64_TYPE__ long int
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_FMTd__ "lld"
+#define __INT_LEAST64_FMTi__ "lli"
+#define __INT_LEAST64_MAX__ 9223372036854775807LL
+#define __INT_LEAST64_TYPE__ long long int
+#define __INT_LEAST64_WIDTH__ 64
 #define __INT_LEAST8_FMTd__ "hhd"
 #define __INT_LEAST8_FMTi__ "hhi"
 #define __INT_LEAST8_MAX__ 127
 #define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST8_WIDTH__ 8
 #define __INT_MAX__ 2147483647
-#define __LDBL_DECIMAL_DIG__ 21
-#define __LDBL_DENORM_MIN__ 3.64519953188247460253e-4951L
-#define __LDBL_DIG__ 18
-#define __LDBL_EPSILON__ 1.08420217248550443401e-19L
+#define __INT_WIDTH__ 32
+#define __LDBL_DECIMAL_DIG__ 17
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_DIG__ 15
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
 #define __LDBL_HAS_DENORM__ 1
 #define __LDBL_HAS_INFINITY__ 1
 #define __LDBL_HAS_QUIET_NAN__ 1
-#define __LDBL_MANT_DIG__ 64
-#define __LDBL_MAX_10_EXP__ 4932
-#define __LDBL_MAX_EXP__ 16384
-#define __LDBL_MAX__ 1.18973149535723176502e+4932L
-#define __LDBL_MIN_10_EXP__ (-4931)
-#define __LDBL_MIN_EXP__ (-16381)
-#define __LDBL_MIN__ 3.36210314311209350626e-4932L
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_MAX_10_EXP__ 308
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN__ 2.2250738585072014e-308L
 #define __LITTLE_ENDIAN__ 1
+#define __LLONG_WIDTH__ 64
 #define __LONG_LONG_MAX__ 9223372036854775807LL
-#define __LONG_MAX__ 9223372036854775807L
-#define __LP64__ 1
-#define __MMX__ 1
+#define __LONG_MAX__ 2147483647L
+#define __LONG_WIDTH__ 32
 #define __NO_INLINE__ 1
-#define __NO_MATH_INLINES 1
+#define __OBJC_BOOL_IS_BOOL 0
+#define __OPENCL_MEMORY_SCOPE_ALL_SVM_DEVICES 3
+#define __OPENCL_MEMORY_SCOPE_DEVICE 2
+#define __OPENCL_MEMORY_SCOPE_SUB_GROUP 4
+#define __OPENCL_MEMORY_SCOPE_WORK_GROUP 1
+#define __OPENCL_MEMORY_SCOPE_WORK_ITEM 0
 #define __ORDER_BIG_ENDIAN__ 4321
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __ORDER_PDP_ENDIAN__ 3412
-#define __POINTER_WIDTH__ 64
+#define __PIC__ 2
+#define __PIE__ 2
+#define __POINTER_WIDTH__ 32
 #define __PRAGMA_REDEFINE_EXTNAME 1
-#define __PTRDIFF_FMTd__ "ld"
-#define __PTRDIFF_FMTi__ "li"
-#define __PTRDIFF_MAX__ 9223372036854775807L
-#define __PTRDIFF_TYPE__ long int
-#define __PTRDIFF_WIDTH__ 64
+#define __PTRDIFF_FMTd__ "d"
+#define __PTRDIFF_FMTi__ "i"
+#define __PTRDIFF_MAX__ 2147483647
+#define __PTRDIFF_TYPE__ int
+#define __PTRDIFF_WIDTH__ 32
 #define __REGISTER_PREFIX__ 
 #define __SCHAR_MAX__ 127
 #define __SHRT_MAX__ 32767
+#define __SHRT_WIDTH__ 16
 #define __SIG_ATOMIC_MAX__ 2147483647
 #define __SIG_ATOMIC_WIDTH__ 32
 #define __SIZEOF_DOUBLE__ 8
 #define __SIZEOF_FLOAT__ 4
-#define __SIZEOF_INT128__ 16
 #define __SIZEOF_INT__ 4
-#define __SIZEOF_LONG_DOUBLE__ 16
+#define __SIZEOF_LONG_DOUBLE__ 8
 #define __SIZEOF_LONG_LONG__ 8
-#define __SIZEOF_LONG__ 8
-#define __SIZEOF_POINTER__ 8
-#define __SIZEOF_PTRDIFF_T__ 8
+#define __SIZEOF_LONG__ 4
+#define __SIZEOF_POINTER__ 4
+#define __SIZEOF_PTRDIFF_T__ 4
 #define __SIZEOF_SHORT__ 2
-#define __SIZEOF_SIZE_T__ 8
+#define __SIZEOF_SIZE_T__ 4
 #define __SIZEOF_WCHAR_T__ 4
 #define __SIZEOF_WINT_T__ 4
-#define __SIZE_FMTX__ "lX"
-#define __SIZE_FMTo__ "lo"
-#define __SIZE_FMTu__ "lu"
-#define __SIZE_FMTx__ "lx"
-#define __SIZE_MAX__ 18446744073709551615UL
-#define __SIZE_TYPE__ long unsigned int
-#define __SIZE_WIDTH__ 64
-#define __SSE2_MATH__ 1
-#define __SSE2__ 1
-#define __SSE_MATH__ 1
-#define __SSE__ 1
+#define __SIZE_FMTX__ "X"
+#define __SIZE_FMTo__ "o"
+#define __SIZE_FMTu__ "u"
+#define __SIZE_FMTx__ "x"
+#define __SIZE_MAX__ 4294967295U
+#define __SIZE_TYPE__ unsigned int
+#define __SIZE_WIDTH__ 32
 #define __STDC_HOSTED__ 1
 #define __STDC_UTF_16__ 1
 #define __STDC_UTF_32__ 1
-#define __STDC_VERSION__ 201112L
+#define __STDC_VERSION__ 201710L
 #define __STDC__ 1
+#define __THUMB_INTERWORK__ 1
 #define __UINT16_C_SUFFIX__ 
 #define __UINT16_FMTX__ "hX"
 #define __UINT16_FMTo__ "ho"
@@ -885,13 +1072,13 @@ out: #define _LP64 1
 #define __UINT32_FMTx__ "x"
 #define __UINT32_MAX__ 4294967295U
 #define __UINT32_TYPE__ unsigned int
-#define __UINT64_C_SUFFIX__ UL
-#define __UINT64_FMTX__ "lX"
-#define __UINT64_FMTo__ "lo"
-#define __UINT64_FMTu__ "lu"
-#define __UINT64_FMTx__ "lx"
-#define __UINT64_MAX__ 18446744073709551615UL
-#define __UINT64_TYPE__ long unsigned int
+#define __UINT64_C_SUFFIX__ ULL
+#define __UINT64_FMTX__ "llX"
+#define __UINT64_FMTo__ "llo"
+#define __UINT64_FMTu__ "llu"
+#define __UINT64_FMTx__ "llx"
+#define __UINT64_MAX__ 18446744073709551615ULL
+#define __UINT64_TYPE__ long long unsigned int
 #define __UINT8_C_SUFFIX__ 
 #define __UINT8_FMTX__ "hhX"
 #define __UINT8_FMTo__ "hho"
@@ -899,21 +1086,21 @@ out: #define _LP64 1
 #define __UINT8_FMTx__ "hhx"
 #define __UINT8_MAX__ 255
 #define __UINT8_TYPE__ unsigned char
-#define __UINTMAX_C_SUFFIX__ UL
-#define __UINTMAX_FMTX__ "lX"
-#define __UINTMAX_FMTo__ "lo"
-#define __UINTMAX_FMTu__ "lu"
-#define __UINTMAX_FMTx__ "lx"
-#define __UINTMAX_MAX__ 18446744073709551615UL
-#define __UINTMAX_TYPE__ long unsigned int
+#define __UINTMAX_C_SUFFIX__ ULL
+#define __UINTMAX_FMTX__ "llX"
+#define __UINTMAX_FMTo__ "llo"
+#define __UINTMAX_FMTu__ "llu"
+#define __UINTMAX_FMTx__ "llx"
+#define __UINTMAX_MAX__ 18446744073709551615ULL
+#define __UINTMAX_TYPE__ long long unsigned int
 #define __UINTMAX_WIDTH__ 64
-#define __UINTPTR_FMTX__ "lX"
-#define __UINTPTR_FMTo__ "lo"
-#define __UINTPTR_FMTu__ "lu"
-#define __UINTPTR_FMTx__ "lx"
-#define __UINTPTR_MAX__ 18446744073709551615UL
-#define __UINTPTR_TYPE__ long unsigned int
-#define __UINTPTR_WIDTH__ 64
+#define __UINTPTR_FMTX__ "X"
+#define __UINTPTR_FMTo__ "o"
+#define __UINTPTR_FMTu__ "u"
+#define __UINTPTR_FMTx__ "x"
+#define __UINTPTR_MAX__ 4294967295U
+#define __UINTPTR_TYPE__ unsigned int
+#define __UINTPTR_WIDTH__ 32
 #define __UINT_FAST16_FMTX__ "hX"
 #define __UINT_FAST16_FMTo__ "ho"
 #define __UINT_FAST16_FMTu__ "hu"
@@ -926,12 +1113,12 @@ out: #define _LP64 1
 #define __UINT_FAST32_FMTx__ "x"
 #define __UINT_FAST32_MAX__ 4294967295U
 #define __UINT_FAST32_TYPE__ unsigned int
-#define __UINT_FAST64_FMTX__ "lX"
-#define __UINT_FAST64_FMTo__ "lo"
-#define __UINT_FAST64_FMTu__ "lu"
-#define __UINT_FAST64_FMTx__ "lx"
-#define __UINT_FAST64_MAX__ 18446744073709551615UL
-#define __UINT_FAST64_TYPE__ long unsigned int
+#define __UINT_FAST64_FMTX__ "llX"
+#define __UINT_FAST64_FMTo__ "llo"
+#define __UINT_FAST64_FMTu__ "llu"
+#define __UINT_FAST64_FMTx__ "llx"
+#define __UINT_FAST64_MAX__ 18446744073709551615ULL
+#define __UINT_FAST64_TYPE__ long long unsigned int
 #define __UINT_FAST8_FMTX__ "hhX"
 #define __UINT_FAST8_FMTo__ "hho"
 #define __UINT_FAST8_FMTu__ "hhu"
@@ -950,12 +1137,12 @@ out: #define _LP64 1
 #define __UINT_LEAST32_FMTx__ "x"
 #define __UINT_LEAST32_MAX__ 4294967295U
 #define __UINT_LEAST32_TYPE__ unsigned int
-#define __UINT_LEAST64_FMTX__ "lX"
-#define __UINT_LEAST64_FMTo__ "lo"
-#define __UINT_LEAST64_FMTu__ "lu"
-#define __UINT_LEAST64_FMTx__ "lx"
-#define __UINT_LEAST64_MAX__ 18446744073709551615UL
-#define __UINT_LEAST64_TYPE__ long unsigned int
+#define __UINT_LEAST64_FMTX__ "llX"
+#define __UINT_LEAST64_FMTo__ "llo"
+#define __UINT_LEAST64_FMTu__ "llu"
+#define __UINT_LEAST64_FMTx__ "llx"
+#define __UINT_LEAST64_MAX__ 18446744073709551615ULL
+#define __UINT_LEAST64_TYPE__ long long unsigned int
 #define __UINT_LEAST8_FMTX__ "hhX"
 #define __UINT_LEAST8_FMTo__ "hho"
 #define __UINT_LEAST8_FMTu__ "hhu"
@@ -963,54 +1150,92 @@ out: #define _LP64 1
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ 
-#define __VERSION__ "4.2.1 Compatible Clang 3.9.1 (tags/RELEASE_391/rc2)"
-#define __WCHAR_MAX__ 2147483647
-#define __WCHAR_TYPE__ int
+#define __VERSION__ "Clang 16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __VFP_FP__ 1
+#define __WCHAR_MAX__ 4294967295U
+#define __WCHAR_TYPE__ unsigned int
+#define __WCHAR_UNSIGNED__ 1
 #define __WCHAR_WIDTH__ 32
+#define __WINT_MAX__ 4294967295U
 #define __WINT_TYPE__ unsigned int
 #define __WINT_UNSIGNED__ 1
 #define __WINT_WIDTH__ 32
-#define __amd64 1
-#define __amd64__ 1
+#define __arm 1
+#define __arm__ 1
 #define __clang__ 1
-#define __clang_major__ 3
-#define __clang_minor__ 9
-#define __clang_patchlevel__ 1
-#define __clang_version__ "3.9.1 (tags/RELEASE_391/rc2)"
+#define __clang_literal_encoding__ "UTF-8"
+#define __clang_major__ 16
+#define __clang_minor__ 0
+#define __clang_patchlevel__ 0
+#define __clang_version__ "16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __clang_wide_literal_encoding__ "UTF-32"
 #define __gnu_linux__ 1
-#define __k8 1
-#define __k8__ 1
 #define __linux 1
 #define __linux__ 1
 #define __llvm__ 1
-#define __tune_k8__ 1
+#define __pic__ 2
+#define __pie__ 2
 #define __unix 1
 #define __unix__ 1
-#define __x86_64 1
-#define __x86_64__ 1
 #define linux 1
 #define unix 1
 
-from /home/ari-new-ae/conattest/ardupilot: Could not find gcc/g++ (only Clang), if renamed try eg: CC=gcc48 CXX=g++48 waf configure
+from /home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot: Could not find gcc/g++ (only Clang), if renamed try eg: CC=gcc48 CXX=g++48 waf configure
 not found
 ---------------------------------------------
 Checking for 'clang' (C compiler)
-find program=['arm-linux-gnueabihf-gcc'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='CROSS_GCC' -> ['/usr/bin/arm-linux-gnueabihf-gcc']
-find program=['arm-linux-gnueabihf-ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
-find program=['clang'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='CC' -> ['clang']
-['clang', '-dM', '-E', '-']
-out: #define _LP64 1
+find program=['arm-linux-gnueabihf-gcc'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CROSS_GCC' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-gcc']
+find program=['arm-linux-gnueabihf-ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['clang'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CC' -> ['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang', '-dM', '-E', '-']
+out: #define _ILP32 1
+#define __APCS_32__ 1
+#define __ARMEL__ 1
+#define __ARM_32BIT_STATE 1
+#define __ARM_ACLE 200
+#define __ARM_ARCH 6
+#define __ARM_ARCH_6KZ__ 1
+#define __ARM_ARCH_ISA_ARM 1
+#define __ARM_ARCH_ISA_THUMB 1
+#define __ARM_EABI__ 1
+#define __ARM_FEATURE_CLZ 1
+#define __ARM_FEATURE_DSP 1
+#define __ARM_FEATURE_LDREX 0x4
+#define __ARM_FEATURE_QBIT 1
+#define __ARM_FEATURE_SAT 1
+#define __ARM_FEATURE_SIMD32 1
+#define __ARM_FP 0xc
+#define __ARM_FP16_ARGS 1
+#define __ARM_FP16_FORMAT_IEEE 1
+#define __ARM_PCS 1
+#define __ARM_PCS_VFP 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 4
+#define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_VFPV2__ 1
 #define __ATOMIC_ACQUIRE 2
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_CONSUME 1
 #define __ATOMIC_RELAXED 0
 #define __ATOMIC_RELEASE 3
 #define __ATOMIC_SEQ_CST 5
-#define __BIGGEST_ALIGNMENT__ 16
+#define __BIGGEST_ALIGNMENT__ 8
+#define __BITINT_MAXWIDTH__ 128
+#define __BOOL_WIDTH__ 8
 #define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __CHAR16_TYPE__ unsigned short
 #define __CHAR32_TYPE__ unsigned int
 #define __CHAR_BIT__ 8
+#define __CHAR_UNSIGNED__ 1
+#define __CLANG_ATOMIC_BOOL_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR_LOCK_FREE 2
+#define __CLANG_ATOMIC_INT_LOCK_FREE 2
+#define __CLANG_ATOMIC_LLONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_LONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_POINTER_LOCK_FREE 2
+#define __CLANG_ATOMIC_SHORT_LOCK_FREE 2
+#define __CLANG_ATOMIC_WCHAR_T_LOCK_FREE 2
 #define __CONSTANT_CFSTRINGS__ 1
 #define __DBL_DECIMAL_DIG__ 17
 #define __DBL_DENORM_MIN__ 4.9406564584124654e-324
@@ -1029,12 +1254,24 @@ out: #define _LP64 1
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __ELF__ 1
 #define __FINITE_MATH_ONLY__ 0
-#define __FLOAT128__ 1
+#define __FLT16_DECIMAL_DIG__ 5
+#define __FLT16_DENORM_MIN__ 5.9604644775390625e-8F16
+#define __FLT16_DIG__ 3
+#define __FLT16_EPSILON__ 9.765625e-4F16
+#define __FLT16_HAS_DENORM__ 1
+#define __FLT16_HAS_INFINITY__ 1
+#define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_MANT_DIG__ 11
+#define __FLT16_MAX_10_EXP__ 4
+#define __FLT16_MAX_EXP__ 16
+#define __FLT16_MAX__ 6.5504e+4F16
+#define __FLT16_MIN_10_EXP__ (-4)
+#define __FLT16_MIN_EXP__ (-13)
+#define __FLT16_MIN__ 6.103515625e-5F16
 #define __FLT_DECIMAL_DIG__ 9
 #define __FLT_DENORM_MIN__ 1.40129846e-45F
 #define __FLT_DIG__ 6
 #define __FLT_EPSILON__ 1.19209290e-7F
-#define __FLT_EVAL_METHOD__ 0
 #define __FLT_HAS_DENORM__ 1
 #define __FLT_HAS_INFINITY__ 1
 #define __FLT_HAS_QUIET_NAN__ 1
@@ -1046,7 +1283,6 @@ out: #define _LP64 1
 #define __FLT_MIN_EXP__ (-125)
 #define __FLT_MIN__ 1.17549435e-38F
 #define __FLT_RADIX__ 2
-#define __FXSR__ 1
 #define __GCC_ATOMIC_BOOL_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
 #define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
@@ -1067,6 +1303,7 @@ out: #define _LP64 1
 #define __GNUC_STDC_INLINE__ 1
 #define __GNUC__ 4
 #define __GXX_ABI_VERSION 1002
+#define __ILP32__ 1
 #define __INT16_C_SUFFIX__ 
 #define __INT16_FMTd__ "hd"
 #define __INT16_FMTi__ "hi"
@@ -1077,125 +1314,138 @@ out: #define _LP64 1
 #define __INT32_FMTi__ "i"
 #define __INT32_MAX__ 2147483647
 #define __INT32_TYPE__ int
-#define __INT64_C_SUFFIX__ L
-#define __INT64_FMTd__ "ld"
-#define __INT64_FMTi__ "li"
-#define __INT64_MAX__ 9223372036854775807L
-#define __INT64_TYPE__ long int
+#define __INT64_C_SUFFIX__ LL
+#define __INT64_FMTd__ "lld"
+#define __INT64_FMTi__ "lli"
+#define __INT64_MAX__ 9223372036854775807LL
+#define __INT64_TYPE__ long long int
 #define __INT8_C_SUFFIX__ 
 #define __INT8_FMTd__ "hhd"
 #define __INT8_FMTi__ "hhi"
 #define __INT8_MAX__ 127
 #define __INT8_TYPE__ signed char
-#define __INTMAX_C_SUFFIX__ L
-#define __INTMAX_FMTd__ "ld"
-#define __INTMAX_FMTi__ "li"
-#define __INTMAX_MAX__ 9223372036854775807L
-#define __INTMAX_TYPE__ long int
+#define __INTMAX_C_SUFFIX__ LL
+#define __INTMAX_FMTd__ "lld"
+#define __INTMAX_FMTi__ "lli"
+#define __INTMAX_MAX__ 9223372036854775807LL
+#define __INTMAX_TYPE__ long long int
 #define __INTMAX_WIDTH__ 64
-#define __INTPTR_FMTd__ "ld"
-#define __INTPTR_FMTi__ "li"
-#define __INTPTR_MAX__ 9223372036854775807L
-#define __INTPTR_TYPE__ long int
-#define __INTPTR_WIDTH__ 64
+#define __INTPTR_FMTd__ "d"
+#define __INTPTR_FMTi__ "i"
+#define __INTPTR_MAX__ 2147483647
+#define __INTPTR_TYPE__ int
+#define __INTPTR_WIDTH__ 32
 #define __INT_FAST16_FMTd__ "hd"
 #define __INT_FAST16_FMTi__ "hi"
 #define __INT_FAST16_MAX__ 32767
 #define __INT_FAST16_TYPE__ short
+#define __INT_FAST16_WIDTH__ 16
 #define __INT_FAST32_FMTd__ "d"
 #define __INT_FAST32_FMTi__ "i"
 #define __INT_FAST32_MAX__ 2147483647
 #define __INT_FAST32_TYPE__ int
-#define __INT_FAST64_FMTd__ "ld"
-#define __INT_FAST64_FMTi__ "li"
-#define __INT_FAST64_MAX__ 9223372036854775807L
-#define __INT_FAST64_TYPE__ long int
+#define __INT_FAST32_WIDTH__ 32
+#define __INT_FAST64_FMTd__ "lld"
+#define __INT_FAST64_FMTi__ "lli"
+#define __INT_FAST64_MAX__ 9223372036854775807LL
+#define __INT_FAST64_TYPE__ long long int
+#define __INT_FAST64_WIDTH__ 64
 #define __INT_FAST8_FMTd__ "hhd"
 #define __INT_FAST8_FMTi__ "hhi"
 #define __INT_FAST8_MAX__ 127
 #define __INT_FAST8_TYPE__ signed char
+#define __INT_FAST8_WIDTH__ 8
 #define __INT_LEAST16_FMTd__ "hd"
 #define __INT_LEAST16_FMTi__ "hi"
 #define __INT_LEAST16_MAX__ 32767
 #define __INT_LEAST16_TYPE__ short
+#define __INT_LEAST16_WIDTH__ 16
 #define __INT_LEAST32_FMTd__ "d"
 #define __INT_LEAST32_FMTi__ "i"
 #define __INT_LEAST32_MAX__ 2147483647
 #define __INT_LEAST32_TYPE__ int
-#define __INT_LEAST64_FMTd__ "ld"
-#define __INT_LEAST64_FMTi__ "li"
-#define __INT_LEAST64_MAX__ 9223372036854775807L
-#define __INT_LEAST64_TYPE__ long int
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_FMTd__ "lld"
+#define __INT_LEAST64_FMTi__ "lli"
+#define __INT_LEAST64_MAX__ 9223372036854775807LL
+#define __INT_LEAST64_TYPE__ long long int
+#define __INT_LEAST64_WIDTH__ 64
 #define __INT_LEAST8_FMTd__ "hhd"
 #define __INT_LEAST8_FMTi__ "hhi"
 #define __INT_LEAST8_MAX__ 127
 #define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST8_WIDTH__ 8
 #define __INT_MAX__ 2147483647
-#define __LDBL_DECIMAL_DIG__ 21
-#define __LDBL_DENORM_MIN__ 3.64519953188247460253e-4951L
-#define __LDBL_DIG__ 18
-#define __LDBL_EPSILON__ 1.08420217248550443401e-19L
+#define __INT_WIDTH__ 32
+#define __LDBL_DECIMAL_DIG__ 17
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_DIG__ 15
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
 #define __LDBL_HAS_DENORM__ 1
 #define __LDBL_HAS_INFINITY__ 1
 #define __LDBL_HAS_QUIET_NAN__ 1
-#define __LDBL_MANT_DIG__ 64
-#define __LDBL_MAX_10_EXP__ 4932
-#define __LDBL_MAX_EXP__ 16384
-#define __LDBL_MAX__ 1.18973149535723176502e+4932L
-#define __LDBL_MIN_10_EXP__ (-4931)
-#define __LDBL_MIN_EXP__ (-16381)
-#define __LDBL_MIN__ 3.36210314311209350626e-4932L
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_MAX_10_EXP__ 308
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN__ 2.2250738585072014e-308L
 #define __LITTLE_ENDIAN__ 1
+#define __LLONG_WIDTH__ 64
 #define __LONG_LONG_MAX__ 9223372036854775807LL
-#define __LONG_MAX__ 9223372036854775807L
-#define __LP64__ 1
-#define __MMX__ 1
+#define __LONG_MAX__ 2147483647L
+#define __LONG_WIDTH__ 32
 #define __NO_INLINE__ 1
-#define __NO_MATH_INLINES 1
+#define __OBJC_BOOL_IS_BOOL 0
+#define __OPENCL_MEMORY_SCOPE_ALL_SVM_DEVICES 3
+#define __OPENCL_MEMORY_SCOPE_DEVICE 2
+#define __OPENCL_MEMORY_SCOPE_SUB_GROUP 4
+#define __OPENCL_MEMORY_SCOPE_WORK_GROUP 1
+#define __OPENCL_MEMORY_SCOPE_WORK_ITEM 0
 #define __ORDER_BIG_ENDIAN__ 4321
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __ORDER_PDP_ENDIAN__ 3412
-#define __POINTER_WIDTH__ 64
+#define __PIC__ 2
+#define __PIE__ 2
+#define __POINTER_WIDTH__ 32
 #define __PRAGMA_REDEFINE_EXTNAME 1
-#define __PTRDIFF_FMTd__ "ld"
-#define __PTRDIFF_FMTi__ "li"
-#define __PTRDIFF_MAX__ 9223372036854775807L
-#define __PTRDIFF_TYPE__ long int
-#define __PTRDIFF_WIDTH__ 64
+#define __PTRDIFF_FMTd__ "d"
+#define __PTRDIFF_FMTi__ "i"
+#define __PTRDIFF_MAX__ 2147483647
+#define __PTRDIFF_TYPE__ int
+#define __PTRDIFF_WIDTH__ 32
 #define __REGISTER_PREFIX__ 
 #define __SCHAR_MAX__ 127
 #define __SHRT_MAX__ 32767
+#define __SHRT_WIDTH__ 16
 #define __SIG_ATOMIC_MAX__ 2147483647
 #define __SIG_ATOMIC_WIDTH__ 32
 #define __SIZEOF_DOUBLE__ 8
 #define __SIZEOF_FLOAT__ 4
-#define __SIZEOF_INT128__ 16
 #define __SIZEOF_INT__ 4
-#define __SIZEOF_LONG_DOUBLE__ 16
+#define __SIZEOF_LONG_DOUBLE__ 8
 #define __SIZEOF_LONG_LONG__ 8
-#define __SIZEOF_LONG__ 8
-#define __SIZEOF_POINTER__ 8
-#define __SIZEOF_PTRDIFF_T__ 8
+#define __SIZEOF_LONG__ 4
+#define __SIZEOF_POINTER__ 4
+#define __SIZEOF_PTRDIFF_T__ 4
 #define __SIZEOF_SHORT__ 2
-#define __SIZEOF_SIZE_T__ 8
+#define __SIZEOF_SIZE_T__ 4
 #define __SIZEOF_WCHAR_T__ 4
 #define __SIZEOF_WINT_T__ 4
-#define __SIZE_FMTX__ "lX"
-#define __SIZE_FMTo__ "lo"
-#define __SIZE_FMTu__ "lu"
-#define __SIZE_FMTx__ "lx"
-#define __SIZE_MAX__ 18446744073709551615UL
-#define __SIZE_TYPE__ long unsigned int
-#define __SIZE_WIDTH__ 64
-#define __SSE2_MATH__ 1
-#define __SSE2__ 1
-#define __SSE_MATH__ 1
-#define __SSE__ 1
+#define __SIZE_FMTX__ "X"
+#define __SIZE_FMTo__ "o"
+#define __SIZE_FMTu__ "u"
+#define __SIZE_FMTx__ "x"
+#define __SIZE_MAX__ 4294967295U
+#define __SIZE_TYPE__ unsigned int
+#define __SIZE_WIDTH__ 32
 #define __STDC_HOSTED__ 1
 #define __STDC_UTF_16__ 1
 #define __STDC_UTF_32__ 1
-#define __STDC_VERSION__ 201112L
+#define __STDC_VERSION__ 201710L
 #define __STDC__ 1
+#define __THUMB_INTERWORK__ 1
 #define __UINT16_C_SUFFIX__ 
 #define __UINT16_FMTX__ "hX"
 #define __UINT16_FMTo__ "ho"
@@ -1210,13 +1460,13 @@ out: #define _LP64 1
 #define __UINT32_FMTx__ "x"
 #define __UINT32_MAX__ 4294967295U
 #define __UINT32_TYPE__ unsigned int
-#define __UINT64_C_SUFFIX__ UL
-#define __UINT64_FMTX__ "lX"
-#define __UINT64_FMTo__ "lo"
-#define __UINT64_FMTu__ "lu"
-#define __UINT64_FMTx__ "lx"
-#define __UINT64_MAX__ 18446744073709551615UL
-#define __UINT64_TYPE__ long unsigned int
+#define __UINT64_C_SUFFIX__ ULL
+#define __UINT64_FMTX__ "llX"
+#define __UINT64_FMTo__ "llo"
+#define __UINT64_FMTu__ "llu"
+#define __UINT64_FMTx__ "llx"
+#define __UINT64_MAX__ 18446744073709551615ULL
+#define __UINT64_TYPE__ long long unsigned int
 #define __UINT8_C_SUFFIX__ 
 #define __UINT8_FMTX__ "hhX"
 #define __UINT8_FMTo__ "hho"
@@ -1224,21 +1474,21 @@ out: #define _LP64 1
 #define __UINT8_FMTx__ "hhx"
 #define __UINT8_MAX__ 255
 #define __UINT8_TYPE__ unsigned char
-#define __UINTMAX_C_SUFFIX__ UL
-#define __UINTMAX_FMTX__ "lX"
-#define __UINTMAX_FMTo__ "lo"
-#define __UINTMAX_FMTu__ "lu"
-#define __UINTMAX_FMTx__ "lx"
-#define __UINTMAX_MAX__ 18446744073709551615UL
-#define __UINTMAX_TYPE__ long unsigned int
+#define __UINTMAX_C_SUFFIX__ ULL
+#define __UINTMAX_FMTX__ "llX"
+#define __UINTMAX_FMTo__ "llo"
+#define __UINTMAX_FMTu__ "llu"
+#define __UINTMAX_FMTx__ "llx"
+#define __UINTMAX_MAX__ 18446744073709551615ULL
+#define __UINTMAX_TYPE__ long long unsigned int
 #define __UINTMAX_WIDTH__ 64
-#define __UINTPTR_FMTX__ "lX"
-#define __UINTPTR_FMTo__ "lo"
-#define __UINTPTR_FMTu__ "lu"
-#define __UINTPTR_FMTx__ "lx"
-#define __UINTPTR_MAX__ 18446744073709551615UL
-#define __UINTPTR_TYPE__ long unsigned int
-#define __UINTPTR_WIDTH__ 64
+#define __UINTPTR_FMTX__ "X"
+#define __UINTPTR_FMTo__ "o"
+#define __UINTPTR_FMTu__ "u"
+#define __UINTPTR_FMTx__ "x"
+#define __UINTPTR_MAX__ 4294967295U
+#define __UINTPTR_TYPE__ unsigned int
+#define __UINTPTR_WIDTH__ 32
 #define __UINT_FAST16_FMTX__ "hX"
 #define __UINT_FAST16_FMTo__ "ho"
 #define __UINT_FAST16_FMTu__ "hu"
@@ -1251,12 +1501,12 @@ out: #define _LP64 1
 #define __UINT_FAST32_FMTx__ "x"
 #define __UINT_FAST32_MAX__ 4294967295U
 #define __UINT_FAST32_TYPE__ unsigned int
-#define __UINT_FAST64_FMTX__ "lX"
-#define __UINT_FAST64_FMTo__ "lo"
-#define __UINT_FAST64_FMTu__ "lu"
-#define __UINT_FAST64_FMTx__ "lx"
-#define __UINT_FAST64_MAX__ 18446744073709551615UL
-#define __UINT_FAST64_TYPE__ long unsigned int
+#define __UINT_FAST64_FMTX__ "llX"
+#define __UINT_FAST64_FMTo__ "llo"
+#define __UINT_FAST64_FMTu__ "llu"
+#define __UINT_FAST64_FMTx__ "llx"
+#define __UINT_FAST64_MAX__ 18446744073709551615ULL
+#define __UINT_FAST64_TYPE__ long long unsigned int
 #define __UINT_FAST8_FMTX__ "hhX"
 #define __UINT_FAST8_FMTo__ "hho"
 #define __UINT_FAST8_FMTu__ "hhu"
@@ -1275,12 +1525,12 @@ out: #define _LP64 1
 #define __UINT_LEAST32_FMTx__ "x"
 #define __UINT_LEAST32_MAX__ 4294967295U
 #define __UINT_LEAST32_TYPE__ unsigned int
-#define __UINT_LEAST64_FMTX__ "lX"
-#define __UINT_LEAST64_FMTo__ "lo"
-#define __UINT_LEAST64_FMTu__ "lu"
-#define __UINT_LEAST64_FMTx__ "lx"
-#define __UINT_LEAST64_MAX__ 18446744073709551615UL
-#define __UINT_LEAST64_TYPE__ long unsigned int
+#define __UINT_LEAST64_FMTX__ "llX"
+#define __UINT_LEAST64_FMTo__ "llo"
+#define __UINT_LEAST64_FMTu__ "llu"
+#define __UINT_LEAST64_FMTx__ "llx"
+#define __UINT_LEAST64_MAX__ 18446744073709551615ULL
+#define __UINT_LEAST64_TYPE__ long long unsigned int
 #define __UINT_LEAST8_FMTX__ "hhX"
 #define __UINT_LEAST8_FMTo__ "hho"
 #define __UINT_LEAST8_FMTu__ "hhu"
@@ -1288,54 +1538,56 @@ out: #define _LP64 1
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ 
-#define __VERSION__ "4.2.1 Compatible Clang 3.9.1 (tags/RELEASE_391/rc2)"
-#define __WCHAR_MAX__ 2147483647
-#define __WCHAR_TYPE__ int
+#define __VERSION__ "Clang 16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __VFP_FP__ 1
+#define __WCHAR_MAX__ 4294967295U
+#define __WCHAR_TYPE__ unsigned int
+#define __WCHAR_UNSIGNED__ 1
 #define __WCHAR_WIDTH__ 32
+#define __WINT_MAX__ 4294967295U
 #define __WINT_TYPE__ unsigned int
 #define __WINT_UNSIGNED__ 1
 #define __WINT_WIDTH__ 32
-#define __amd64 1
-#define __amd64__ 1
+#define __arm 1
+#define __arm__ 1
 #define __clang__ 1
-#define __clang_major__ 3
-#define __clang_minor__ 9
-#define __clang_patchlevel__ 1
-#define __clang_version__ "3.9.1 (tags/RELEASE_391/rc2)"
+#define __clang_literal_encoding__ "UTF-8"
+#define __clang_major__ 16
+#define __clang_minor__ 0
+#define __clang_patchlevel__ 0
+#define __clang_version__ "16.0.0 (https://github.com/llvm/llvm-project.git 08d094a0e457360ad8b94b017d2dc277e697ca76)"
+#define __clang_wide_literal_encoding__ "UTF-32"
 #define __gnu_linux__ 1
-#define __k8 1
-#define __k8__ 1
 #define __linux 1
 #define __linux__ 1
 #define __llvm__ 1
-#define __tune_k8__ 1
+#define __pic__ 2
+#define __pie__ 2
 #define __unix 1
 #define __unix__ 1
-#define __x86_64 1
-#define __x86_64__ 1
 #define linux 1
 #define unix 1
 
-find program=['llvm-ar', 'ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
-find program=['ar'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='AR' -> ['/usr/bin/arm-linux-gnueabihf-ar']
-clang
+find program=['llvm-ar', 'ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['ar'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang
 ---------------------------------------------
 Checking for c flags '-MMD'
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_c5e18e9a794aa5f81b0055a08c275dc5/test.c[0m
+[1/1] Compiling [32mbuild/.conf_check_9426e0b35b1d4d10ad69b4b9f06baef2/test.c[0m
 
-['clang', '-MMD', '-DWAF_BUILD=1', '../../test.c', '-c', '-otest.c.1.o']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang', '-MMD', '-DWAF_BUILD=1', '../../test.c', '-c', '-otest.c.1.o']
 yes
 ---------------------------------------------
 Checking for cxx flags '-MMD'
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_90e67a25b4851022e6cbfaef877f46ac/test.cpp[0m
+[1/1] Compiling [32mbuild/.conf_check_825bc5e24bae15eb9b714e3cc8b20297/test.cpp[0m
 
-['clang++', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '-DWAF_BUILD=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '-DWAF_BUILD=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
 yes
 ---------------------------------------------
 Checking for need to link with librt
@@ -1347,12 +1599,12 @@ Checking for need to link with librt
             clock_gettime(CLOCK_REALTIME, NULL);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_bb9623d6f3dac6842cea06ba193118d2/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_73c852e2f4be28389a03f4e2d56e3809/test.cpp[0m
 
-['clang++', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_bb9623d6f3dac6842cea06ba193118d2/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_73c852e2f4be28389a03f4e2d56e3809/testbuild/sitl/testprog[0m
 
-['clang++', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 not necessary
 ---------------------------------------------
 Checking for HAVE_CMATH_ISFINITE
@@ -1364,12 +1616,12 @@ Checking for HAVE_CMATH_ISFINITE
           return std::isfinite(1.0f);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_5cf1578a48f16889725bd2863489908c/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_0c77b85b8cd23c86a1e5e53c83d6d8bf/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_5cf1578a48f16889725bd2863489908c/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_0c77b85b8cd23c86a1e5e53c83d6d8bf/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ---------------------------------------------
 Checking for HAVE_CMATH_ISINF
@@ -1381,12 +1633,12 @@ Checking for HAVE_CMATH_ISINF
           return std::isinf(1.0f);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_6534f471badd14bba23200d8ac6d2daf/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_7802831760b7d25a038874cdff55a6f2/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_6534f471badd14bba23200d8ac6d2daf/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_7802831760b7d25a038874cdff55a6f2/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ---------------------------------------------
 Checking for HAVE_CMATH_ISNAN
@@ -1398,12 +1650,12 @@ Checking for HAVE_CMATH_ISNAN
           return std::isnan(1.0f);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_5a33d1e1e699d6de377081e4fd7698ea/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_09fe5754e2ce422f91143e48404db30c/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_5a33d1e1e699d6de377081e4fd7698ea/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_09fe5754e2ce422f91143e48404db30c/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ----------------------------------------------
 Checking for NEED_CMATH_ISFINITE_STD_NAMESPACE
@@ -1418,12 +1670,12 @@ Checking for NEED_CMATH_ISFINITE_STD_NAMESPACE
           return isfinite((double)1);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_8e2de1a9d777eb94a3c1f73b6638854f/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_c11e54cd950b407ddc238613b0e81e80/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_8e2de1a9d777eb94a3c1f73b6638854f/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_c11e54cd950b407ddc238613b0e81e80/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ----------------------------------------------
 Checking for NEED_CMATH_ISINF_STD_NAMESPACE
@@ -1438,12 +1690,12 @@ Checking for NEED_CMATH_ISINF_STD_NAMESPACE
           return isinf((double)1);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_cdce159624eebb335af596adbf335dae/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_f29c880de3a6c8ad09a546fa4eb50e15/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_cdce159624eebb335af596adbf335dae/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_f29c880de3a6c8ad09a546fa4eb50e15/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ----------------------------------------------
 Checking for NEED_CMATH_ISNAN_STD_NAMESPACE
@@ -1458,12 +1710,12 @@ Checking for NEED_CMATH_ISNAN_STD_NAMESPACE
           return isnan((double)1);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_199d8322201ea6a9e4aec1b7c8a147f4/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_2225ec75861c63efdab27c7360c329d5/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_199d8322201ea6a9e4aec1b7c8a147f4/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_2225ec75861c63efdab27c7360c329d5/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ----------------------------------------------
 Checking for header endian.h
@@ -1476,12 +1728,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_54329ff3a75078204bd5b36f4137f9a9/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_a1c5aa93a40be43b12d1ba15f1bf0421/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '-DNEED_CMATH_ISNAN_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_54329ff3a75078204bd5b36f4137f9a9/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '-DNEED_CMATH_ISNAN_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_a1c5aa93a40be43b12d1ba15f1bf0421/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ----------------------------------------------
 Checking for header byteswap.h
@@ -1494,17 +1746,17 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_cd382b2024e096cf6792b7e2413c7697/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_66ec62e9569d1ea8786fcfab5f309b0d/test.cpp[0m
 
-['clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '-DNEED_CMATH_ISNAN_STD_NAMESPACE=1', '-DHAVE_ENDIAN_H=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_cd382b2024e096cf6792b7e2413c7697/testbuild/sitl/testprog[0m
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Werror=format-security', '-Werror=array-bounds', '-Werror=uninitialized', '-Werror=init-self', '-Werror=switch', '-Werror=sign-compare', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '-DNEED_CMATH_ISNAN_STD_NAMESPACE=1', '-DHAVE_ENDIAN_H=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_66ec62e9569d1ea8786fcfab5f309b0d/testbuild/sitl/testprog[0m
 
-['clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
+['/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm', '-fuse-ld=/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/ld.lld']
 yes
 ----------------------------------------------
 Checking for program 'python'
 /usr/bin/python
-find program=['python'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='PYTHON' -> ['/usr/bin/python']
+find program=['python'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='PYTHON' -> ['/usr/bin/python']
 ['/usr/bin/python', '-c', 'import imp;print(imp.get_tag())']
 err: Traceback (most recent call last):
   File "<string>", line 1, in <module>
@@ -1513,7 +1765,7 @@ AttributeError: 'module' object has no attribute 'get_tag'
 ['/usr/bin/python', '-c', 'import sys\nfor x in sys.version_info: print(str(x))']
 out: 2
 7
-12
+18
 final
 0
 
@@ -1529,11 +1781,11 @@ out: '/usr/lib/python2.7/dist-packages'
 
 ----------------------------------------------
 Checking for python version >= 2.7.0
-2.7.12
+2.7.18
 ----------------------------------------------
 Checking for program 'python'
 /usr/bin/python
-find program=['python'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='PYTHON' -> ['/usr/bin/python']
+find program=['python'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='PYTHON' -> ['/usr/bin/python']
 ['/usr/bin/python', '-c', 'import imp;print(imp.get_tag())']
 err: Traceback (most recent call last):
   File "<string>", line 1, in <module>
@@ -1542,13 +1794,13 @@ AttributeError: 'module' object has no attribute 'get_tag'
 ['/usr/bin/python', '-c', 'import sys\nfor x in sys.version_info: print(str(x))']
 out: 2
 7
-12
+18
 final
 0
 
 ----------------------------------------------
 Checking for python version >= 2.7.0
-2.7.12
+2.7.18
 ----------------------------------------------
 Source is git repository
 no
@@ -1558,11 +1810,11 @@ no
 ----------------------------------------------
 Checking for program 'git'
 /usr/bin/git
-find program=['git'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='GIT' -> ['/usr/bin/git']
+find program=['git'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='GIT' -> ['/usr/bin/git']
 -----------------------------------------------
 Checking for program 'arm-linux-gnueabihf-size'
-/usr/bin/arm-linux-gnueabihf-size
-find program=['arm-linux-gnueabihf-size'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='SIZE' -> ['/usr/bin/arm-linux-gnueabihf-size']
+/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-size
+find program=['arm-linux-gnueabihf-size'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='SIZE' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-size']
 -----------------------------------------------
 Benchmarks
 disabled
@@ -1572,4 +1824,4 @@ disabled
 -----------------------------------------------
 Checking for program 'rsync'
 /usr/bin/rsync
-find program=['rsync'] paths=['/home/ari-new-ae/bin', '/home/ari-new-ae/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/ari-new-ae/conattest/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin', '/home/ari-new-ae/conattest/conattestllvm/build/bin'] var='RSYNC' -> ['/usr/bin/rsync']
+find program=['rsync'] paths=['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='RSYNC' -> ['/usr/bin/rsync']

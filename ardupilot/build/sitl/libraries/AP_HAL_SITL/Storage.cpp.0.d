@@ -19,8 +19,6 @@ libraries/AP_HAL_SITL/Storage.cpp.0.o: \
   ../../libraries/AP_HAL/OpticalFlow.h \
   ../../libraries/AP_HAL/Scheduler.h ../../libraries/AP_HAL/Semaphores.h \
   ../../libraries/AP_HAL/Util.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/stat.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/stat.h \
   ../../libraries/AP_Common/missing/fcntl.h \
   ../../libraries/AP_HAL_SITL/Storage.h \
   ../../libraries/AP_HAL_SITL/AP_HAL_SITL_Namespace.h

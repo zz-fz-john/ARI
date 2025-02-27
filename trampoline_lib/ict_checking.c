@@ -26,7 +26,7 @@ typedef struct {
     _Atomic size_t tail;
 } RingBuffer;
 
-RingBuffer ringBuffer;
+extern RingBuffer ringBuffer;
 
 
 bool push(RingBuffer* ringBuffer, Element value) {

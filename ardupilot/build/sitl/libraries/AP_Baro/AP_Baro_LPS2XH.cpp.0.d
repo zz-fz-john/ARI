@@ -5,6 +5,7 @@ libraries/AP_Baro/AP_Baro_LPS2XH.cpp.0.o: \
   ../../libraries/AP_HAL/AP_HAL.h \
   ../../libraries/AP_HAL/AP_HAL_Namespace.h \
   ../../libraries/AP_HAL/utility/functor.h \
+  ../../libraries/AP_Common/missing/type_traits \
   ../../libraries/AP_HAL/AP_HAL_Boards.h \
   ../../libraries/AP_HAL/board/sitl.h \
   ../../libraries/AP_HAL/AP_HAL_Macros.h \

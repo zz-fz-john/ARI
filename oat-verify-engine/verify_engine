@@ -1247,10 +1247,10 @@ def hookit(opts):
                     # continue
 
                     #return instruction bx lr
-                    if(i.operands[0].reg == ARM_REG_LR):
+                    if(i.operands[0].reg == ARM_REG_LR):#实际上没有实现，因为在arducopter.s中bx lr指令不在critical comparment内部
                         #TODOjinwen
                         #this is a return, need further process
-                        break;
+                        break
                         # #pop return address from stack
                         # target_address = stack.pop()
                         # #return address external invocation

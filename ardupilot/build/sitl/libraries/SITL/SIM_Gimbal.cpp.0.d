@@ -21,19 +21,6 @@ libraries/SITL/SIM_Gimbal.cpp.0.o: ../../libraries/SITL/SIM_Gimbal.cpp \
   ../../libraries/AP_HAL/Scheduler.h ../../libraries/AP_HAL/Semaphores.h \
   ../../libraries/AP_HAL/Util.h \
   ../../libraries/AP_Common/missing/fcntl.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/ioctl.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/ioctls.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/asm/ioctls.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/ioctl-types.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/ttydefaults.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/socket.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/uio.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/uio.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/sigset.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/socket.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/socket_type.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/sockaddr.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/asm/socket.h \
   ../../libraries/SITL/SIM_Aircraft.h ../../libraries/AP_Math/AP_Math.h \
   ../../libraries/AP_Common/missing/cmath \
   ../../libraries/AP_Param/AP_Param.h \
@@ -110,6 +97,7 @@ libraries/SITL/SIM_Gimbal.cpp.0.o: ../../libraries/SITL/SIM_Gimbal.cpp \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/./mavlink_msg_esc_telemetry_5_to_8.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/./mavlink_msg_esc_telemetry_9_to_12.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/common.h \
+  libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/../protocol.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_heartbeat.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_sys_status.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_system_time.h \
@@ -265,10 +253,12 @@ libraries/SITL/SIM_Gimbal.cpp.0.o: ../../libraries/SITL/SIM_Gimbal.cpp \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_obstacle_distance.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_odometry.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/uAvionix.h \
+  libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/../protocol.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/./mavlink_msg_uavionix_adsb_out_cfg.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/./mavlink_msg_uavionix_adsb_out_dynamic.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/./mavlink_msg_uavionix_adsb_transceiver_health_report.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/icarous.h \
+  libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/../protocol.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/./mavlink_msg_icarous_heartbeat.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/./mavlink_msg_icarous_kinematic_bands.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../mavlink_get_info.h \

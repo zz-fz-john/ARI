@@ -108,7 +108,7 @@ extern "C" { // C naming instead of C++ mangling
 	#define HASH_OUTBYTES 32
 
 
-	extern RingBuffer ringBuffer;
+	RingBuffer ringBuffer;
 
 	#define DBG
 
@@ -128,6 +128,41 @@ extern "C" { // C naming instead of C++ mangling
 	blake2s_state state;
 	uint8_t hash[HASH_OUTBYTES];
 
+bool push(RingBuffer* ringBuffer, Element value) {
+    size_t next_head = (ringBuffer->head + 1) % BUFFER_SIZE;
+    if (next_head != atomic_load(&ringBuffer->tail)) {
+        ringBuffer->buffer[ringBuffer->head] = value;
+        atomic_store(&ringBuffer->head, next_head);
+        return true;
+    } else {
+        // Buffer is full
+        return false;
+    }
+}
+
+bool pop(RingBuffer* ringBuffer, Element* value) {
+    if (atomic_load(&ringBuffer->head) == atomic_load(&ringBuffer->tail)) {
+        // Buffer is empty
+        return false;
+    } else {
+        *value = ringBuffer->buffer[ringBuffer->tail];
+        atomic_store(&ringBuffer->tail, (ringBuffer->tail + 1) % BUFFER_SIZE);
+        return true;
+    }
+}
+
+
+bool is_empty(RingBuffer* ringBuffer) {
+    return ringBuffer->head == ringBuffer->tail;
+}
+
+
+bool ringbuffer_init(RingBuffer* ringBuffer){
+
+	atomic_init(&ringBuffer->head, 0);
+	atomic_init(&ringBuffer->tail, 0);
+	return true;
+}
 
 
 	void mission_control(){

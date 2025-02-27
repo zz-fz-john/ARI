@@ -24,9 +24,4 @@ libraries/AP_BoardConfig/AP_BoardConfig_CAN.cpp.0.o: \
   ../../libraries/AP_Param/AP_Param.h \
   ../../libraries/AP_Common/missing/cmath \
   ../../libraries/StorageManager/StorageManager.h \
-  ../../libraries/AP_RTC/AP_RTC.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/ioctl.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/ioctls.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/asm/ioctls.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/ioctl-types.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/ttydefaults.h
+  ../../libraries/AP_RTC/AP_RTC.h

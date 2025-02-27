@@ -19,6 +19,4 @@ libraries/AP_HAL_SITL/system.cpp.0.o: \
   ../../libraries/AP_HAL/OpticalFlow.h \
   ../../libraries/AP_HAL/Scheduler.h ../../libraries/AP_HAL/Semaphores.h \
   ../../libraries/AP_HAL/Util.h ../../libraries/AP_HAL_SITL/Scheduler.h \
-  ../../libraries/AP_HAL_SITL/AP_HAL_SITL_Namespace.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/time.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/time.h
+  ../../libraries/AP_HAL_SITL/AP_HAL_SITL_Namespace.h

@@ -22,20 +22,4 @@ libraries/AP_HAL_SITL/UART_utils.cpp.0.o: \
   ../../libraries/AP_HAL_SITL/AP_HAL_SITL_Namespace.h \
   ../../libraries/AP_HAL/utility/Socket.h \
   ../../libraries/AP_Common/missing/fcntl.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/ioctl.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/ioctls.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/asm/ioctls.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/ioctl-types.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/ttydefaults.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/socket.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/uio.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/uio.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/sigset.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/socket.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/socket_type.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/sockaddr.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/asm/socket.h \
-  ../../libraries/AP_HAL/utility/RingBuffer.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/asm/termbits.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/sys/stat.h \
-  /media/rpi/usr/include/arm-linux-gnueabihf/bits/stat.h
+  ../../libraries/AP_HAL/utility/RingBuffer.h

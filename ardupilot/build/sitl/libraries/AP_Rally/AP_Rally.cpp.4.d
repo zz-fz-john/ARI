@@ -98,6 +98,7 @@ libraries/AP_Rally/AP_Rally.cpp.4.o: \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/./mavlink_msg_esc_telemetry_5_to_8.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/./mavlink_msg_esc_telemetry_9_to_12.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/common.h \
+  libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/../protocol.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_heartbeat.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_sys_status.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_system_time.h \
@@ -253,10 +254,12 @@ libraries/AP_Rally/AP_Rally.cpp.4.o: \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_obstacle_distance.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../common/./mavlink_msg_odometry.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/uAvionix.h \
+  libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/../protocol.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/./mavlink_msg_uavionix_adsb_out_cfg.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/./mavlink_msg_uavionix_adsb_out_dynamic.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../uAvionix/./mavlink_msg_uavionix_adsb_transceiver_health_report.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/icarous.h \
+  libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/../protocol.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/./mavlink_msg_icarous_heartbeat.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../icarous/./mavlink_msg_icarous_kinematic_bands.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/../mavlink_get_info.h \

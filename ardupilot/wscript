@@ -191,10 +191,15 @@ def configure(cfg):
 
     cfg.msg('Setting board to', cfg.options.board)
     cfg.get_board().configure(cfg)
-
+    cfg.env.prepend_value('CFLAGS', ['-flto'])
+    cfg.env.prepend_value('CFLAGS', ['-fno-discard-value-names'])
+    cfg.env.prepend_value('CXXFLAGS', ['-flto'])
+    cfg.env.prepend_value('CXXFLAGS', ['-fno-discard-value-names'])
+    cfg.env.prepend_value('LINKFLAGS','-flto')
+    cfg.env.prepend_value('LINKFLAGS','-fuse-ld=gold')
 
     # add -emit-llvm
-    cfg.env.prepend_value('CFLAGS', ['L-emit-llvm'])
+    cfg.env.prepend_value('CFLAGS', ['-emit-llvm'])
     cfg.env.prepend_value('CXXFLAGS', ['-emit-llvm'])
 
     # add optee
