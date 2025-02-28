@@ -59,6 +59,8 @@ $ echo 'export PATH=$PATH:ari_dir/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnue
 $ source ~/.bashrc
 ```
 Download the Pi3 image in following link. Decompress it into  pi3_img_dir.https://drive.google.com/drive/folders/1WOiFES-zJf6JkdWjziMnFrqsJJlmlBwy?usp=sharing.  
+
+When you run command "./waf --debug --targets bin/arducopter", you may meet some error such as "ld.lld: error: undefined symbol: pop" ,ignore it and continue next step.
 ```
 $ cd pi3_img_dir/my-working-image && ./load_image.sh
 $ cd ./conattestllvm && ./compiler_for_1st_part.sh  
