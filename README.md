@@ -23,7 +23,7 @@ REPO_ROOT
     |-> verify_engine (Mission Integrity Verification)
 ```
 ## Dependencies
-Installing following dependencies on Ubuntu 16.04. On Cortex-A platform, the code is tested on Raspberry Pi3 with Navio2 as a daughter board.
+Installing following dependencies on Ubuntu 20.04. On Cortex-A platform, the code is tested on Raspberry Pi3 with Navio2 as a daughter board.
 ```
 REPO_ROOT
 $ sudo apt-get install python-pip  
@@ -34,20 +34,20 @@ $ sudo apt install git cmake build-essential make texinfo bison flex ninja-build
 $ sudo pip2 -q install -U future lxml pymavlink MAVProxy  
 $ pip install pydotplus python-louvain bitarray capstone  
 enum34 pyelftools pyblake2  
-$ wget http://launchpadlibrarian.net/356067403/gcc-5-aarch64-linux-gnu_5.4.0-6ubuntu1~16.04.9cross1_amd64.deb  
-$ sudo dpkg -i ./gcc-5-aarch64-linux-gnu_5.4.0-6ubuntu1~16.04.9cross1_amd64.deb
+$ sudo apt-get install gcc-arm-linux-gnueabihf
+$ sudo apt-get install g++-arm-linux-gnueabihf
 ```
 ## Building ARI
 To setup ARI for the first time, clone the repo and follow next steps. REPO_ROOT is the path of RT-TEE root directory (ari_dir  is the root directory of ARI project. ).
 1. Build LLVM
 ```
 $ git clone https://github.com/WUSTL-CSPL/ARI.git  
-$ git ./conattest/conattestllvm 
+$ cd  ./conattestllvm 
 $ chmod +x ./compiler_for_1st_part.sh  
 $ ./compiler_for_1st_part.sh  
 $ mkdir build && cd ./build  
-$ cmake -DLLVM_ENABLE_ASSERTIONS=OFF ..  
-$ make  
+$ cmake -G "Ninja" -DLLVM_ENABLE_PROJECTS="lld;llvm;clang" -DCMAKE_BUILD_TYPE=Release -DLLVM_DEFAULT_TARGET_TRIPLE=arm-linux-gnueabihf -DLLVM_TARGETS_TO_BUILD=ARM -DLLVM_TARGET_ARCH=ARM  -DLLVM_ENABLE_LIBXML2=0 -DLLVM_ENABLE_ASSERTIONS=OFF ..  
+$ ninja -j8  
 $ echo ’export PATH=$PATH:ari_dir/conattestllvm/build/bin’>> ~/.bashrc  
 $ source ~/.bashrc
 ```

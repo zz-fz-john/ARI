@@ -1607,7 +1607,7 @@ namespace {
         virtual bool runOnMachineFunction(MachineFunction &MF) {     
 
             //disabling this pass
-            // return false;
+            return false;
 
             if(!init_flag){
                 build_func2sec();

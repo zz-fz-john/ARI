@@ -73,5 +73,6 @@
         "mutex": "cpp",
         "thread": "cpp",
         "cinttypes": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm"
 }

@@ -1401,7 +1401,7 @@ int test_sanxbox_blx(MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, c
         virtual bool runOnMachineFunction(MachineFunction &MF) {
             
             // disable this pass
-            // return false;
+            return false;
 
             if(!init_flag){
                 init_flag = 1;
