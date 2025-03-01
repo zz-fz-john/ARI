@@ -356,15 +356,29 @@ namespace {
         }
 
         void determineSize(const DataLayout & DL){
+            // size = 0;
+            // if(ty){
+            //     if(PointerType * PT = dyn_cast<PointerType>(ty)){
+            //         size = DL.getTypeAllocSize(PT->getElementType());
+            //     }
+            //     else{
+            //        size = DL.getTypeAllocSize(ty);
+            //     }
+            // }
             size = 0;
-            if(ty){
-                if(PointerType * PT = dyn_cast<PointerType>(ty)){
-                    size = DL.getTypeAllocSize(PT->getElementType());
+            if (ty) {
+                if (PointerType *PT = dyn_cast<PointerType>(ty)) {
+                    Type *ElemTy = PT->getElementType();
+                    if (ElemTy->isSized()) { // 只对有固定大小的类型调用 getTypeAllocSize()
+                        size = DL.getTypeAllocSize(ElemTy);
+                    } else {
+                        errs() << "Warning: Pointer to unsized type. Skipping size calculation.\n";
+                    }
+                } else if (ty->isSized()) { // 确保 ty 本身是可测量大小的
+                    size = DL.getTypeAllocSize(ty);
+                } else {
+                    errs() << "Warning: Unsized type encountered. Skipping size calculation.\n";
                 }
-                else{
-                   size = DL.getTypeAllocSize(ty);
-                }
-
             }
         }
 

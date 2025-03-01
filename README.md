@@ -47,7 +47,7 @@ $ chmod +x ./compiler_for_1st_part.sh
 $ ./compiler_for_1st_part.sh  
 $ mkdir build && cd ./build  
 $ cmake -DLLVM_ENABLE_PROJECTS="lld;llvm;clang"  -DLLVM_ENABLE_ASSERTIONS=OFF  -DLLVM_DEFAULT_TARGET_TRIPLE=arm-linux-gnueabihf -DLLVM_TARGETS_TO_BUILD=ARM -DLLVM_TARGET_ARCH=ARM -DLLVM_BINUTILS_INCDIR=/home/zrz0517/gold/binutils/include ..  
-$ ninja -j8  
+$ make -j8  
 $ echo ’export PATH=$PATH:ari_dir/conattestllvm/build/bin’>> ~/.bashrc  
 $ source ~/.bashrc
 ```
