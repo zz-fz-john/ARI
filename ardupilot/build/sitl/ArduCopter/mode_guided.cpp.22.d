@@ -1,23 +1,43 @@
 ArduCopter/mode_guided.cpp.22.o: ../../ArduCopter/mode_guided.cpp \
   ap_config.h ../../ArduCopter/Copter.h \
   ../../libraries/AP_Common/missing/cmath \
+  /usr/arm-linux-gnueabihf/include/stdio.h \
+  /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/__fpos_t.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/__mbstate_t.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/__fpos64_t.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/__FILE.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/FILE.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
+  /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
+  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
   ../../libraries/AP_HAL/AP_HAL.h \
+  /usr/arm-linux-gnueabihf/include/stdint.h \
+  /usr/arm-linux-gnueabihf/include/bits/wchar.h \
+  /usr/arm-linux-gnueabihf/include/bits/wordsize.h \
+  /usr/arm-linux-gnueabihf/include/bits/stdint-uintn.h \
   ../../libraries/AP_HAL/AP_HAL_Namespace.h \
+  /usr/arm-linux-gnueabihf/include/string.h \
+  /usr/arm-linux-gnueabihf/include/strings.h \
   ../../libraries/AP_HAL/utility/functor.h \
   ../../libraries/AP_Common/missing/type_traits \
   ../../libraries/AP_HAL/AP_HAL_Boards.h \
   ../../libraries/AP_HAL/board/sitl.h \
   ../../libraries/AP_HAL/AP_HAL_Macros.h \
   ../../libraries/AP_HAL/AP_HAL_Main.h ../../libraries/AP_HAL/HAL.h \
-  ../../libraries/AP_HAL/AnalogIn.h ../../libraries/AP_HAL/GPIO.h \
-  ../../libraries/AP_HAL/RCInput.h ../../libraries/AP_HAL/RCOutput.h \
-  ../../libraries/AP_HAL/SPIDevice.h ../../libraries/AP_HAL/Device.h \
+  ../../libraries/AP_HAL/AnalogIn.h \
+  /usr/arm-linux-gnueabihf/include/inttypes.h \
+  ../../libraries/AP_HAL/GPIO.h ../../libraries/AP_HAL/RCInput.h \
+  ../../libraries/AP_HAL/RCOutput.h ../../libraries/AP_HAL/SPIDevice.h \
+  ../../libraries/AP_HAL/Device.h \
   ../../libraries/AP_HAL/utility/OwnPtr.h \
   ../../libraries/AP_Common/missing/cstddef \
   ../../libraries/AP_HAL/Storage.h ../../libraries/AP_HAL/UARTDriver.h \
   ../../libraries/AP_HAL/utility/BetterStream.h \
-  ../../libraries/AP_Common/AP_Common.h ../../libraries/AP_HAL/system.h \
-  ../../libraries/AP_HAL/OpticalFlow.h \
+  ../../libraries/AP_Common/AP_Common.h \
+  /usr/arm-linux-gnueabihf/include/stdlib.h \
+  ../../libraries/AP_HAL/system.h ../../libraries/AP_HAL/OpticalFlow.h \
   ../../libraries/AP_HAL/Scheduler.h ../../libraries/AP_HAL/Semaphores.h \
   ../../libraries/AP_HAL/Util.h ../../libraries/AP_Common/Location.h \
   ../../libraries/AP_Math/AP_Math.h ../../libraries/AP_Param/AP_Param.h \
@@ -26,8 +46,9 @@ ArduCopter/mode_guided.cpp.22.o: ../../ArduCopter/mode_guided.cpp \
   ../../libraries/AP_Math/location.h ../../libraries/AP_Math/vector2.h \
   ../../libraries/AP_Math/vector3.h ../../libraries/AP_Math/rotations.h \
   ../../libraries/AP_Math/matrix3.h ../../libraries/AP_Math/polygon.h \
-  ../../libraries/AP_Math/quaternion.h ../../libraries/AP_Math/spline5.h \
-  ../../libraries/GCS_MAVLink/GCS.h \
+  ../../libraries/AP_Math/quaternion.h \
+  /usr/arm-linux-gnueabihf/include/math.h \
+  ../../libraries/AP_Math/spline5.h ../../libraries/GCS_MAVLink/GCS.h \
   ../../libraries/GCS_MAVLink/GCS_MAVLink.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/ardupilotmega/version.h \
   libraries/GCS_MAVLink/include/mavlink/v2.0/mavlink_types.h \
@@ -359,6 +380,15 @@ ArduCopter/mode_guided.cpp.22.o: ../../ArduCopter/mode_guided.cpp \
   ../../libraries/AP_Scheduler/PerfInfo.h \
   ../../libraries/AP_BoardConfig/AP_BoardConfig.h \
   ../../libraries/AP_BoardConfig/AP_BoardConfig_CAN.h \
+  /usr/arm-linux-gnueabihf/include/sys/ioctl.h \
+  /usr/arm-linux-gnueabihf/include/bits/ioctls.h \
+  /usr/arm-linux-gnueabihf/include/asm/ioctls.h \
+  /usr/arm-linux-gnueabihf/include/asm-generic/ioctls.h \
+  /usr/arm-linux-gnueabihf/include/linux/ioctl.h \
+  /usr/arm-linux-gnueabihf/include/asm/ioctl.h \
+  /usr/arm-linux-gnueabihf/include/asm-generic/ioctl.h \
+  /usr/arm-linux-gnueabihf/include/bits/ioctl-types.h \
+  /usr/arm-linux-gnueabihf/include/sys/ttydefaults.h \
   ../../libraries/AP_LandingGear/AP_LandingGear.h \
   ../../libraries/AC_InputManager/AC_InputManager.h \
   ../../libraries/AC_InputManager/AC_InputManager_Heli.h \
@@ -379,7 +409,42 @@ ArduCopter/mode_guided.cpp.22.o: ../../ArduCopter/mode_guided.cpp \
   ../../libraries/AP_IRLock/AP_IRLock_I2C.h \
   ../../libraries/AP_IRLock/AP_IRLock_SITL.h \
   ../../libraries/AP_HAL/utility/Socket.h \
-  ../../libraries/AP_Common/missing/fcntl.h \
+  /usr/arm-linux-gnueabihf/include/fcntl.h \
+  /usr/arm-linux-gnueabihf/include/bits/fcntl.h \
+  /usr/arm-linux-gnueabihf/include/bits/fcntl-linux.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/struct_iovec.h \
+  /usr/arm-linux-gnueabihf/include/linux/falloc.h \
+  /usr/arm-linux-gnueabihf/include/bits/stat.h \
+  /usr/arm-linux-gnueabihf/include/bits/struct_stat.h \
+  /usr/arm-linux-gnueabihf/include/unistd.h \
+  /usr/arm-linux-gnueabihf/include/bits/posix_opt.h \
+  /usr/arm-linux-gnueabihf/include/bits/environments.h \
+  /usr/arm-linux-gnueabihf/include/bits/confname.h \
+  /usr/arm-linux-gnueabihf/include/bits/getopt_posix.h \
+  /usr/arm-linux-gnueabihf/include/bits/getopt_core.h \
+  /usr/arm-linux-gnueabihf/include/bits/unistd_ext.h \
+  /usr/arm-linux-gnueabihf/include/linux/close_range.h \
+  /usr/arm-linux-gnueabihf/include/sys/socket.h \
+  /usr/arm-linux-gnueabihf/include/bits/socket.h \
+  /usr/arm-linux-gnueabihf/include/bits/socket_type.h \
+  /usr/arm-linux-gnueabihf/include/bits/sockaddr.h \
+  /usr/arm-linux-gnueabihf/include/asm/socket.h \
+  /usr/arm-linux-gnueabihf/include/asm-generic/socket.h \
+  /usr/arm-linux-gnueabihf/include/linux/posix_types.h \
+  /usr/arm-linux-gnueabihf/include/linux/stddef.h \
+  /usr/arm-linux-gnueabihf/include/asm/posix_types.h \
+  /usr/arm-linux-gnueabihf/include/asm-generic/posix_types.h \
+  /usr/arm-linux-gnueabihf/include/asm/bitsperlong.h \
+  /usr/arm-linux-gnueabihf/include/asm-generic/bitsperlong.h \
+  /usr/arm-linux-gnueabihf/include/asm/sockios.h \
+  /usr/arm-linux-gnueabihf/include/asm-generic/sockios.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/struct_osockaddr.h \
+  /usr/arm-linux-gnueabihf/include/netinet/in.h \
+  /usr/arm-linux-gnueabihf/include/bits/in.h \
+  /usr/arm-linux-gnueabihf/include/bits/byteswap.h \
+  /usr/arm-linux-gnueabihf/include/bits/uintn-identity.h \
+  /usr/arm-linux-gnueabihf/include/netinet/tcp.h \
+  /usr/arm-linux-gnueabihf/include/arpa/inet.h \
   ../../libraries/AP_Follow/AP_Follow.h \
   ../../libraries/AP_OpticalFlow/AP_OpticalFlow.h \
   ../../libraries/AP_OpticalFlow/OpticalFlow.h \

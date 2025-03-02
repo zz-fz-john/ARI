@@ -335,7 +335,7 @@ namespace {
                                 DataUsed=true;
                              }
                          }else{
-                            errs() << "Warning: GV '" << gvName << "' has no initializer. Skipping.\n";
+                            errs() << "Warning: GV '" << gvName.asString() << "' has no initializer. Skipping.\n";
                          }
                      }
                      else{
@@ -397,7 +397,7 @@ namespace {
                                 GV->setSection(StringRef(DataSection));
                              }
                          }else{
-                            errs() << "Warning: GV '" << gvName << "' has no initializer. Skipping.\n";
+                            errs() << "Warning: GV '" << gvName.asString()<< "' has no initializer. Skipping.\n";
                          }
                      }
                      else{

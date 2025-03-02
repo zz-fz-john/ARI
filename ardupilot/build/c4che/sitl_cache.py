@@ -1,28 +1,28 @@
 AP_LIBRARIES = ['AP_HAL_SITL', 'SITL']
 AP_LIBRARIES_OBJECTS_KW = {}
-AR = ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+AR = ['/usr/bin/arm-linux-gnueabihf-ar']
 ARFLAGS = ['rcs']
 BINDIR = '/usr/bin'
 BOARD = 'sitl'
 BOOTLOADER = False
 BUILD_SUMMARY_HEADER = ['target', 'size_text', 'size_data', 'size_bss', 'size_total']
-CC = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.1-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
+CC = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
 CCLNK_SRC_F = []
 CCLNK_TGT_F = ['-o']
 CC_NAME = 'clang'
 CC_SRC_F = []
 CC_TGT_F = ['-c', '-o']
-CC_VERSION = ('3', '9', '1')
-CFLAGS = ['-emit-llvm', '-ffunction-sections', '-fdata-sections', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-missing-field-initializers', '-Wno-unused-parameter', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-I../../../lcu14_optee_hello_world-master/ta/include', '-I../../../optee_client-master/out/export/include', '-fno-PIC']
+CC_VERSION = ('3', '9', '0')
+CFLAGS = ['-emit-llvm', '-ffunction-sections', '-fdata-sections', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-missing-field-initializers', '-Wno-unused-parameter', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-I../../../lcu14_optee_hello_world-master/ta/include', '-I../../../optee_client-master/out/export/include', '-fno-PIC']
 CFLAGS_MACBUNDLE = ['-fPIC']
 CFLAGS_cshlib = ['-fPIC']
-CLANG_FLAGS = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-fno-PIC']
+CLANG_FLAGS = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-fno-PIC']
 COMPILER_CC = 'clang'
 COMPILER_CXX = 'clang++'
 CPPPATH_ST = '-I%s'
-CROSS_GCC = ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-gcc']
-CXX = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.1-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
-CXXFLAGS = ['-emit-llvm', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf', '-I/media/rpi/usr/include/arm-linux-gnueabihf/c++/6', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-I../../../lcu14_optee_hello_world-master/ta/include', '-I../../../optee_client-master/out/export/include', '-fno-PIC']
+CROSS_GCC = ['/usr/lib/ccache/arm-linux-gnueabihf-gcc']
+CXX = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
+CXXFLAGS = ['-emit-llvm', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin', '-I../../../lcu14_optee_hello_world-master/ta/include', '-I../../../optee_client-master/out/export/include', '-fno-PIC']
 CXXFLAGS_MACBUNDLE = ['-fPIC']
 CXXFLAGS_cxxshlib = ['-fPIC']
 CXXLNK_SRC_F = []
@@ -56,14 +56,14 @@ LIBPATH_ST = '-L%s'
 LIB_ST = '-l%s'
 LINKFLAGS = ['-Wl,--gc-sections', '-pthread']
 LINKFLAGS_MACBUNDLE = ['-bundle', '-undefined', 'dynamic_lookup']
-LINKFLAGS_cprogram = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin']
+LINKFLAGS_cprogram = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin']
 LINKFLAGS_cshlib = ['-shared']
 LINKFLAGS_cstlib = ['-Wl,-Bstatic']
-LINKFLAGS_cxxprogram = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin']
+LINKFLAGS_cxxprogram = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/usr', '--sysroot=/', '-B/usr/bin']
 LINKFLAGS_cxxshlib = ['-shared']
 LINKFLAGS_cxxstlib = ['-Wl,-Bstatic']
-LINK_CC = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.1-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
-LINK_CXX = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.1-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
+LINK_CC = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
+LINK_CXX = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
 MAVGEN = '/home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot/modules/mavlink/pymavlink/tools/mavgen.py'
 MAVLINK_DIR = '/home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot/modules/mavlink'
 NEED_CMATH_ISFINITE_STD_NAMESPACE = 1
@@ -82,14 +82,14 @@ ROMFS_FILES = []
 RPATH_ST = '-Wl,-rpath,%s'
 RSYNC = ['/usr/bin/rsync']
 SHLIB_MARKER = '-Wl,-Bdynamic'
-SIZE = ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-size']
+SIZE = ['/usr/bin/arm-linux-gnueabihf-size']
 SONAME_ST = '-Wl,-h,%s'
 STLIBPATH_ST = '-L%s'
 STLIB_MARKER = '-Wl,-Bstatic'
 STLIB_ST = '-l%s'
 SUBMODULE_UPDATE = False
 TOOLCHAIN = 'arm-linux-gnueabihf'
-TOOLCHAIN_CROSS_AR = ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+TOOLCHAIN_CROSS_AR = ['/usr/bin/arm-linux-gnueabihf-ar']
 cfg_files = ['/home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot/build/sitl/ap_config.h']
 cprogram_PATTERN = '%s'
 cshlib_PATTERN = 'lib%s.so'

@@ -1,3 +1,32 @@
 libraries/AC_PrecLand/PosVelEKF.cpp.0.o: \
   ../../libraries/AC_PrecLand/PosVelEKF.cpp ap_config.h \
-  ../../libraries/AC_PrecLand/PosVelEKF.h
+  ../../libraries/AC_PrecLand/PosVelEKF.h \
+  /usr/arm-linux-gnueabihf/include/math.h \
+  /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h \
+  /usr/arm-linux-gnueabihf/include/features.h \
+  /usr/arm-linux-gnueabihf/include/features-time64.h \
+  /usr/arm-linux-gnueabihf/include/bits/wordsize.h \
+  /usr/arm-linux-gnueabihf/include/bits/timesize.h \
+  /usr/arm-linux-gnueabihf/include/stdc-predef.h \
+  /usr/arm-linux-gnueabihf/include/sys/cdefs.h \
+  /usr/arm-linux-gnueabihf/include/bits/long-double.h \
+  /usr/arm-linux-gnueabihf/include/gnu/stubs.h \
+  /usr/arm-linux-gnueabihf/include/gnu/stubs-hard.h \
+  /usr/arm-linux-gnueabihf/include/bits/types.h \
+  /usr/arm-linux-gnueabihf/include/bits/typesizes.h \
+  /usr/arm-linux-gnueabihf/include/bits/time64.h \
+  /usr/arm-linux-gnueabihf/include/bits/math-vector.h \
+  /usr/arm-linux-gnueabihf/include/bits/libm-simd-decl-stubs.h \
+  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/floatn-common.h \
+  /usr/arm-linux-gnueabihf/include/bits/flt-eval-method.h \
+  /usr/arm-linux-gnueabihf/include/bits/fp-logb.h \
+  /usr/arm-linux-gnueabihf/include/bits/fp-fast.h \
+  /usr/arm-linux-gnueabihf/include/bits/mathcalls-helper-functions.h \
+  /usr/arm-linux-gnueabihf/include/bits/mathcalls.h \
+  /usr/arm-linux-gnueabihf/include/bits/mathcalls-narrow.h \
+  /usr/arm-linux-gnueabihf/include/bits/iscanonical.h \
+  /usr/arm-linux-gnueabihf/include/string.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/locale_t.h \
+  /usr/arm-linux-gnueabihf/include/bits/types/__locale_t.h \
+  /usr/arm-linux-gnueabihf/include/strings.h
