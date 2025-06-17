@@ -83,7 +83,7 @@ private:
       parameters that define the multicopter model. Can be loaded from
       a json file to give a custom model
      */
-    const struct Model {
+     struct Model {
         // model mass kg
         float mass = 3.0;
 

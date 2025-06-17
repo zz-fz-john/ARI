@@ -264,11 +264,29 @@ void AC_AttitudeControl::input_quaternion(Quaternion& attitude_desired_quat, Vec
 //test ARI
 int recording_flag = 0;
 int recording_cnt = 0;
+extern int ret_recording_finish;
 // Command an euler roll and pitch angle and an euler yaw rate with angular velocity feedforward and smoothing
 void AC_AttitudeControl::input_euler_angle_roll_pitch_euler_rate_yaw(float euler_roll_angle_cd, float euler_pitch_angle_cd, float euler_yaw_rate_cds)
 {   
     //test ARI
-    mission_control();
+    //mission_control();
+    if(recording_cnt == 0){
+	        recording_flag = 1;
+	}
+
+	if(recording_cnt == 4){
+	    ret_recording_finish = 1;        
+	}
+
+    if(recording_cnt == 5){
+        recording_flag = 0;
+    }
+    else 
+    if (recording_cnt < 5){
+        printf("+++++++++cnt:%d++++++++++\n", recording_cnt);
+        recording_cnt += 1;
+    }
+
     // Convert from centidegrees on public interface to radians
     float euler_roll_angle = radians(euler_roll_angle_cd * 0.01f);
     float euler_pitch_angle = radians(euler_pitch_angle_cd * 0.01f);

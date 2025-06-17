@@ -617,7 +617,7 @@ void NavEKF3_core::send_status_report(GCS_MAVLINK &link) const
         velVar,
         posVar,
         hgtVar,
-        fmaxF(fmaxF(magVar.x,magVar.y),magVar.z),
+        static_cast<float>(fmaxf(fmaxf(magVar.x, magVar.y), magVar.z)),
         temp,
         flags,
         tasVar
