@@ -47,7 +47,7 @@ namespace {
     int total_instrumentation_cnt = 0;
     int Trampoline_Transfer_Instru(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
-
+        errs()<<"processing Trampoline_Transfer_Instru\n";
         // total_instrumentation_cnt += 1;
         // printf("%d\n", total_instrumentation_cnt);
 
@@ -63,7 +63,7 @@ namespace {
         
         // save r0
         BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-            .addReg(ARM::SP)
+            .addReg(ARM::SP,RegState::Define)
             .addReg(ARM::R0)
             .addReg(ARM::SP)
             // .addReg(ARM::SP);
@@ -72,7 +72,7 @@ namespace {
         
         // save r1
         BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-            .addReg(ARM::R1)
+            .addReg(ARM::R1,RegState::Define)
             .addReg(ARM::R1)
             .addReg(ARM::SP)
             .addImm(8)
@@ -80,7 +80,7 @@ namespace {
 
         // save r2
         BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-            .addReg(ARM::R2)
+            .addReg(ARM::R2,RegState::Define)
             .addReg(ARM::R2)
             .addReg(ARM::SP)
             .addImm(8)
@@ -109,7 +109,7 @@ namespace {
                 .addReg(ARM::R0)
                 .addReg(des_reg)
                 .addImm(14)
-                .addReg(0)
+                .addImm(0)
                 .addReg(0);            
         }
         //LDMIA_RET
@@ -140,7 +140,7 @@ namespace {
                 .addReg(ARM::R0)
                 .addReg(des_reg)
                 .addImm(14)
-                .addReg(0)
+                .addImm(0)
                 .addReg(0);               
         }
 
@@ -150,7 +150,7 @@ namespace {
             BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVr), ARM::R1)
                 .addReg(ARM::PC)
                 .addImm(14)
-                .addReg(0)
+                .addImm(0)
                 .addReg(0);                
         }
         //conditional branch 
@@ -225,7 +225,7 @@ namespace {
             .addReg(0)
             .addReg(0);
         
-        
+        errs()<<"after Trampoline_Transfer_Instru\n";
         return 0;
     }
 
@@ -234,7 +234,8 @@ namespace {
     int Fwd_SFI_Instrumentation(MachineInstr* MI, MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII,\
         int base_addr, int mask){
         DebugLoc dl = DebugLoc();
-        // errs() << "&&&&&&&&&&&&&&&&Fwd_SFI_Instrumentation&&&&&&&&&&&&&&&&" << "\n";
+
+        errs() << "&&&&&&&&&&&&&&&&Fwd_SFI_Instrumentation&&&&&&&&&&&&&&&&" << "\n";
         // sub sp, sp, 32
         // BuildMI(*MBB, BBI, dl, TII.get(ARM::ANDri))               
         //     .addReg(ARM::R8)
@@ -345,12 +346,13 @@ namespace {
             BuildMI(*MBB, BBI, dl, TII.get(ARM::BX))
             .addReg(ARM::R8, RegState::Define);
         }
-
+        errs()<<"after Fwd_SFI_Instrumentation"<<"\n";
         return 0;   
     }
 
     int Bkwd_SFI_Instrumentation(MachineInstr* MI, MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
         DebugLoc dl = DebugLoc();
+        errs()<<"processing Bkwd_SFI_Instrumentation"<< "\n";
         if(MI->getOpcode() == ARM::BX_RET){
 
             // if(MI->getNumOperands() == 2){
@@ -368,7 +370,7 @@ namespace {
                 .addReg(ARM::R8)
                 .addReg(ARM::LR)
                 .addImm(14)
-                .addReg(0)
+                .addImm(0)
                 .addReg(0); 
 
             // for(int i = 0; i< MI->getNumOperands(); i++){
@@ -463,30 +465,32 @@ namespace {
                 }
             }
         }
+        errs()<<"after processing Bkwd_SFI_Instrumentation"<< "\n";
     }
 
     void CPT_Direct_Transfer(MachineBasicBlock::iterator &BBI,SmallVector<MachineInstr *, 500> &DelInstVect, MachineBasicBlock *MBB, const TargetInstrInfo &TII){
         
-        // errs() << "!!!!!!!!!!Processing CPT_Transfer Instruction!!!!!!!!!!\n";
+         errs() << "!!!!!!!!!!Processing CPT_Transfer Instruction!!!!!!!!!!\n";
         DebugLoc dl = DebugLoc();
 
         MachineInstr* MI = &*BBI;
-
+        
         // if(!MI->getOperand(0).isGlobal()){
         //     errs() << "Not Global\n";
         //     errs() << MI->getOperand(0).getType() << "\n";
         // }
+        
+        if(MI->getOperand(0).isGlobal())
+        {
 
-        if(MI->getOperand(0).isGlobal()){
-
-            // errs() << "~~~~~MOVi16\n";
+            errs() << "~~~~~MOVi16\n";
             BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi16))
                 .addReg(ARM::R8)
                 .addGlobalAddress(MI->getOperand(0).getGlobal(),0,1)
                 .addImm(14)
-                .addReg(0);
+                .addImm(0);
 
-            // errs() << "~~~~~MOVTi16\n";
+            errs() << "~~~~~MOVTi16\n";
              
             MachineInstrBuilder MIB = BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVTi16), ARM::R8);
             MIB.addReg(ARM::R8);
@@ -496,7 +500,7 @@ namespace {
             //sp = sp - 4
             //str lr, [sp]_ZN18AC_AttitudeControl17euler_accel_limitE7Vector3IfES1_
             BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-                .addReg(ARM::LR)
+                .addReg(ARM::LR, RegState::Define)
                 .addReg(ARM::LR)
                 .addReg(ARM::SP)
                 .addImm(-4)
@@ -507,7 +511,7 @@ namespace {
             // if(MI->getOpcode() == ARM::BL || MI->getOpcode() == ARM::BL_pred){
             if((MI->getOpcode() == ARM::BL) || (MI->getOpcode() == ARM::BL_pred && MI->getOperand(1).getImm() == ARMCC::AL) ){
 
-                // errs() << "pos1\n";
+                errs() << "pos1\n";
 
                 const char* tpl_tsf_indirect_jmp_checking = "__tsf_direct_jmp_link_recording";
                 BuildMI(*MBB,BBI,dl,TII.get(ARM::BL)).addExternalSymbol(tpl_tsf_indirect_jmp_checking);
@@ -516,9 +520,10 @@ namespace {
                 // we don't needs to delete this instruciton because it is not a indirect jump
 
             }
-            else if((MI->getOpcode() == ARM::BL_pred) && (MI->getOperand(1).getImm() != ARMCC::AL)){
+            else if((MI->getOpcode() == ARM::BL_pred) && (MI->getOperand(1).getImm() != ARMCC::AL))
+            {
 
-
+                errs() << "pos2\n";
                 //save r1
                 BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
                     .addReg(ARM::R1, RegState::Define)
@@ -547,8 +552,8 @@ namespace {
                 BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi), ARM::R2)
                     .addImm(condCode)
                     .addImm(14)
-                    .addReg(0)
-                    .addReg(0);
+                    .addImm(0)
+                    .addImm(0);
 
                 // errs() << "pos2\n";
 
@@ -561,7 +566,7 @@ namespace {
                     .addReg(ARM::R2, RegState::Define)
                     .addReg(ARM::R2, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -570,15 +575,16 @@ namespace {
                     .addReg(ARM::R1, RegState::Define)
                     .addReg(ARM::R1, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
 
             }
-            else if((MI->getOpcode() == ARM::B) || ((MI->getOpcode() == ARM::Bcc && MI->getOperand(1).getImm() == ARMCC::AL))){
+            else if((MI->getOpcode() == ARM::B) || ((MI->getOpcode() == ARM::Bcc && MI->getOperand(1).getImm() == ARMCC::AL)))
+            {
 
-                // errs() << "pos3\n";
+                 errs() << "pos3\n";
 
                 const char* tpl_tsf_indirect_jmp_checking = "__tsf_direct_jmp_recording";
                 BuildMI(*MBB,BBI,dl,TII.get(ARM::BL)).addExternalSymbol(tpl_tsf_indirect_jmp_checking);
@@ -587,18 +593,17 @@ namespace {
                 // we don't needs to delate this instruction 
 
             }
-            else if(MI->getOpcode() == ARM::Bcc && MI->getOperand(1).getImm() != ARMCC::AL){
+            else if(MI->getOpcode() == ARM::Bcc && MI->getOperand(1).getImm() != ARMCC::AL)
+            {
                 
                 //save r1
+                errs() << "pos4\n";
                 BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
                     .addReg(ARM::R1, RegState::Define)
                     .addReg(ARM::R1)          //useless              
                     .addReg(ARM::SP)
                     .addImm(-4)               //pre offset
                     .addImm(14);              //conditional codes 
-
-
-
                 //save r2
                 BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
                     .addReg(ARM::R2, RegState::Define)
@@ -618,8 +623,8 @@ namespace {
                 BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi), ARM::R2)
                     .addImm(condCode)
                     .addImm(14)
-                    .addReg(0)
-                    .addReg(0);
+                    .addImm(0)
+                    .addImm(0);
 
                 // errs() << "pos4\n";
                 //jump to record
@@ -632,7 +637,7 @@ namespace {
                     .addReg(ARM::R2, RegState::Define)
                     .addReg(ARM::R2, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -641,7 +646,7 @@ namespace {
                     .addReg(ARM::R1, RegState::Define)
                     .addReg(ARM::R1, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -649,27 +654,49 @@ namespace {
 
             //ldr lr, [sp]
             //sp = sp +4
+            //zrz debug
             BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
                 .addReg(ARM::LR, RegState::Define)
                 .addReg(ARM::LR, RegState::Define)//useless              
                 .addReg(ARM::SP, RegState::Define)
-                .addImm(0) //useless
+                .addReg(0) //useless
                 .addImm(4) //post offset
                 .addImm(14);//conditional codes
+            // BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM), ARM::LR) // 定义目标寄存器：Rt = LR
+            //     .addReg(ARM::SP)      // 基址寄存器：Rn = SP
+            //     .addImm(4)            // 后递增偏移
+            //     .addImm(ARMCC::AL)    // 条件码 AL（14）
+            //     .addReg(0);           // pred寄存器，一般为0
+
+            // BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
+            //     .addReg(ARM::LR, RegState::Define)  // Rt
+            //     .addReg(ARM::SP, RegState::Define)  // Rn，写回所以需要 Define
+            //     .addImm(4)                          // offset
+            //     .addImm(ARMCC::AL)                 // condition
+            //     .addImm(0);                         // 不设置 CPSR，必须是 Imm 类型
+            // BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
+            //     .addReg(ARM::LR, RegState::Define)  // Rt (destination)
+            //     .addReg(ARM::SP, RegState::Define)  // Rn (base register, post-incremented)
+            //     .addImm(4)                         // Post-increment offset
+            //     .addImm(ARMCC::AL)                 // Condition code (AL = always)
+            //     .addReg(0);                        // Predicate operand (0 = no flags)
+
+
 
             //TODO B and B_pred
         }
 
-        else if(MI->getOperand(0).isMBB()){
+        else if(MI->getOperand(0).isMBB())
+        {
             // errs() << "opcode:" << MI->getOpcode() << "\n";
             // const BasicBlock * basicblock = MI->getOperand(0).getBasicBlock();
             // errs() << "start insert\n";
             // errs() << "MOVi16\n";
-            
+            errs()<<"run MBB"<< "\n";
             //iterate machine basic blocks
-
+            
             MachineBasicBlock *internal_MBB = MI->getOperand(0).getMBB();
-
+            
             for (MachineBasicBlock::iterator internal_BBI = internal_MBB->begin(), internal_BBE = internal_MBB->end();
                      internal_BBI != internal_BBE; ++internal_BBI) {
 
@@ -687,7 +714,7 @@ namespace {
                                 .addReg(ARM::R8)
                                 .addGlobalAddress(internal_MI->getOperand(0).getGlobal(),0,1)
                                 .addImm(14)
-                                .addReg(0);
+                                .addImm(0);
 
                             // errs() << "~~~~~MOVTi16\n";
                             MachineInstrBuilder MIB = BuildMI(*internal_MBB, internal_BBI, dl, TII.get(ARM::MOVTi16), ARM::R8);
@@ -700,7 +727,7 @@ namespace {
                             //sp = sp - 4
                             //str lr, [sp]
                             BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-                                .addReg(ARM::LR)
+                                .addReg(ARM::LR,RegState::Define)
                                 .addReg(ARM::LR)
                                 .addReg(ARM::SP)
                                 .addImm(-4)
@@ -753,8 +780,8 @@ namespace {
                                 BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi), ARM::R2)
                                     .addImm(condCode)
                                     .addImm(14)
-                                    .addReg(0)
-                                    .addReg(0);
+                                    .addImm(0)
+                                    .addImm(0);
 
                                 // errs() << "pos6\n";
 
@@ -767,7 +794,7 @@ namespace {
                                     .addReg(ARM::R2, RegState::Define)
                                     .addReg(ARM::R2, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -776,7 +803,7 @@ namespace {
                                     .addReg(ARM::R1, RegState::Define)
                                     .addReg(ARM::R1, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -823,8 +850,8 @@ namespace {
                                 BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi), ARM::R2)
                                     .addImm(condCode)
                                     .addImm(14)
-                                    .addReg(0)
-                                    .addReg(0);
+                                    .addImm(0)
+                                    .addImm(0);
 
 
                                 // errs() << "pos8\n";
@@ -839,7 +866,7 @@ namespace {
                                     .addReg(ARM::R2, RegState::Define)
                                     .addReg(ARM::R2, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -848,7 +875,7 @@ namespace {
                                     .addReg(ARM::R1, RegState::Define)
                                     .addReg(ARM::R1, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -860,7 +887,7 @@ namespace {
                                 .addReg(ARM::LR, RegState::Define)
                                 .addReg(ARM::LR, RegState::Define)//useless              
                                 .addReg(ARM::SP, RegState::Define)
-                                .addImm(0) //useless
+                                .addReg(0) //useless
                                 .addImm(4) //post offset
                                 .addImm(14);//conditional codes
 
@@ -874,30 +901,14 @@ namespace {
                 break;                      
             }
         }
+        errs() << "!!!!!!!!!!after Processing CPT_Transfer Instruction!!!!!!!!!!\n";
 
-        //===================================================================
-        //move direct jump target into R8 using movw and movt
-        // MachineInstrBuilder MIB;
-        // MIB = BuildMI(*MBB, BBI, dl,TII.get(ARM::MOVi16), ARM::R8);
-        // MIB.addGlobalAddress(MI->getOperand(0).getGlobal(),0,1);
-        // AddDefaultPred(MIB);
-
-        // //movt
-        // MIB = BuildMI(*MBB, BBI, dl,TII.get(ARM::MOVTi16), ARM::R8);
-        // MIB.addReg(ARM::LR);
-        // MIB.addGlobalAddress(MI->getOperand(0).getGlobal(),0,2);
-        // MIB.addImm(14);
-
-        //delete original direct jump and jump to __tsf_direct_jmp_checking
-        //__tsf_direct_jmp_checking will checking validity of compartment transfer and
-        //perform jump
-        // errs() << "!!!!!!!!!!Finish Transfer through BL!!!!!!!!!!\n";
     }
 
     void CPT_Indirect_Transfer(MachineBasicBlock::iterator &BBI, SmallVector<MachineInstr *, 500> &DelInstVect, MachineBasicBlock *MBB, const TargetInstrInfo &TII){
 
         // return;
-
+        errs()<<"processing CPT_Indirect_Transfer Instruction\n";
         DebugLoc dl = DebugLoc();
         // BBI++;
         MachineInstr* MI = &*BBI;
@@ -916,14 +927,14 @@ namespace {
             .addReg(ARM::R8)
             .addReg(MI->getOperand(0).getReg())
             .addImm(14)
-            .addReg(0)
+            .addImm(0)
             .addReg(0);
 
 
         //sp = sp - 4
         //str lr, [sp]
         BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-            .addReg(ARM::LR)
+            .addReg(ARM::LR,RegState::Define)
             .addReg(ARM::LR)
             .addReg(ARM::SP)
             .addImm(-4)
@@ -963,10 +974,10 @@ namespace {
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
-
+        errs()<<"after processing CPT_Indirect_Transfer Instruction\n";
         return;
 
 
@@ -991,7 +1002,7 @@ namespace {
             .addReg(ARM::R8)
             .addReg(MI->getOperand(0).getReg())
             .addImm(14)
-            .addReg(0)
+            .addImm(0)
             .addReg(0);
 
 
@@ -1023,7 +1034,7 @@ namespace {
         //find return first
         DebugLoc dl = DebugLoc();
         MachineInstr* MI = &*BBI;
-
+        errs()<<"processing CPT_Bkword_Transfer Instruction\n";
         //BX LR Transfer
         // errs() << MBB->getParent()->getName() << "\n";
 
@@ -1034,7 +1045,7 @@ namespace {
                 .addReg(ARM::R8)
                 .addReg(ARM::LR)
                 .addImm(14)
-                .addReg(0)
+                .addImm(0)
                 .addReg(0); 
             
             //insert instruction to jump to bx lr checking trampoline
@@ -1065,11 +1076,12 @@ namespace {
 
 
             //restoring lr
+            //zrz debug
             BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
                 .addReg(ARM::LR, RegState::Define)
                 .addReg(ARM::LR, RegState::Define)//useless              
                 .addReg(ARM::SP, RegState::Define)
-                .addImm(0) //useless
+                .addReg(0) //useless
                 .addImm(4) //post offset
                 .addImm(14);//conditional codes
 
@@ -1099,12 +1111,12 @@ namespace {
                     //     .addReg(ARM::SP)
                     //     .addImm(-4)               //pre offset
                     //     .addImm(14);              //conditional codes
-
+                    //zrz debug
                     BuildMI(*MBB, MBB->end(), dl, TII.get(ARM::LDR_POST_IMM))
                         .addReg(ARM::R8, RegState::Define)
                         .addReg(ARM::R8, RegState::Define)//useless              
                         .addReg(ARM::SP, RegState::Define)
-                        .addImm(0) //useless
+                        .addReg(0) //useless
                         .addImm(4) //post offset
                         .addImm(14);//conditional codes
 
@@ -1114,20 +1126,18 @@ namespace {
                     BuildMI(*MBB,MBB->end(),dl,TII.get(ARM::BL)).addExternalSymbol(trampoline_pop_ret);
 
                     break;
-                    // MachineInstrBuilder MIB = BuildMI(*MBB, MBB->end(), dl, TII.get(ARM::B));
-                    // const char* trampoline_pop_ret = "__tsf_bkwd_pop_pc_checking";
-                    // MIB.addExternalSymbol(trampoline_pop_ret);
+
 
                 }
             }
         }
-
+        errs()<<"after processing CPT_Bkword_Transfer Instruction\n";
     }
 
 
     void Wrt_SFI_Instrumentation(MachineBasicBlock::iterator &BBI, SmallVector<MachineInstr *, 500> &DelInstVect, \
         MachineBasicBlock *MBB, const TargetInstrInfo &TII, int base_addr, int mask, MachineFunction &MF){
-
+        errs()<<"processing Wrt_SFI_Instrumentation"<< "\n";
         DebugLoc dl = DebugLoc();
         MachineInstr* MI = &*BBI;        
 
@@ -1149,9 +1159,12 @@ namespace {
         }
 
 
-        if(MI->getOperand(2).getImm() > 0 && MI->getOperand(2).getImm() < 100){
-            // errs() << "pass process none 0 immediate\n";
-            return;
+        if (MI->getNumOperands() > 2 && MI->getOperand(2).isImm()) {
+            int64_t immVal = MI->getOperand(2).getImm();
+            if (immVal > 0 && immVal < 100) {
+                // errs() << "pass process none 0 immediate\n";
+                return;
+            }
         }
 
         if(MI->getOpcode() != ARM::STRi12){
@@ -1197,7 +1210,7 @@ namespace {
             .addReg(ARM::R8)
             .addImm(base_addr & 0xffff)
             .addImm(14)
-            .addReg(0);
+            .addImm(0);
 
         // errs() << "~~~~~MOVTi16\n";
          
@@ -1247,7 +1260,7 @@ namespace {
             .addImm(14);  
         }
 
-
+        errs()<<"after processing Wrt_SFI_Instrumentation"<< "\n";
     }
 
 
@@ -1261,7 +1274,7 @@ namespace {
         //push opcode
 
         // int inst_id = MI->getOpcode();
-
+        errs()<< "processing Store_SFI_Instrumentation Instruction\n";
 
         //debug here
         errs() << MI->getNumOperands() << " ";
@@ -1281,7 +1294,7 @@ namespace {
         BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi16), ARM::R8)
             .addImm(MI->getOpcode())          
             .addImm(14)
-            .addReg(0);
+            .addImm(0);
 
 
         BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
@@ -1298,8 +1311,8 @@ namespace {
             .addReg(ARM::SP)
             .addImm(4)
             .addImm(14)
-            .addReg(0)
-            .addReg(0); 
+            .addImm(0)
+            .addImm(0); 
 
 
         //add or sub r8, target address register, offset
@@ -1310,7 +1323,7 @@ namespace {
                 .addReg(ARM::R8)
                 .addImm(MI->getOperand(2).getImm())
                 .addImm(14)
-                .addReg(0);
+                .addImm(0);
 
             // errs() << "~~~~~MOVTi16\n";
              
@@ -1324,8 +1337,8 @@ namespace {
                 .addReg(ARM::R8)
                 .addReg(MI->getOperand(1).getReg())
                 .addImm(14)
-                .addReg(0)
-                .addReg(0); 
+                .addImm(0)
+                .addImm(0); 
 
 
             // BuildMI(*MBB, BBI, dl, TII.get(ARM::ADDri))               
@@ -1343,7 +1356,7 @@ namespace {
                 .addReg(ARM::R8)
                 .addImm(-1 * MI->getOperand(2).getImm())
                 .addImm(14)
-                .addReg(0);
+                .addImm(0);
 
 
             BuildMI(*MBB, BBI, dl, TII.get(ARM::SUBrr))               
@@ -1351,8 +1364,8 @@ namespace {
                 .addReg(MI->getOperand(1).getReg())
                 .addReg(ARM::R8)
                 .addImm(14)
-                .addReg(0)
-                .addReg(0); 
+                .addImm(0)
+                .addImm(0); 
 
 
 
@@ -1371,8 +1384,8 @@ namespace {
             .addReg(ARM::SP)
             .addImm(4)
             .addImm(14)
-            .addReg(0)
-            .addReg(0); 
+            .addImm(0)
+            .addImm(0); 
 
 
         //push value to be strored into memory
@@ -1406,7 +1419,7 @@ namespace {
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -1415,9 +1428,9 @@ namespace {
             .addReg(ARM::SP)
             .addImm(8)
             .addImm(14)
-            .addReg(0)
-            .addReg(0);    
-
+            .addImm(0)
+            .addImm(0);    
+    errs()<< "after processing Store_SFI_Instrumentation Instruction\n";
         return;
 
     }
@@ -1607,8 +1620,8 @@ namespace {
         virtual bool runOnMachineFunction(MachineFunction &MF) {     
 
             //disabling this pass
-            return false;
-
+            // return false;
+            errs()<<"run SandboxPass on machine function: " << MF.getName() << "\n";
             if(!init_flag){
                 build_func2sec();
                 build_sectaddrmask();
@@ -1752,7 +1765,8 @@ namespace {
             int curr_ist = 0;
 
             DebugLoc dl = DebugLoc();
-            for (MachineFunction::iterator I = MF.begin(), E = MF.end(); I != E; ++I) {
+            for (MachineFunction::iterator I = MF.begin(), E = MF.end(); I != E; ++I) 
+            {
                 MachineBasicBlock *MBB = &*I;
 
                 // MachineInstr *tobe_deleted_inst = NULL;
@@ -1761,7 +1775,8 @@ namespace {
                 SmallVector<MachineInstr *, 500> DelInstVect;
 
                 for (MachineBasicBlock::iterator BBI = MBB->begin(), BBE = MBB->end();
-                     BBI != BBE; ++BBI) {
+                     BBI != BBE; ++BBI) 
+                {
 
                     MachineInstr* MI = &*BBI;
 
@@ -1823,6 +1838,7 @@ namespace {
 
                                         //jinwen writes this for debug
                                         // errs() << "direct tsf\n";
+                                        //zrz debug
                                         CPT_Direct_Transfer(BBI, DelInstVect, MBB, TII);
 
                                     }
@@ -1909,6 +1925,7 @@ namespace {
                                     //critical compartment will handle indirect by
                                     //themselves
                                     if(critical_flag == 0){
+                                        //zrz debug
                                         CPT_Indirect_Transfer(BBI, DelInstVect, MBB, TII);
                                     }
 
@@ -1920,6 +1937,7 @@ namespace {
                                 // break;
                                 if(critical_flag == 0){
                                     DelInstVect.push_back(MI);
+                                    //zrz debug
                                     Fwd_SFI_Instrumentation(MI, MBB, BBI, TII, curr_cpt_base_addr, curr_cpt_mask);
                                 }
                                 // tobe_deleted_inst = MI;
@@ -1934,6 +1952,7 @@ namespace {
                                     //jinwen comment for debug other functions
                                     // break;
                                     if(critical_flag == 0){
+                                       //zrz debug
                                         CPT_Bkword_Transfer(BBI, DelInstVect, MBB, TII);
                                     }
                                     break;
@@ -1952,6 +1971,7 @@ namespace {
                                     //jinwen comment for debug other functions
                                     // break;
                                     if(critical_flag == 0){
+                                        //zrz debug
                                         CPT_Bkword_Transfer(BBI, DelInstVect, MBB, TII);
                                     }
 
@@ -1977,87 +1997,10 @@ namespace {
                             case ARM::STRi12:
                             {
 
-                                // std::string debug_funciton = "_ZL18simulation_timevalP7timeval";
-                                // int opcode = MI->getOpcode();
-                                // if(curr_func_name == debug_funciton){
-                                //     errs() <<  TII.getName(opcode) << "\n";
-                                // }
-
-                                // errs() << MF.getName() << "\n";
-
-                                // if(MF.getName() != "_ZN6Copter9fast_loopEv"){
-                                //     break;
-                                // }
-
-                                //debug here
-                                // if(istmt_curr_id  < istmt_start_id || istmt_curr_id > istmt_end_id){
-                                //     // errs() << istmt_curr_id << " " << MF.getName() << "\n";
-                                //     break;
-                                // }
-
-                
-                                //TODO implement instrumentation of all conditional str instructions
-                                // if(MI->getOperand(3).getImm()!=14){
-                                //     break;
-                                // }
-
-
-                                // int flag_cfe = 0;
-                                // for(int i = 0; i < 15; i++){
-
-
-                                //     MachineInstr* MI = NULL;
-
-                                //     for(int j = 0; j < i; j++){
-                                //         BBI + 1
-                                //     }
-
-
-                                //     // if(BBI+i == MBB->end()){
-                                //     //     break;
-                                //     // }
-
-                                //     MachineInstr* MI = &*(BBI+i);
-
-
-                                //     // MachineInstr* MI = &*BBI;
-
-                                //     if(MI->getOpcode() == ARM::BL || MI->getOpcode() == ARM::BL_pred){
-                                //         if(MI->getOperand(0).isGlobal() &&  MI->getOperand(0).getGlobal()->getLinkage()==0 
-                                //             && MI->getOperand(0).getGlobal()->getGlobalIdentifier() == "__cfv_icall");
-                                //         flag_cfe = 1;
-                                //         break;
-                                //     }
-                                // }
-                                // if(flag_cfe){
-                                //     break;
-                                // }
-
-
-                                // break;
-                                //debug here
-                                // curr_ist += 1;
-                                // errs() << curr_ist << "\n";
-                                // if(curr_ist > 3){
-                                //     break;
-                                // }
-
-                                // if(MI->getOperand(2).getImm() < 0){
-                                //     break;
-                                // }
-
-
-                                //jinwen comment for debugging
-                                // DelInstVect.push_back(MI);
-                                // Store_SFI_Instrumentation(BBI, DelInstVect, MBB, TII);
-
-
                                 if(wrt_flag == 1){
                                     wrt_flag = 0;
-                                    // DelInstVect.push_back(MI);
-                                    //jinwen comment for debug
-                                    // break;
                                     if(critical_flag == 0){
+                                        //zrz debug
                                         Wrt_SFI_Instrumentation(BBI, DelInstVect, MBB, TII, curr_cpt_base_addr, curr_cpt_mask, MF);
                                     }
                                     break;
@@ -2069,18 +2012,18 @@ namespace {
                     }
                 }
 
-                // errs() << "before deletion\n";
+                errs() << "before deletion\n";
 
                 //delete instructions to be deleted
                 for (auto DI: DelInstVect){
                     MBB->remove_instr(DI);
                 }
 
-                // errs() << "after deletion\n";
+                errs() << "after deletion\n";
 
             }
             // std::cout << "-----------finish-----------" << std::endl;
-            // errs() << "before return\n";
+            errs() << "before return\n";
             return false;
         }
     };

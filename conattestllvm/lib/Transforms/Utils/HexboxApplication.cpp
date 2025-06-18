@@ -389,6 +389,11 @@ namespace {
                 for (auto gvName : Region.get("Objects","")){
                     GlobalVariable *GV;
                     GV = M.getGlobalVariable(StringRef(gvName.asString()),true);
+                    if(!GV)
+                    {
+                        errs()<<"No such global variable: "<<gvName.asString()<<"\n";
+                        continue;
+                    }
                     if (GV){
                         if ( GV->hasInitializer() ){
                             if (GV->getInitializer()->isZeroValue()){

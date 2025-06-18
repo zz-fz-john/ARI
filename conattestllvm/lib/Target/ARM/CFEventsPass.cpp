@@ -39,7 +39,7 @@ namespace {
     int Trampoline_Transfer_Instru(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
 
-        // errs() << "Trampoline_Transfer_Instru\n" << "\n";
+         errs() << "Trampoline_Transfer_Instru\n" << "\n";
 
         // total_instrumentation_cnt += 1;
         // printf("%d\n", total_instrumentation_cnt);
@@ -248,7 +248,7 @@ namespace {
     int Trampoline_Transfer_Instru_BLX(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
 
-
+        errs()<< "Trampoline_Transfer_Instru_BLX\n" << "\n";
         DebugLoc dl = DebugLoc();
         
         MachineInstr* MI = &*BBI;
@@ -304,7 +304,7 @@ namespace {
     int Trampoline_Transfer_Instru_BLX_PRE(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
 
-
+        errs()<<" Trampoline_Transfer_Instru_BLX_PRE\n" << "\n";
         DebugLoc dl = DebugLoc();
         // BBI++;
         MachineInstr* MI = &*BBI;
@@ -396,7 +396,7 @@ namespace {
 void Trampoline_Transfer_Instru_Cond_B(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
 
-
+        errs()<<"Trampoline_Transfer_Instru_Cond_B"<< "\n";
         DebugLoc dl = DebugLoc();
         // BBI++;
         MachineInstr* MI = &*BBI;
@@ -477,7 +477,7 @@ void Trampoline_Transfer_Instru_Cond_B(int CFE_type, unsigned des_reg, unsigned 
 void Trampoline_Transfer_Instru_Cond_BL(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
 
-
+        errs()<<"Trampoline_Transfer_Instru_Cond_BL"<< "\n";
         DebugLoc dl = DebugLoc();
         // BBI++;
         MachineInstr* MI = &*BBI;
@@ -558,7 +558,7 @@ void Trampoline_Transfer_Instru_Cond_BL(int CFE_type, unsigned des_reg, unsigned
 
 void Trampoline_Transfer_Instru_LDMIA_RET_Org(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
-
+        errs()<<"Trampoline_Transfer_Instru_LDMIA_RET_Org\n" << "\n";
         DebugLoc dl = DebugLoc();
         // BBI++;
         MachineInstr* MI = &*BBI;
@@ -676,7 +676,7 @@ void Trampoline_Transfer_Instru_LDMIA_RET_Org(int CFE_type, unsigned des_reg, un
  // void CPT_Bkword_Transfer(MachineBasicBlock::iterator &BBI, MachineBasicBlock *MBB, const TargetInstrInfo &TII){
     void Trampoline_Transfer_Instru_LDMIA_RET(int CFE_type, unsigned des_reg, unsigned cond_code,\
                 MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
-
+        errs()<<"Trampoline_Transfer_Instru_LDMIA_RET\n" << "\n";
         // return;
         //find return first
         DebugLoc dl = DebugLoc();
@@ -789,7 +789,7 @@ void Trampoline_Transfer_Instru_LDMIA_RET_Org(int CFE_type, unsigned des_reg, un
 void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned cond_code,\
         MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, const TargetInstrInfo &TII){
 
-        // errs() << "!!!!!!!!!!Processing CPT_Transfer Instruction!!!!!!!!!!\n";
+        errs() << "!!!!!!!!!!Processing Trampoline_Transfer_Instru_Cond!!!!!!!!!\n";
         DebugLoc dl = DebugLoc();
 
         MachineInstr* MI = &*BBI;
@@ -818,7 +818,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
         //jinwen write the folling for debug
         }
         else if(MI->getOperand(0).isMBB()){
-            // errs()<<"MBB\n";
+            errs()<<"MBB\n";
 
             // MachineBasicBlock *targetMBB = MI->getOperand(0).getMBB();
 
@@ -1401,13 +1401,13 @@ int test_sanxbox_blx(MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, c
         virtual bool runOnMachineFunction(MachineFunction &MF) {
             
             // disable this pass
-            return false;
+            // return false;
 
             if(!init_flag){
                 init_flag = 1;
                 CFEvent_Instru_Init();
             }
-
+            errs()<<"run CFEventPass\n";
             // Assuming you have a MachineFunction* MF:
             const llvm::Function* F = MF.getFunction();
 
