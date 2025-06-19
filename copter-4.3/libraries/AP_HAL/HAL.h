@@ -16,7 +16,7 @@ class AP_Param;
 #include "OpticalFlow.h"
 #include "DSP.h"
 #include "CANIface.h"
-#include <Conattest/ringbuffer.h>
+#include <Conattest/view_switch_and_log.h>
 
 class AP_HAL::HAL {
 public:

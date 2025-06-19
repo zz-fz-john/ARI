@@ -5,7 +5,7 @@ objdump ?= aarch64-linux-gnu-objdump
 hikey ?= your-hikey-board-ip 
 TEEC_EXPORT ?=../../optee_client-master/out/export
 TA ?= /your/path/to/work/tee_workspace/devel/optee_hikey_debian/hello_world/ta
-GCC = arm-linux-gnueabihf-gcc
+GCC = ../../gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
 RESERVE_R8 = -ffixed-r8
 
 
@@ -43,8 +43,8 @@ trampoline:
 	$(GCC) $(TRAMPOLINE_GCC_CONFIG) $(TRAMPOLINE_PATH)/trampoline.S -o $(TRAMPOLINE_PATH)/trampoline.o
 
 ict_checking:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm $(TRAMPOLINE_PATH)/ict_checking.c -o $(TRAMPOLINE_PATH)/ict_checking.bc
-
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm $(TRAMPOLINE_PATH)/ict_checking.c -o $(TRAMPOLINE_PATH)/ict_checking.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-dis $(TRAMPOLINE_PATH)/ict_checking.bc -o $(TRAMPOLINE_PATH)/ict_checking.ll
 util:
 	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm util.c -o util.bc
 

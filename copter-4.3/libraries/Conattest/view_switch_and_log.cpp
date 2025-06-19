@@ -102,7 +102,8 @@ namespace {
 
 
 
-extern "C" { // C naming instead of C++ mangling
+extern "C" 
+{ // C naming instead of C++ mangling
 	//cpsr, condition type, cfe_type
 
 	#define HASH_OUTBYTES 32
@@ -195,16 +196,16 @@ extern "C" { // C naming instead of C++ mangling
 	    // }
 	}
 
-void write_two_numbers_to_file(uint32_t number1, uint32_t number2, const char* filename) {
-    FILE* file = fopen(filename, "a");
-    if(file != NULL) {
-        // Write the two numbers to the file, separated by a space
-        fprintf(file, "%x %x\n", number1, number2);
-        fclose(file);
-    } else {
-        printf("Failed to open the file %s\n", filename);
-    }
-}
+	void write_two_numbers_to_file(uint32_t number1, uint32_t number2, const char* filename) {
+		FILE* file = fopen(filename, "a");
+		if(file != NULL) {
+			// Write the two numbers to the file, separated by a space
+			fprintf(file, "%x %x\n", number1, number2);
+			fclose(file);
+		} else {
+			printf("Failed to open the file %s\n", filename);
+		}
+	}
 
 
 	void print_hash(uint8_t* hash, size_t length) {
@@ -342,34 +343,35 @@ void write_two_numbers_to_file(uint32_t number1, uint32_t number2, const char* f
 	}
 
 
-//create measurement files
-void create_files(const char* filename1, const char* filename2, const char* filename3,\
-	const char* filename4, const char* filename5) {
-    const char* filenames[5] = {filename1, filename2, filename3, filename4, filename5};
-    FILE* file;
+	//create measurement files
+	void create_files(const char* filename1, const char* filename2, const char* filename3,\
+		const char* filename4, const char* filename5) 
+	{
+		const char* filenames[5] = {filename1, filename2, filename3, filename4, filename5};
+		FILE* file;
 
-    for(int i = 0; i < 5; ++i) {
-        file = fopen(filenames[i], "r");
-        if(file != NULL) {
-            // The file exists, so we close it and remove it
-            fclose(file);
-            if(remove(filenames[i]) == 0) {
-                printf("Deleted successfully the file %s\n", filenames[i]);
-            } else {
-                printf("Unable to delete the file %s\n", filenames[i]);
-            }
-        }
+		for(int i = 0; i < 5; ++i) {
+			file = fopen(filenames[i], "r");
+			if(file != NULL) {
+				// The file exists, so we close it and remove it
+				fclose(file);
+				if(remove(filenames[i]) == 0) {
+					printf("Deleted successfully the file %s\n", filenames[i]);
+				} else {
+					printf("Unable to delete the file %s\n", filenames[i]);
+				}
+			}
 
-        // Now we create a new file
-        file = fopen(filenames[i], "w");
-        if(file != NULL) {
-            printf("Successfully created the file %s\n", filenames[i]);
-            fclose(file);
-        } else {
-            printf("Failed to create the file %s\n", filenames[i]);
-        }
-    }
-}
+			// Now we create a new file
+			file = fopen(filenames[i], "w");
+			if(file != NULL) {
+				printf("Successfully created the file %s\n", filenames[i]);
+				fclose(file);
+			} else {
+				printf("Failed to create the file %s\n", filenames[i]);
+			}
+		}
+	}
 
 
 
@@ -394,7 +396,7 @@ void create_files(const char* filename1, const char* filename2, const char* file
 
 
 
-void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
+	void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
 	{
 		// printf("view_switch_to_rd_and_log dest:%x pc:%x cfe_type:%d\n", destination, pc, cfe_type);
 		// return;
@@ -491,12 +493,12 @@ void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
 				errx(1, "TEEC_InitializeContext failed with code 0x%x", res);
 
 			/*
-			 * Open a session to the "hello world" TA, the TA will print "hello
-			 * world!" in the log when the session is created.
-			 */
+			* Open a session to the "hello world" TA, the TA will print "hello
+			* world!" in the log when the session is created.
+			*/
 			// printf("Open session from user space! \n");
 			res = TEEC_OpenSession(&ctx, &sess, &uuid,
-					       TEEC_LOGIN_PUBLIC, NULL, NULL, &err_origin);
+						TEEC_LOGIN_PUBLIC, NULL, NULL, &err_origin);
 			if (res != TEEC_SUCCESS)
 				errx(1, "TEEC_Opensession failed with code 0x%x origin 0x%x",
 					res, err_origin);
@@ -505,7 +507,7 @@ void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
 		// printf("Setting op.params[0].value.a to fffd in user space \n");
 		memset(&op, 0, sizeof(op));
 		op.paramTypes = TEEC_PARAM_TYPES(TEEC_VALUE_INOUT, TEEC_VALUE_INOUT,
-						 TEEC_NONE, TEEC_NONE);
+						TEEC_NONE, TEEC_NONE);
 		// op.params[0].value.a = 0xfffa;
 		// op.params[0].value.b = 0x0000;
 		// op.params[1].value.a = 0x1111;
@@ -517,7 +519,7 @@ void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
 
 		// printf("Invoking PTA to increment op.params[0].value.a: %x\n in user space", op.params[0].value.a);
 		res = TEEC_InvokeCommand(&sess, PTA_INVOKE_TESTS_CMD_TRACE, &op,
-					 &err_origin);
+					&err_origin);
 		if (res != TEEC_SUCCESS)
 			errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",
 				res, err_origin);
@@ -543,12 +545,12 @@ void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
 		// printf("Setting op.params[0].value.a to fffd in user space \n");
 		memset(&op, 0, sizeof(op));
 		op.paramTypes = TEEC_PARAM_TYPES(TEEC_VALUE_INOUT, TEEC_NONE,
-						 TEEC_NONE, TEEC_NONE);
+						TEEC_NONE, TEEC_NONE);
 		op.params[0].value.a = 0xfffa;
 
 		// printf("Invoking PTA to increment op.params[0].value.a: %x\n in user space", op.params[0].value.a);
 		res = TEEC_InvokeCommand(&sess, PTA_INVOKE_TESTS_CMD_TRACE, &op,
-					 &err_origin);
+					&err_origin);
 		if (res != TEEC_SUCCESS)
 			errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",
 				res, err_origin);
@@ -565,9 +567,6 @@ void view_switch_to_rd_and_log(int destination, int pc, int cfe_type)
 	}
 
 	void __tsf_recording(int source_cpt, int dest_cpt){
-
-
 	}
-
 
 }

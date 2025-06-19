@@ -1,4 +1,4 @@
-../conattestllvm/build/bin/llc -filetype=obj ./after_compartment_llvm_link.bc -o ./llvm-link_cond_br.o
+../conattestllvm/build/bin/llc -filetype=obj ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc -o ./build/SITL_arm_linux_gnueabihf/llvm-link_cond_br.o
 cd ../oat-evaluation/syringe-cb
 make trampoline
 make cit_checking_obj

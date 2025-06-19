@@ -1688,6 +1688,7 @@ namespace {
             }
             else{
                 std::cout << "function not found!!!!!" << std::endl;
+                return false;
             }
 
             std::vector<int>& curr_addrmask = sectaddrmask[curr_cpt_idx];

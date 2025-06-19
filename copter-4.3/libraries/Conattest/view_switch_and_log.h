@@ -35,7 +35,7 @@ bool is_empty(RingBuffer* ringBuffer);
 void start_new_thread();
 
 void mission_control();
-
+void view_switch_to_text_and_log();
 
 
 #ifdef __cplusplus

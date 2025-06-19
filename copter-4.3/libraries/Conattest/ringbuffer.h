@@ -15,6 +15,6 @@ typedef struct {
 bool push(RingBuffer* ringBuffer, uint32_t value);
 bool pop(RingBuffer* ringBuffer, uint32_t* value);
 
-void start_new_thread();
+//void start_new_thread();
 
 #endif

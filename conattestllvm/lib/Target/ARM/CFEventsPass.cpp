@@ -200,7 +200,7 @@ namespace {
             .addReg(ARM::R0, RegState::Define)
             .addReg(ARM::R0, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
         
@@ -209,7 +209,7 @@ namespace {
             .addReg(ARM::R1, RegState::Define)
             .addReg(ARM::R1, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -218,7 +218,7 @@ namespace {
             .addReg(ARM::R2, RegState::Define)
             .addReg(ARM::R2, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -227,7 +227,7 @@ namespace {
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -367,7 +367,7 @@ namespace {
             .addReg(ARM::R2, RegState::Define)
             .addReg(ARM::R2, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -376,7 +376,7 @@ namespace {
             .addReg(ARM::R1, RegState::Define)
             .addReg(ARM::R1, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -385,7 +385,7 @@ namespace {
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -449,7 +449,7 @@ void Trampoline_Transfer_Instru_Cond_B(int CFE_type, unsigned des_reg, unsigned 
             .addReg(ARM::R2, RegState::Define)
             .addReg(ARM::R2, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -458,7 +458,7 @@ void Trampoline_Transfer_Instru_Cond_B(int CFE_type, unsigned des_reg, unsigned 
             .addReg(ARM::R1, RegState::Define)
             .addReg(ARM::R1, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -468,7 +468,7 @@ void Trampoline_Transfer_Instru_Cond_B(int CFE_type, unsigned des_reg, unsigned 
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -530,7 +530,7 @@ void Trampoline_Transfer_Instru_Cond_BL(int CFE_type, unsigned des_reg, unsigned
             .addReg(ARM::R2, RegState::Define)
             .addReg(ARM::R2, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -539,7 +539,7 @@ void Trampoline_Transfer_Instru_Cond_BL(int CFE_type, unsigned des_reg, unsigned
             .addReg(ARM::R1, RegState::Define)
             .addReg(ARM::R1, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -549,7 +549,7 @@ void Trampoline_Transfer_Instru_Cond_BL(int CFE_type, unsigned des_reg, unsigned
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -631,39 +631,13 @@ void Trampoline_Transfer_Instru_LDMIA_RET_Org(int CFE_type, unsigned des_reg, un
         const char* symicall = "__cfv_icall_ldmia_ret";
         BuildMI(*MBB,BBI,dl,TII.get(ARM::BL)).addExternalSymbol(symicall);
 
-        //pop r0
-        // BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
-        //     .addReg(ARM::R0, RegState::Define)
-        //     .addReg(ARM::R0, RegState::Define)//useless              
-        //     .addReg(ARM::SP, RegState::Define)
-        //     .addImm(0) //useless
-        //     .addImm(4) //post offset
-        //     .addImm(14);//conditional codes
-        
-        // //pop r1
-        // BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
-        //     .addReg(ARM::R1, RegState::Define)
-        //     .addReg(ARM::R1, RegState::Define)//useless              
-        //     .addReg(ARM::SP, RegState::Define)
-        //     .addImm(0) //useless
-        //     .addImm(4) //post offset
-        //     .addImm(14);//conditional codes
-
-        // //pop r2
-        // BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
-        //     .addReg(ARM::R2, RegState::Define)
-        //     .addReg(ARM::R2, RegState::Define)//useless              
-        //     .addReg(ARM::SP, RegState::Define)
-        //     .addImm(0) //useless
-        //     .addImm(4) //post offset
-        //     .addImm(14);//conditional codes
 
         //pop lr
         BuildMI(*MBB, BBI, dl, TII.get(ARM::LDR_POST_IMM))
             .addReg(ARM::LR, RegState::Define)
             .addReg(ARM::LR, RegState::Define)//useless              
             .addReg(ARM::SP, RegState::Define)
-            .addImm(0) //useless
+            .addReg(0) //useless
             .addImm(4) //post offset
             .addImm(14);//conditional codes
 
@@ -762,7 +736,7 @@ void Trampoline_Transfer_Instru_LDMIA_RET_Org(int CFE_type, unsigned des_reg, un
                         .addReg(ARM::R8, RegState::Define)
                         .addReg(ARM::R8, RegState::Define)//useless              
                         .addReg(ARM::SP, RegState::Define)
-                        .addImm(0) //useless
+                        .addReg(0) //useless
                         .addImm(4) //post offset
                         .addImm(14);//conditional codes
 
@@ -874,7 +848,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
             //sp = sp - 4
             //str lr, [sp]_ZN18AC_AttitudeControl17euler_accel_limitE7Vector3IfES1_
             BuildMI(*MBB, BBI, dl, TII.get(ARM::STR_PRE_IMM))
-                .addReg(ARM::LR)
+                .addReg(ARM::LR,RegState::Define)
                 .addReg(ARM::LR)
                 .addReg(ARM::SP)
                 .addImm(-4)
@@ -939,7 +913,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                     .addReg(ARM::R2, RegState::Define)
                     .addReg(ARM::R2, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -948,7 +922,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                     .addReg(ARM::R1, RegState::Define)
                     .addReg(ARM::R1, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -1010,7 +984,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                     .addReg(ARM::R2, RegState::Define)
                     .addReg(ARM::R2, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -1019,7 +993,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                     .addReg(ARM::R1, RegState::Define)
                     .addReg(ARM::R1, RegState::Define)//useless              
                     .addReg(ARM::SP, RegState::Define)
-                    .addImm(0) //useless
+                    .addReg(0) //useless
                     .addImm(4) //post offset
                     .addImm(14);//conditional codes
 
@@ -1031,7 +1005,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                 .addReg(ARM::LR, RegState::Define)
                 .addReg(ARM::LR, RegState::Define)//useless              
                 .addReg(ARM::SP, RegState::Define)
-                .addImm(0) //useless
+                .addReg(0) //useless
                 .addImm(4) //post offset
                 .addImm(14);//conditional codes
 
@@ -1153,7 +1127,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                                     .addReg(ARM::R2, RegState::Define)
                                     .addReg(ARM::R2, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -1162,7 +1136,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                                     .addReg(ARM::R1, RegState::Define)
                                     .addReg(ARM::R1, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -1224,7 +1198,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                                     .addReg(ARM::R2, RegState::Define)
                                     .addReg(ARM::R2, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -1233,7 +1207,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                                     .addReg(ARM::R1, RegState::Define)
                                     .addReg(ARM::R1, RegState::Define)//useless              
                                     .addReg(ARM::SP, RegState::Define)
-                                    .addImm(0) //useless
+                                    .addReg(0) //useless
                                     .addImm(4) //post offset
                                     .addImm(14);//conditional codes
 
@@ -1245,7 +1219,7 @@ void Trampoline_Transfer_Instru_Cond(int CFE_type, unsigned des_reg, unsigned co
                                 .addReg(ARM::LR, RegState::Define)
                                 .addReg(ARM::LR, RegState::Define)//useless              
                                 .addReg(ARM::SP, RegState::Define)
-                                .addImm(0) //useless
+                                .addReg(0) //useless
                                 .addImm(4) //post offset
                                 .addImm(14);//conditional codes
 

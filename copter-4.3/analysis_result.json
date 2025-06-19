@@ -137842,13 +137842,13 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 2,
+			"Addr" : 3,
 			"ArgNum" : 0,
 			"DataSize" : 12,
 			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 2 to %struct.apfs_file*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 3 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
 			"Write" : false
@@ -137869,13 +137869,13 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 3,
+			"Addr" : 2,
 			"ArgNum" : 0,
 			"DataSize" : 12,
 			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 3 to %struct.apfs_file*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 2 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
 			"Write" : false
@@ -137919,29 +137919,6 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 64,
-			"ArgNum" : 0,
-			"DataSize" : 0,
-			"DataType" : "void (%class.AP_BattMonitor_SMBus*)*",
-			"IsArg" : false,
-			"IsParam" : false,
-			"LLVM::Value" : "void (%class.AP_BattMonitor_SMBus*)* inttoptr (i32 64 to void (%class.AP_BattMonitor_SMBus*)*)",
-			"Read" : false,
-			"Type" : "Peripheral",
-			"Write" : false
-		},
-		"Connections" : 
-		{
-			"_ZN7FunctorIvJEE14method_wrapperI20AP_BattMonitor_SMBusXadL_ZNS2_5timerEvEEEEvPv" : 
-			{
-				"Type" : "Peripheral"
-			}
-		}
-	},
-	".Peripheral_4" : 
-	{
-		"Attr" : 
-		{
 			"Addr" : 3758157112,
 			"ArgNum" : 0,
 			"DataSize" : 1,
@@ -137961,7 +137938,7 @@
 			}
 		}
 	},
-	".Peripheral_5" : 
+	".Peripheral_4" : 
 	{
 		"Attr" : 
 		{
@@ -137987,6 +137964,29 @@
 				"Type" : "Peripheral"
 			},
 			"luaopen_io" : 
+			{
+				"Type" : "Peripheral"
+			}
+		}
+	},
+	".Peripheral_5" : 
+	{
+		"Attr" : 
+		{
+			"Addr" : 64,
+			"ArgNum" : 0,
+			"DataSize" : 0,
+			"DataType" : "void (%class.AP_BattMonitor_SMBus*)*",
+			"IsArg" : false,
+			"IsParam" : false,
+			"LLVM::Value" : "void (%class.AP_BattMonitor_SMBus*)* inttoptr (i32 64 to void (%class.AP_BattMonitor_SMBus*)*)",
+			"Read" : false,
+			"Type" : "Peripheral",
+			"Write" : false
+		},
+		"Connections" : 
+		{
+			"_ZN7FunctorIvJEE14method_wrapperI20AP_BattMonitor_SMBusXadL_ZNS2_5timerEvEEEEvPv" : 
 			{
 				"Type" : "Peripheral"
 			}
