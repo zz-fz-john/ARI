@@ -92,19 +92,23 @@ $ cd ../oat-evaluation/syringe-cb
 $ make trampoline
 $ make cit_checking_obj
 $ cd ../../copter-4.3
-$ source ./single_bc_final_link.txt 
+$ source ./single_bc_final_link.txt
+# send arducopter_ARI to RPI3
+$ scp arducopter_ARI pi@192.168.1.101:/home/pi
+
 ```
 
 ## Mission Execution
 On the Pi3, execute following command to start arducopter.
 ```
-$ cd ~&& sync  
-$ sudo ./arducopter -S -I0 –model + –speedup 1 –defaults ./copter.parm
+$ cd  
+$ ./arducopter_ARI -S -I0 –model + –speedup 1 –defaults ./copter.parm
 ```
 
 On host, execute following instruction to start simulation.
 ```
-$  "mavproxy.py"  "–master"  "tcp:10.228.106.170:5760"  "–sitl" "10.228.106.170:5501" "–out"  "10.228.106.170:14550" "–out"  "10.228.106.170:14551" "–map" "–console"
+$ cd ~/study/MAVProxy/MAVProxy
+$ python3 mavproxy.py --master tcp:192.168.1.101:5760 --out 192.168.1.100:14550 --console --map
 ```
 
 Then you will see a  Console  and a  Map  in the VM. Please  wait for about 1 min, the  Console  will show  AP: EKF2 IMU0  is using GPS  and  AP: EKF2 IMU1 is using GPS.  Typing following commands in the terminal.  
