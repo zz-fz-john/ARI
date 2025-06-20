@@ -77,7 +77,13 @@
         "mman.h": "c",
         "blake2.h": "c",
         "time.h": "c",
-        "stdatomic.h": "c"
+        "stdatomic.h": "c",
+        "cunistd": "cpp",
+        "codecvt": "cpp",
+        "forward_list": "cpp",
+        "future": "cpp",
+        "shared_mutex": "cpp",
+        "cfenv": "cpp"
     },
     "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm"
 }

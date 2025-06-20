@@ -85,6 +85,7 @@ $ ../conattestllvm/build/bin/opt -f -load ../conattestllvm/build/lib/LLVMgold.so
 $ cd ../conattestllvm && ./compiler_for_2nd_part.sh
 $ cd ./build && make -j
 $ cd ../../copter-4.3
+$ ../conattestllvm/build/bin/llvm-dis ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc -o ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.ll
 $ ../conattestllvm/build/bin/llc -filetype=obj ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc -o ./build/SITL_arm_linux_gnueabihf/llvm-link_cond_br.o
 $ #use to debug linking,meet some error in linking
 $ /home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llc -filetype=obj -march=arm -mtriple=arm-linux-gnueabihf ./build/SITL_arm_linux_gnueabihf/llvm-link.bc -o ./build/SITL_arm_linux_gnueabihf/llvm-link_cond_br.o
