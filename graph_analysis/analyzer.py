@@ -841,7 +841,176 @@ def data_compartment_puting_ctl(Region_Graph, controller, controller_to_data_nod
         # print("len==0")
         controller_to_data_nodes[controller].append(node) 
 
+#ZRZ add
+#获取调用子图,分析出被关键操作调用的函数
+def get_call_subgraph(R, root_func):
+    """获取以root_func为根的调用子图(包含间接调用)"""
+    subgraph = set()
+    visited = set()
+    stack = [root_func]
+    while stack:
+        current = stack.pop()
+        if current in visited:
+            continue
+        visited.add(current)
+        subgraph.add(current)
+        for succ in R.successors(current):
+            edge_data=R.get_edge_data(current,succ)
+            con_type=edge_data.get(TYPE_KEY)
+            # print("con_type is ")
+            # print(con_type)
+            if R.node[succ][TYPE_KEY] == FUNCTION_TYPE and \
+                (con_type=="Callee" or con_type=="Indirect Call") and "arm-linux-gnueabihf" not in R.node[succ][FILENAME_TYPE]:
+                # print("succ is ")
+                # print(succ)
+                stack.append(succ)
+    return subgraph
+def get_shared_and_non_critical_functions(G,critical_functions,key_operations):
+    """
+    获取共享函数和非关键函数
+    共享函数定义：在关键函数调用链中，但同时会被不在关键函数调用链中的函数调用
+    :param G: 程序依赖图(PDG)
+    :param critical_functions: 关键函数集合
+    :return: 共享函数列表,非关键函数列表
+    """
+    shared_functions = set()
+    non_critical_func=set()
+    for node, attrs in G.nodes(data=True):
+        if attrs[TYPE_KEY] == FUNCTION_TYPE and node not in critical_functions:
+            #print(node)
+            non_critical_func.add(node)#不在关键函数集合中的函数都是非关键函数
+            successor_nodes=G.successors(node)#非关键函数的后继节点
+            #将successor_nodes转化为集合
+            successor_nodes_set=set(successor_nodes)
+            for successor in successor_nodes_set:#对于非关键函数每个后继节点，如果该节点不在关键操作中，但在关键函数中，则将该节点加入到共享函数中，避免将关键操作的根函数加入到共享函数中
+                edge_data=G.get_edge_data(node,successor)
+                con_type=edge_data.get(TYPE_KEY)
+                if con_type=="Indirect Call":
+                    if successor not in key_operations and successor in critical_functions and G.node[successor][TYPE_KEY] == FUNCTION_TYPE:
+                        shared_functions.add(successor)
+    print(shared_functions)
+    #critical_functions中移除交集中的函数
+    shared_diff=critical_functions.intersection(shared_functions)
+    critical_functions=critical_functions-shared_diff
+    non_critical_diff=non_critical_func.intersection(shared_functions)
+    non_critical_func=non_critical_func-non_critical_diff
+    shared_functions.update(critical_functions.intersection(non_critical_func))
+    print("critical func size is"+str(len(critical_functions)))
+    # for func in critical_functions:
+    #     print("critical func is ")
+    #     print(func+'\n')
+    
+    # for func in shared_functions:
+    #     print("shared_functions is ")
+    #     print(func+'\n')
+    print("shared func size is : "+str(len(shared_functions)))
+    # print("non_critical_func is ")
+    # print(non_critical_func)
+    return critical_functions,shared_functions,non_critical_func
 
+def partition_by_operation(G, T,key_operations):
+    """
+    根据关键操作划分隔离区
+    :param G: 程序依赖图(PDG)
+    :param T: 设备树描述
+    :param key_operations: 关键操作函数列表（如["encrypt_data", "verify_signature"])
+    :return: 分区描述字典
+    """
+    Region_Graph = G.copy()
+    operation_to_code_nodes = collections.OrderedDict()
+    operation_to_data_nodes = collections.OrderedDict()
+    critical_func=set()
+    # 为每个关键操作构建子图
+    for op in key_operations:
+        # 获取该操作相关的完整调用链
+        critical_func.update(get_call_subgraph(Region_Graph, op))
+    # print("critical func is ___________ ")
+    # print(critical_func)
+    #获取shared_functions和更新critical_func
+    critical_func_after,shared_functions,non_critical_funcs = get_shared_and_non_critical_functions(Region_Graph, critical_func,key_operations)
+    # print("critical func is ___________ ")
+    # print(critical_func)
+    # 将调用链中的函数划分到同一区域
+    if "critical" not in operation_to_code_nodes:
+        operation_to_code_nodes["critical"] = []  # 初始化为空列表
+    operation_to_code_nodes["critical"].extend(critical_func_after)
+    # print("critical func is ")
+    # print(operation_to_code_nodes["critical"])
+    #将非关键函数和共享函数分配到相同的区域中
+    if "non_critical" not in operation_to_code_nodes:
+        operation_to_code_nodes["non_critical"] = []
+    operation_to_code_nodes["non_critical"].extend(non_critical_funcs)
+    operation_to_code_nodes["non_critical"].extend(shared_functions)
+    # print("non_critical func is ")
+    # print(operation_to_code_nodes["non_critical"])
+    # 处理相关全局变量（根据数据依赖）
+    """
+    不对数据流进行验证,重点是保护measurement和verifier中的数据,
+    如果只有共享函数调用了该全局变量，则将该全局变量分配到共享代码对应的数据段
+    如果只有关键函数调用了该全局变量，则将该全局变量分配到关键数据段
+    如果只有非关键函数调用了该全局变量，则将该全局变量分配到非关键数据段
+    其余情况均分配到共享数据段
+    """
+    critical_data=set()
+    shared_code_data=set()
+    shared_data=set()
+    non_critical_data=set()
+    print(isinstance(Region_Graph, nx.Graph)) 
+    for func in critical_func_after:
+        for predecessor in Region_Graph.predecessors(func):
+            # print(type(Region_Graph.nodes()))
+            # print (type(predecessor))
+            # print(predecessor)
+            if predecessor in  Region_Graph.node:
+                node_data = Region_Graph.node[predecessor]  # 获取节点数据字典
+                if TYPE_KEY in node_data and node_data[TYPE_KEY] == GLOBAL_TYPE:
+                    critical_data.add(predecessor)
+    for func in shared_functions:
+        for predecessor in Region_Graph.predecessors(func):
+            if predecessor in Region_Graph.node and TYPE_KEY in Region_Graph.node[predecessor]:
+                if Region_Graph.node[predecessor][TYPE_KEY] == GLOBAL_TYPE:
+                    shared_code_data.add(predecessor)
+                #operation_to_data_nodes["critical"].append(predecessor)
+    for func in non_critical_funcs:
+        for predecessor in Region_Graph.predecessors(func):
+            if predecessor in Region_Graph.node and TYPE_KEY in Region_Graph.node[predecessor]:
+                if Region_Graph.node[predecessor][TYPE_KEY] == GLOBAL_TYPE:
+                    non_critical_data.add(predecessor)
+    #求交集
+    shared_data.update(critical_data.intersection(non_critical_data))
+    shared_data.update(critical_data.intersection(shared_code_data))
+    shared_data.update(non_critical_data.intersection(shared_code_data))
+    #critical_data中移除shared_data中的数据
+    critical_data=critical_data-shared_data
+    #non_critical_data中移除shared_data中的数据
+    non_critical_data=non_critical_data-shared_data
+    shared_code_data=shared_code_data-shared_data
+    if "shared" not in operation_to_data_nodes:
+        operation_to_data_nodes["share_data"] = []
+    operation_to_data_nodes["share_data"].extend(shared_data)
+    if "critical" not in operation_to_data_nodes:
+        operation_to_data_nodes["critical"] = []
+    operation_to_data_nodes["critical"].extend(critical_data)
+    if "non_critical" not in operation_to_data_nodes:
+        operation_to_data_nodes["non_critical"] = []
+    operation_to_data_nodes["non_critical"].extend(non_critical_data)
+    operation_to_data_nodes["non_critical"].extend(shared_code_data)
+    #operation_to_data_nodes["shared"].extend(shared_code_data)
+    # 构建region_graph
+    Region_Graph = build_regions_from_dict(
+        Region_Graph, operation_to_code_nodes, CODE_REGION_KEY
+    )
+    Region_Graph = AMI_build_data_regions_from_dict(
+        Region_Graph, operation_to_data_nodes, DATA_REGION_KEY
+    )
+    
+    is_implementable=True
+    
+    if is_implementable:
+        return get_compartment_description(Region_Graph)
+    else:
+        print("无法满足MPU区域数量限制")
+        quit(-1)
 
 
 def partition_by_filename(G,T,opt=True):
@@ -1381,6 +1550,7 @@ def add_size_info(G,json_size_file):
             nx.set_node_attributes(G,p,nodes)
 
 
+
 def remap_peripherals(G, device_desc):
     '''
       G: Dependancy Graph
@@ -1707,7 +1877,8 @@ if __name__ == '__main__':
                          "filename-no-opt":partition_by_filename_no_optimization,
                          "controller":partition_by_controller,
                          "sensor/actrator":partition_by_sensor_actruator,
-                         "best_partition":best_partition}
+                         "best_partition":best_partition
+                         "operation": partition_by_operation}
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-j','--json_graph',dest='json_graph',required=True,
@@ -1736,7 +1907,8 @@ if __name__ == '__main__':
                         help=('Number of MPU regions on target'),
                         default=8, type=int
                         )
-
+    parser.add_argument("-f","--critical_file_name",dest='critical_file_name',
+                        help="critical file name")
     args = parser.parse_args()
     # global MAX_DATA_REGIONS
     MAX_DATA_REGIONS = args.num_mpu_regions - NUM_DEFAULT_MPU_REGIONS
@@ -1779,8 +1951,18 @@ if __name__ == '__main__':
         # nx.drawing.nx_pydot.write_dot(PDG,"all_nodes.dot")
         # make_isr_comp(PDG) #empty for cortex-a (interrupt service routine) 
         remap_peripherals(PDG, device_desc) #empty for cortex-a
-        comp_def = PARTITION_METHODS[args.partion_method](PDG,T)
-
+        #zrz modify
+        #comp_def = PARTITION_METHODS[args.partion_method](PDG,T)
+        if args.partion_method=="operation":
+            critical_operation=[]
+            critical_file_name=str(args.critical_file_name)
+            with open(critical_file_name,"r") as file:
+                for line in file :
+                    func_name=line.strip()
+                    critical_operation.append(func_name)
+            comp_def=PARTITION_METHODS[args.partion_method](PDG,T,critical_operation)
+        else:
+            comp_def = PARTITION_METHODS[args.partion_method](PDG,T)##com_def表示为一个json数据
         # print comp_def
 
         with open(args.outfile,'wb') as outfile:

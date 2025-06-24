@@ -10,6 +10,7 @@ REGION_KEY = 'region'
 REGION_NAME = 'region_name'
 FUNCTION_TYPE = 'Function'
 FILENAME_TYPE = "Filename"
+OPERATION_TYPE= "Operation"
 CONTROLLER_TYPE = "Controller"
 GLOBAL_TYPE = "Global"
 TYPE_KEY = 'Type'

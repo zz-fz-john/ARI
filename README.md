@@ -81,13 +81,17 @@ $ source ./source_me_sitl_bc_step_zero.txt
 $ source ./llvm-link_cmd.txt
 $ ../conattestllvm/build/bin/opt -f -load ../conattestllvm/build/lib/LLVMgold.so -HexboxAnaysis --hexbox-analysis-results=./analysis_result.json ./build/SITL_arm_linux_gnueabihf/after_global.ll > ./build/SITL_arm_linux_gnueabihf/after_hexbox_info_clct.bc
 $ python2 ../graph_analysis/analyzer.py -j=./analysis_result.json -s=./size_result.json -o=./compartments_result.json -m=controller -b=STM32F479 -T=../oat-evaluation/syringe-cb/arm_link_script_syringe.txt  -L=./arm_link_script_syringe_intermidea.txt
+
+######partition by operation
+$ python2 ../graph_analysis/analyzer.py -j=./analysis_result.json -s=./size_result.json -o=./compartments_result.json  -m=operation -b=STM32F479 -T=../oat-evaluation/syringe-cb/arm_link_script_syringe.txt -f=./critical_function.txt -L=./arm_link_script_syringe_intermidea.txt
+
 $ ../conattestllvm/build/bin/opt -f -load ../conattestllvm/build/lib/LLVMgold.so -HexboxApplication --hexbox-policy=./compartments_result.json ./build/SITL_arm_linux_gnueabihf/after_global.ll > ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc
 $ ../conattestllvm/build/bin/llvm-dis ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc -o ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.ll
 $ cd ../conattestllvm && ./compiler_for_2nd_part.sh
 $ cd ./build && make -j
 $ cd ../../copter-4.3
 $ ../conattestllvm/build/bin/llc -filetype=obj ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc -o ./build/SITL_arm_linux_gnueabihf/llvm-link_cond_br.o
-$ #use to debug linking,meet some error in linking
+######use to debug linking,meet some error in linking
 $ /home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llc -filetype=obj -march=arm -mtriple=arm-linux-gnueabihf ./build/SITL_arm_linux_gnueabihf/llvm-link.bc -o ./build/SITL_arm_linux_gnueabihf/llvm-link_cond_br.o
 $ cd ../oat-evaluation/syringe-cb
 $ make trampoline
