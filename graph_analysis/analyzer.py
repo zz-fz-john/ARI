@@ -376,7 +376,7 @@ def add_default_mpu_config(mpu_config):
 def add_region_to_comp_desc(R,r_node,comp_desc):
     r_node_to_comp_lut = {CODE_REGION_KEY:"Code",DATA_REGION_KEY:"Data","Size":0,"Align":1}
     r_type =R.node[r_node][TYPE_KEY]
-    policy_r_type = r_node_to_comp_lut[r_type]
+    policy_r_type = r_node_to_comp_lut[r_type]##找到了是什么属性
     # print r_node
     # print ("--------")
     # print OBJECTS_KEY
@@ -949,8 +949,8 @@ def partition_by_controller(G, T):
     # print("jinwen checkpoint1")
     #group function and globale variables of the same controller together
     for (node,attrs) in Region_Graph.nodes(True):
-        if attrs.has_key(CONTROLLER_TYPE):
-            controller = attrs[CONTROLLER_TYPE]
+        if attrs.has_key(CONTROLLER_TYPE):#如果有controller属性
+            controller = attrs[CONTROLLER_TYPE]#实际上是控制器文件的名字，所以可能会有七个分区
             # print controller
             if attrs[TYPE_KEY] == FUNCTION_TYPE:
                 controller_to_code_nodes[controller].append(node)
@@ -959,7 +959,7 @@ def partition_by_controller(G, T):
                 data_compartment_puting_ctl(Region_Graph, controller, controller_to_data_nodes, node)                
                 # controller_to_data_nodes[controller].append(node)
         #debug codes
-        else:
+        else:#如果没有controller属性
             if attrs[TYPE_KEY] == FUNCTION_TYPE:
                 controller_to_code_nodes["other"].append(node)
                 dic_fun_controller[node] = "other"
@@ -971,8 +971,8 @@ def partition_by_controller(G, T):
     #dic_over_ivct[fun_wt_list[0]] = [fun_wt_list[1]]
 
     # print dic_fun_controller.values()
-#======================================================================================================
-#assign functions in other to each controller
+    #======================================================================================================
+    #assign functions in other to each controller
 
     # print("jinwen checkpoint2")
     # curr_cnt = 0
@@ -996,8 +996,8 @@ def partition_by_controller(G, T):
     #     controller_to_code_nodes["other"].remove(func_name_node)
 
 
-#======================================================================================================
-#partition control and merge
+    #======================================================================================================
+    #partition control and merge
     #OTHER_WT_THRESHOLD
 
     # to_be_merge_funcs = []
@@ -1053,7 +1053,7 @@ def partition_by_controller(G, T):
 
     # print "merge " + str(len(to_be_merge_funcs)) + " functions from other to " + corr_region_id
 
-#======================================================================================================
+    #======================================================================================================
 
     # mover function from other to controller compartment iteratively
     # for i in range(CTL_MERGE_THRESHOLD):
@@ -1087,7 +1087,7 @@ def partition_by_controller(G, T):
     #     print ("after merge \"other\" size: " + str(len(controller_to_code_nodes["other"])))
     #     print ("----------------------------------")
 
-#======================================================================================================
+    #======================================================================================================
 
 
     # print controller_to_code_nodes
@@ -1100,6 +1100,7 @@ def partition_by_controller(G, T):
 
     Region_Graph = build_regions_from_dict(Region_Graph, controller_to_code_nodes, CODE_REGION_KEY)
     # Region_Graph = build_regions_from_dict(Region_Graph, controller_to_data_nodes, DATA_REGION_KEY)
+    ##将对数据进行一个划分，放到其对应的区域中
     Region_Graph = AMI_build_data_regions_from_dict(Region_Graph,controller_to_data_nodes,DATA_REGION_KEY)
 
     # Region_Graph, is_implementable = make_implementable(Region_Graph,T)

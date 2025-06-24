@@ -1,7 +1,7 @@
 from key_defs import *
 import os
 
-SHARED_DATA_SECTIONS_FILE = "/home/osboxes/Desktop/conattest/trampoline_lib/shared_data_sections.S"
+SHARED_DATA_SECTIONS_FILE = "/home/zrz0517/study/chain_attestation/ARI-zrz/trampoline_lib/shared_data_sections.S"
 # CODE_SECTION_SIZE = 4096*16
 # SHARED_DATA_SECTIONS_SIZE = 4096*8
 # DATA_SECTION_SIZE = 4
@@ -74,7 +74,7 @@ section_start_address = []
 
 def AMI_make_linker_script(template_linker, linker_out, partitions):
 
-    sect_addr_filename = "/home/osboxes/Desktop/conattest/ardupilot/sec_mask_result.txt"
+    sect_addr_filename = "/home/zrz0517/study/chain_attestation/ARI-zrz/copter-4.3/sec_mask_result.txt"
     # wait for compartment start address
     if not os.path.isfile(sect_addr_filename):
         return

@@ -367,6 +367,7 @@ namespace {
             // }
             size = 0;
             if (ty) {
+                //zrz debug
                 if (PointerType *PT = dyn_cast<PointerType>(ty)) {
                     Type *ElemTy = PT->getElementType();
                     if (ElemTy->isSized()) { // 只对有固定大小的类型调用 getTypeAllocSize()
@@ -379,6 +380,12 @@ namespace {
                 } else {
                     errs() << "Warning: Unsized type encountered. Skipping size calculation.\n";
                 }
+                // if(PointerType * PT= dyn_cast<PointerType>(ty)){
+                //     size=DL.getTypeAllocSize(PT->getElementType());
+                // }
+                // else{
+                //     size=DL.getTypeAllocSize(ty);
+                // }
             }
         }
 
@@ -581,20 +588,28 @@ namespace {
         //controller initialization
         //attitude controller
         controller_filename["../../libraries/AC_AttitudeControl/AC_AttitudeControl.cpp"] = 0;
+        controller_filename["../../libraries/AC_AttitudeControl/AC_AttitudeControl.h"] = 0;
         //position controller
         controller_filename["../../libraries/AC_AttitudeControl/AC_PosControl.cpp"] = 0;
+        controller_filename["../../libraries/AC_AttitudeControl/AC_PosControl.h"] = 0;
         //PID controller
         controller_filename["../../libraries/AC_PID/AC_PID.cpp"] = 0;
+        controller_filename["../../libraries/AC_PID/AC_PID.h"] = 0;
         //controlmonitor
         controller_filename["../../libraries/AC_AttitudeControl/ControlMonitor.cpp"] = 0;
+        controller_filename["../../libraries/AC_AttitudeControl/ControlMonitor.h"] = 0;
         //avoidance
         controller_filename["../../libraries/AC_Avoidance/AC_Avoid.cpp"] = 0;
+        controller_filename["../../libraries/AC_Avoidance/AC_Avoid.h"] = 0;
         //preciceland
         controller_filename["../../libraries/AC_PrecLand/AC_PrecLand.cpp"] = 0;
+        controller_filename["../../libraries/AC_PrecLand/AC_PrecLand.h"] = 0;
         //follow
         controller_filename["../../libraries/AP_Follow/AP_Follow.cpp"] = 0;
+        controller_filename["../../libraries/AP_Follow/AP_Follow.h"] = 0;
         //fali-safe
         controller_filename["../../libraries/AP_Follow/failsafe.cpp"] = 0;
+        controller_filename["../../libraries/AP_Follow/failsafe.h"] = 0;
 
         //sensor/actrator initialization
         // sensor_actrator_filename[""] = 0;

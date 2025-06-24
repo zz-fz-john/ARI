@@ -47,7 +47,7 @@ Json::Value CFGRoot;
 //the map that records the sections a variable should locate in
 std::map<std::string, std::string> var2sec;
 
-#define SHARED_DATA_REGION ".DATA_REGION_0__d"
+#define SHARED_DATA_REGION ".DATA_REGION_0__data"
 
 
 //#define NUM_MPU_REGIONS 8
@@ -1220,7 +1220,7 @@ namespace {
                                 if(var2sec.find(curr_glb_var_name) == var2sec.end()){
                                     var2sec[curr_glb_var_name] = F.getSection();
                                 }
-                                else{
+                                else{//如果被两个位于不同段的函数调用了，则该变量应该为共享变量，在AMI_label_mem_wrt函数中，会插入一些dummy函数来指导后端函数的插桩。
                                     std::string existing_section = var2sec[curr_glb_var_name];
                                     //check whether the global variable is accessed from multiple differnt sections
                                     if(existing_section != F.getSection()){
