@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import networkx as nx
 import json
 import matplotlib.pyplot as plt
@@ -376,7 +377,7 @@ def add_default_mpu_config(mpu_config):
 def add_region_to_comp_desc(R,r_node,comp_desc):
     r_node_to_comp_lut = {CODE_REGION_KEY:"Code",DATA_REGION_KEY:"Data","Size":0,"Align":1}
     r_type =R.node[r_node][TYPE_KEY]
-    policy_r_type = r_node_to_comp_lut[r_type]##找到了是什么属性
+    policy_r_type = r_node_to_comp_lut[r_type]# find wheather is code or data region
     # print r_node
     # print ("--------")
     # print OBJECTS_KEY
@@ -860,7 +861,7 @@ def get_call_subgraph(R, root_func):
             # print("con_type is ")
             # print(con_type)
             if R.node[succ][TYPE_KEY] == FUNCTION_TYPE and \
-                (con_type=="Callee" or con_type=="Indirect Call") and "arm-linux-gnueabihf" not in R.node[succ][FILENAME_TYPE]:
+                (con_type=="Callee" or con_type=="Indirect Call") :#and "arm-linux-gnueabihf" not in R.node[succ][FILENAME_TYPE]:
                 # print("succ is ")
                 # print(succ)
                 stack.append(succ)
@@ -1877,7 +1878,7 @@ if __name__ == '__main__':
                          "filename-no-opt":partition_by_filename_no_optimization,
                          "controller":partition_by_controller,
                          "sensor/actrator":partition_by_sensor_actruator,
-                         "best_partition":best_partition
+                         "best_partition":best_partition,
                          "operation": partition_by_operation}
     import argparse
     parser = argparse.ArgumentParser()

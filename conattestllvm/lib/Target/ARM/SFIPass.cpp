@@ -295,7 +295,7 @@ namespace {
         // errs() << "~~~~~MOVi16\n";
         BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi16))
             .addReg(ARM::R8)
-            .addImm(base_addr & 0xffff)
+            .addImm(0 & 0xffff)
             .addImm(14)
             .addReg(0);
 
@@ -303,7 +303,9 @@ namespace {
          
         MachineInstrBuilder MIB = BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVTi16), ARM::R8);
         MIB.addReg(ARM::R8);
-        MIB.addImm((base_addr >> 16) & 0xffff);
+        //MIB.addImm((base_addr >> 16) & 0xffff);
+        //zrz modify
+        MIB.addImm((0 >> 16) & 0xffff);
         AddDefaultPred(MIB);
 
         //jinwen commend for test
@@ -325,7 +327,7 @@ namespace {
             // .addReg(MI->getOperand(0).getReg(),RegState::Define)
             .addReg(MI->getOperand(0).getReg())
             // .addReg(ARM::R8, RegState::Define) //useless            
-            .addImm(~((1<<mask)-1))
+            .addImm(~((1<<24)-1))//zrz modify
             .addImm(14);
 
 
@@ -1208,7 +1210,7 @@ namespace {
         // errs() << "~~~~~MOVi16\n";
         BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVi16))
             .addReg(ARM::R8)
-            .addImm(base_addr & 0xffff)
+            .addImm(0 & 0xffff)//zrz modify
             .addImm(14)
             .addImm(0);
 
@@ -1216,7 +1218,7 @@ namespace {
          
         MachineInstrBuilder MIB = BuildMI(*MBB, BBI, dl, TII.get(ARM::MOVTi16), ARM::R8);
         MIB.addReg(ARM::R8);
-        MIB.addImm((base_addr >> 16) & 0xffff);
+        MIB.addImm((0 >> 16) & 0xffff);//zrz modify
         AddDefaultPred(MIB);
 
 
@@ -1234,7 +1236,7 @@ namespace {
             // .addReg(MI->getOperand(0).getReg(),RegState::Define)
             .addReg(MI->getOperand(1).getReg())
             // .addReg(ARM::R8, RegState::Define) //useless            
-            .addImm(~((1<<mask)-1))
+            .addImm(~((1<<24)-1))//zrz modify
             .addImm(14);
 
             BuildMI(*MBB, BBI, dl, TII.get(MI->getOpcode()))

@@ -107,7 +107,7 @@ $ scp arducopter_ARI pi@192.168.1.101:/home/pi
 On the Pi3, execute following command to start arducopter.
 ```
 $ cd  
-$ ./arducopter_ARI -S -I0 –model + –speedup 1 –defaults ./copter.parm
+$ ./arducopter_ARI -S --model + --speedup 1 --defaults ./copter.parm -I0
 ```
 
 On host, execute following instruction to start simulation.
