@@ -1323,7 +1323,7 @@ int test_sanxbox_blx(MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, c
     int init_flag = 0;
 
     std::map<std::string, int> crit_cpt_map;
-
+    std::map<std::string, int> crit_func_map;//zrz add
 
     // Function Definition
     std::map<std::string, int> readLinesIntoMap(const std::string& filename) {
@@ -1345,13 +1345,13 @@ int test_sanxbox_blx(MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, c
 
 
     std::string crit_cpt_filename = "./crit_cpt.txt";
-
+    std::string crit_func_filename = "./crit_func.txt";//zrz add
 
     void CFEvent_Instru_Init(){
 
 
         crit_cpt_map = readLinesIntoMap(crit_cpt_filename);
-
+        crit_func_map=readLinesIntoMap(crit_func_filename);//zrz add
         // for (const auto &pair : crit_cpt_map) {
         //     std::cout << "Key: " << pair.first << ", Value: " << pair.second << '\n';
         // }
@@ -1388,50 +1388,61 @@ int test_sanxbox_blx(MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, c
             // if(F->getName().str().find("veneer") != std::string::npos){
             //     errs() << "!!!!!!!!!!!" << F->getName() << "\n";
             // }
+////////////////////////////////zrz modify to use opertation//////////////
+             if (F) {
+            //     if (auto *DISub = F->getSubprogram()) {
+            //         llvm::StringRef curr_filename = DISub->getFile()->getFilename();
+            //         // Do something with filename
 
-            if (F) {
-                if (auto *DISub = F->getSubprogram()) {
-                    llvm::StringRef curr_filename = DISub->getFile()->getFilename();
-                    // Do something with filename
+            //         auto it = crit_cpt_map.find(curr_filename);
 
-                    auto it = crit_cpt_map.find(curr_filename);
-
-                    if(it!=crit_cpt_map.end()){
-                        // errs() << curr_filename << "\n";
+            //         if(it!=crit_cpt_map.end()){
+            //             // errs() << curr_filename << "\n";
     
-                        //jinwen add this filter for debug
-                        // if(MF.getName() != "_ZN18AC_AttitudeControl43input_euler_angle_roll_pitch_euler_rate_yawEfff"){
-                        //     return false;
-                        // }
+            //             //jinwen add this filter for debug
+            //             // if(MF.getName() != "_ZN18AC_AttitudeControl43input_euler_angle_roll_pitch_euler_rate_yawEfff"){
+            //             //     return false;
+            //             // }
 
-                        // if(MF.getName() == "_ZN18AC_AttitudeControl43input_euler_angle_roll_pitch_euler_rate_yawEfff"){
-                        //     return false;
-                        // }
+            //             // if(MF.getName() == "_ZN18AC_AttitudeControl43input_euler_angle_roll_pitch_euler_rate_yawEfff"){
+            //             //     return false;
+            //             // }
 
-                        // if(MF.getName() != "_ZNK18AC_AttitudeControl13ang_vel_limitER7Vector3IfEfff"){
-                        //     return false;
-                        // }
+            //             // if(MF.getName() != "_ZNK18AC_AttitudeControl13ang_vel_limitER7Vector3IfEfff"){
+            //             //     return false;
+            //             // }
 
-                        errs() << F->getName() << "\n";
+            //             errs() << F->getName() << "\n";
 
-                        //jinwen write this for debug
-                        debug_cnt += 1;
-                        // if(debug_cnt < 2){
-                        //     return false;
-                        // }
+            //             //jinwen write this for debug
+            //             debug_cnt += 1;
+            //             // if(debug_cnt < 2){
+            //             //     return false;
+            //             // }
     
-                    }
-                    else{
-                        return false;
-                    }
+            //         }
+            //         else{
+            //             return false;
+            //         }
 
-                   // if(curr_filename.equals(crit_cpt_filename)){
-                   //      errs() << crit_cpt_filename << "\n";
-                   // }
-                    // errs() << curr_filename << "\n";
+            //        // if(curr_filename.equals(crit_cpt_filename)){
+            //        //      errs() << crit_cpt_filename << "\n";
+            //        // }
+            //         // errs() << curr_filename << "\n";
+            //     }
+                //zrz add
+                std::string func_name =  F->getName().str();
+                auto it = crit_func_map.find(func_name);
+                if(it != crit_func_map.end()){
+                    errs() << "Instrument function: " << MF.getName() << "\n";
+                }
+                else{
+                    // errs() << "Not instrument function: " << MF.getName() << "\n";
+                    return false;
                 }
             }
 
+//////////////////////////////////////////////////////////////////////////
             // return false;
 
             //  if(!is_instrument_function(MF)){

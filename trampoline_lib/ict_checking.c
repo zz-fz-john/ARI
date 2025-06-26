@@ -106,7 +106,7 @@ void c_direct_tsf_recording(uint32_t next_ist_to_source){
 
 		//jinwenTODO: modify this to check whether source and destination
 		//is in critical compartment memory space
-		if(r8_value >= 0x4000000 || next_ist_to_source >= 0x4000000){
+		if(r8_value <= 0x40000 || next_ist_to_source <= 0x40000){
 			#ifdef DBG
 			printf("c_direct_tsf_recording---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
 			#endif
@@ -185,7 +185,7 @@ void c_direct_tsf_cc_recording(uint32_t next_ist_to_source, uint32_t cpsr, uint3
 
 
 	//if branch instruction is in the critical compartment
-	if(next_ist_to_source >= 0x4000000){
+	if(next_ist_to_source <= 0x40000){
 
 
 		Element elem1;
@@ -228,7 +228,7 @@ void c_direct_tsf_cc_recording(uint32_t next_ist_to_source, uint32_t cpsr, uint3
 
 		//jinwenTODO: modify this to check whether source and destination
 		//is in critical compartment memory space
-		if(r8_value >= 0x4000000 || next_ist_to_source >= 0x4000000){
+		if(r8_value <= 0x40000 || next_ist_to_source <= 0x40000){
 			#ifdef DBG
 			printf("c_direct_tsf_cc_recording---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
 			#endif
@@ -260,7 +260,7 @@ void c_direct_tsf_bcc_recording(uint32_t next_ist_to_source, uint32_t cpsr, uint
 
 
 	//if branch instruction is in the critical compartment
-	if(next_ist_to_source >= 0x4000000 && r8_value == 100){
+	if(next_ist_to_source <= 0x40000 && r8_value == 100){
 
 
 		Element elem1;
@@ -301,7 +301,7 @@ void c_direct_tsf_bcc_recording(uint32_t next_ist_to_source, uint32_t cpsr, uint
 
 		//jinwenTODO: modify this to check whether source and destination
 		//is in critical compartment memory space
-		if(r8_value >= 0x4000000 || next_ist_to_source >= 0x4000000){
+		if(r8_value <= 0x40000 || next_ist_to_source <= 0x40000){
 			#ifdef DBG
 			printf("c_direct_tsf_cc_recording---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
 			#endif
@@ -339,8 +339,8 @@ void c_indirect_tsf_recording(uint32_t next_ist_to_source){
 
 		//jinwenTODO: modify this to check whether source and destination
 		//is in critical compartment memory space
-		if((r8_value >= 0x4000000 && next_ist_to_source < 0x4000000)|| \
-		(r8_value < 0x4000000 && next_ist_to_source >= 0x4000000)){
+		if((r8_value <= 0x40000 && next_ist_to_source > 0x40000)|| \
+		(r8_value > 0x40000 && next_ist_to_source <= 0x40000)){
 			#ifdef DBG			
 			printf("c_indirect_tsf_recording---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
 			#endif
@@ -390,7 +390,7 @@ void c_tsf_bx_lr_recording(uint32_t next_ist_to_source){
 		//jinwenTODO: modify this to check whether source and destination
 		//is in critical compartment memory space
 		//return from critical compartment to non critical compartment
-		if(r8_value < 0x4000000 && next_ist_to_source >= 0x4000000){			
+		if(r8_value > 0x40000 && next_ist_to_source <= 0x40000){			
 			elem.Type = 3;
 			#ifdef DBG
 			printf("c_tsf_bx_lr_recording inter---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
@@ -401,7 +401,7 @@ void c_tsf_bx_lr_recording(uint32_t next_ist_to_source){
 		}
 
 		//return from non critical compartment to critical compartment
-		if(r8_value >= 0x4000000 && next_ist_to_source < 0x4000000){			
+		if(r8_value <= 0x40000 && next_ist_to_source > 0x40000){			
 			elem.Type = 10;	
 			#ifdef DBG		
 			printf("c_tsf_bx_lr_recording intra---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
@@ -440,7 +440,7 @@ void c_tsf_pop_pc_recording(uint32_t next_ist_to_source){
 		//jinwenTODO: modify this to check whether source and destination
 		//is in critical compartment memory space
 		//return from critical compartment to non critical compartment
-		if(r8_value < 0x4000000 && next_ist_to_source >= 0x4000000){			
+		if(r8_value < 0x40000 && next_ist_to_source >= 0x40000){			
 			elem.Type = 3;
 			#ifdef DBG
 			printf("pop_pc inter c->nc---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
@@ -455,7 +455,7 @@ void c_tsf_pop_pc_recording(uint32_t next_ist_to_source){
 		}
 
 		//return from non critical compartment to critical compartment
-		if(r8_value >= 0x4000000 && next_ist_to_source < 0x4000000){			
+		if(r8_value >= 0x40000 && next_ist_to_source < 0x40000){			
 			elem.Type = 10;	
 			#ifdef DBG		
 			printf("pop pc inter nc->c---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
@@ -466,7 +466,7 @@ void c_tsf_pop_pc_recording(uint32_t next_ist_to_source){
 		}
 
 		//return from  critical compartment to critical compartment
-		if(r8_value >= 0x4000000 && next_ist_to_source >= 0x4000000){			
+		if(r8_value <= 0x40000 && next_ist_to_source >= 0x40000){			
 			elem.Type = 3;	
 			#ifdef DBG		
 			printf("pop pc intra---dest:0x%x--src:0x%x---\n", r8_value, next_ist_to_source);
@@ -508,7 +508,7 @@ void cfv_icall_blx(uint32_t next_ist_to_source){
 	// printf("0000000000000000000\n");
 
 		//check whether blx is compartment transfer
-		if(r8_value < 0x4000000 && next_ist_to_source >= 0x4000000){			
+		if(r8_value > 0x40000 && next_ist_to_source <= 0x40000){			
 			//storing cpt tsf info
 			elem.Type = 10;
 			#ifdef DBG
@@ -556,7 +556,7 @@ void cfv_icall_blx_pre(uint32_t next_ist_to_source, uint32_t cpsr, uint32_t cond
 		}
 
 		//inter cpt tsf crit->non-crit
-		if(r8_value < 0x4000000 && next_ist_to_source >= 0x4000000){			
+		if(r8_value > 0x40000 && next_ist_to_source <= 0x40000){			
 
 			//recording cpt tsf if branch is taken
 			if(branch_taken){
@@ -577,7 +577,7 @@ void cfv_icall_blx_pre(uint32_t next_ist_to_source, uint32_t cpsr, uint32_t cond
 		}
 
 		//intra cpt tsf
-		if(r8_value >= 0x4000000 || next_ist_to_source >= 0x4000000){
+		if(r8_value <= 0x40000 || next_ist_to_source <= 0x40000){
 		
 			//recording indirect jump target in critical compartment
 			if(branch_taken){

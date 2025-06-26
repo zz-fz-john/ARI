@@ -2,7 +2,7 @@
 #include "AC_PosControl.h"
 #include <AP_Math/AP_Math.h>
 #include <DataFlash/DataFlash.h>
-
+#include <Conattest/view_switch_and_log.h>
 extern const AP_HAL::HAL& hal;
 
 #if APM_BUILD_TYPE(APM_BUILD_ArduPlane)
@@ -795,10 +795,16 @@ void AC_PosControl::init_xy_controller()
     // initialise ekf xy reset handler
     init_ekf_xy_reset();
 }
-
+//zrz modify ARI
+extern "C"{
+    int recording_flag = 0;
+    int recording_cnt = 0;
+}
 /// update_xy_controller - run the horizontal position controller - should be called at 100hz or higher
 void AC_PosControl::update_xy_controller(float ekfNavVelGainScaler)
 {
+    //zrz modify ARI
+    mission_control();
     // compute dt
     const uint64_t now_us = AP_HAL::micros64();
     float dt = (now_us - _last_update_xy_us) * 1.0e-6f;

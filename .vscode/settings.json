@@ -83,7 +83,16 @@
         "forward_list": "cpp",
         "future": "cpp",
         "shared_mutex": "cpp",
-        "cfenv": "cpp"
+        "cfenv": "cpp",
+        "cfeventspass_disable": "cpp",
+        "sfipass_enable": "cpp",
+        "regex": "cpp",
+        "csetjmp": "cpp",
+        "valarray": "cpp",
+        "csignal": "cpp",
+        "cuchar": "cpp",
+        "scoped_allocator": "cpp",
+        "typeindex": "cpp"
     },
     "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm"
 }

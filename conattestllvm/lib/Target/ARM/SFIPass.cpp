@@ -1564,7 +1564,7 @@ namespace {
 
 
     std::map<std::string, int> crit_cpt_map;
-
+    std::map<std::string, int> crit_func_map;//zrz add
 
     // Function Definition
     std::map<std::string, int> readLinesIntoMap(const std::string& filename) {
@@ -1586,13 +1586,13 @@ namespace {
 
 
     std::string crit_cpt_filename = "./crit_cpt.txt";
-
+    std::string crit_func_filename = "./crit_func.txt";//zrz add
 
     void CFEvent_Instru_Init(){
 
 
         crit_cpt_map = readLinesIntoMap(crit_cpt_filename);
-
+        crit_func_map=readLinesIntoMap(crit_func_filename);//zrz add
         // for (const auto &pair : crit_cpt_map) {
         //     std::cout << "Key: " << pair.first << ", Value: " << pair.second << '\n';
         // }
@@ -1638,24 +1638,36 @@ namespace {
 
             //check whether this function is in critical compartment
             //if yes, set the critical_flag to 1
-            if (F) {
-                if (auto *DISub = F->getSubprogram()) {
-                    llvm::StringRef curr_filename = DISub->getFile()->getFilename();
-                    // Do something with filename
+            if (F) 
+            {
+                // if (auto *DISub = F->getSubprogram()) {
+                //     llvm::StringRef curr_filename = DISub->getFile()->getFilename();
+                //     // Do something with filename
 
-                    auto it = crit_cpt_map.find(curr_filename);
+                //     auto it = crit_cpt_map.find(curr_filename);
 
-                    if(it!=crit_cpt_map.end()){
+                //     if(it!=crit_cpt_map.end()){
     
-                        //jinwen add this filter for debug
-                        // if(MF.getName() != "_ZN18AC_AttitudeControl43input_euler_angle_roll_pitch_euler_rate_yawEfff"){
-                        //     return false;
-                        // }
-                        critical_flag = 1;
-                    }
-                    else{
-                        critical_flag = 0;
-                    }
+                //         //jinwen add this filter for debug
+                //         // if(MF.getName() != "_ZN18AC_AttitudeControl43input_euler_angle_roll_pitch_euler_rate_yawEfff"){
+                //         //     return false;
+                //         // }
+                //         critical_flag = 1;
+                //     }
+                //     else{
+                //         critical_flag = 0;
+                //     }
+                // }
+                                //zrz add
+                std::string func_name =  F->getName().str();
+                auto it = crit_func_map.find(func_name);
+                if(it != crit_func_map.end()){
+                    critical_flag = 1;
+                    errs() << "Instrument function: " << MF.getName() << "\n";
+                }
+                else{
+                    critical_flag = 0;
+                    // errs() << "Not instrument function: " << MF.getName() << "\n";
                 }
             }
 

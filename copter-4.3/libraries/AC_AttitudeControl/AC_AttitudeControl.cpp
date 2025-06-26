@@ -1,7 +1,7 @@
 #include "AC_AttitudeControl.h"
 #include <AP_HAL/AP_HAL.h>
 #include <iostream>
-#include <Conattest/view_switch_and_log.h>
+// #include <Conattest/view_switch_and_log.h>
 extern const AP_HAL::HAL& hal;
 
 #if APM_BUILD_TYPE(APM_BUILD_ArduPlane)
@@ -262,17 +262,17 @@ void AC_AttitudeControl::input_quaternion(Quaternion& attitude_desired_quat, Vec
     attitude_controller_run_quat();
 }
 //test ARI
-extern "C"{
-    int recording_flag = 0;
-    int recording_cnt = 0;
-}
+// extern "C"{
+//     int recording_flag = 0;
+//     int recording_cnt = 0;
+// }
 
 extern int ret_recording_finish;
 // Command an euler roll and pitch angle and an euler yaw rate with angular velocity feedforward and smoothing
 void AC_AttitudeControl::input_euler_angle_roll_pitch_euler_rate_yaw(float euler_roll_angle_cd, float euler_pitch_angle_cd, float euler_yaw_rate_cds)
 {   
     //test ARI
-    mission_control();
+    //mission_control();
     // if(recording_cnt == 0){
 	//         recording_flag = 1;
 	// }

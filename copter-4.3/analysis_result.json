@@ -96588,20 +96588,24 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 3,
+			"Addr" : 1,
 			"ArgNum" : 0,
 			"DataSize" : 12,
 			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 3 to %struct.apfs_file*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 1 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
-			"Write" : false
+			"Write" : true
 		},
 		"Connections" : 
 		{
 			"createstdfile" : 
+			{
+				"Type" : "Peripheral"
+			},
+			"luaL_loadfilex" : 
 			{
 				"Type" : "Peripheral"
 			},
@@ -96612,6 +96616,29 @@
 		}
 	},
 	".Peripheral_1" : 
+	{
+		"Attr" : 
+		{
+			"Addr" : 3758157112,
+			"ArgNum" : 0,
+			"DataSize" : 1,
+			"DataType" : "i8*",
+			"IsArg" : false,
+			"IsParam" : false,
+			"LLVM::Value" : "i8* inttoptr (i32 -536810184 to i8*)",
+			"Read" : false,
+			"Type" : "Peripheral",
+			"Write" : true
+		},
+		"Connections" : 
+		{
+			"_ZN11GCS_MAVLINK23handle_preflight_rebootERK24__mavlink_command_long_t" : 
+			{
+				"Type" : "Peripheral"
+			}
+		}
+	},
+	".Peripheral_2" : 
 	{
 		"Attr" : 
 		{
@@ -96634,17 +96661,17 @@
 			}
 		}
 	},
-	".Peripheral_2" : 
+	".Peripheral_3" : 
 	{
 		"Attr" : 
 		{
-			"Addr" : 2,
+			"Addr" : 3,
 			"ArgNum" : 0,
 			"DataSize" : 12,
 			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 2 to %struct.apfs_file*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 3 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
 			"Write" : false
@@ -96652,37 +96679,6 @@
 		"Connections" : 
 		{
 			"createstdfile" : 
-			{
-				"Type" : "Peripheral"
-			},
-			"luaopen_io" : 
-			{
-				"Type" : "Peripheral"
-			}
-		}
-	},
-	".Peripheral_3" : 
-	{
-		"Attr" : 
-		{
-			"Addr" : 1,
-			"ArgNum" : 0,
-			"DataSize" : 12,
-			"DataType" : "%struct.apfs_file*",
-			"IsArg" : false,
-			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 1 to %struct.apfs_file*)",
-			"Read" : false,
-			"Type" : "Peripheral",
-			"Write" : true
-		},
-		"Connections" : 
-		{
-			"createstdfile" : 
-			{
-				"Type" : "Peripheral"
-			},
-			"luaL_loadfilex" : 
 			{
 				"Type" : "Peripheral"
 			},
@@ -96719,20 +96715,24 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 3758157112,
+			"Addr" : 2,
 			"ArgNum" : 0,
-			"DataSize" : 1,
-			"DataType" : "i8*",
+			"DataSize" : 12,
+			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "i8* inttoptr (i32 -536810184 to i8*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 2 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
-			"Write" : true
+			"Write" : false
 		},
 		"Connections" : 
 		{
-			"_ZN11GCS_MAVLINK23handle_preflight_rebootERK24__mavlink_command_long_t" : 
+			"createstdfile" : 
+			{
+				"Type" : "Peripheral"
+			},
+			"luaopen_io" : 
 			{
 				"Type" : "Peripheral"
 			}
