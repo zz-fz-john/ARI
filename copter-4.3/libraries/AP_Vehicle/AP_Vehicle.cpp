@@ -15,7 +15,18 @@
 #include <AP_HAL_ChibiOS/sdcard.h>
 #include <AP_HAL_ChibiOS/hwdef/common/stm32_util.h>
 #endif
+//zrz add to measure overhead
+#include <chrono>
+#include <iostream>
+#include <time.h>
+#include <fstream>
+namespace {
+unsigned long long vehical_loop_total = 0;
+unsigned long long vehical_loop_count = 0;
+std::chrono::high_resolution_clock::time_point vehical_loop_t1;
+std::chrono::high_resolution_clock::time_point vehical_loop_t2;
 
+}
 #define SCHED_TASK(func, rate_hz, max_time_micros, prio) SCHED_TASK_CLASS(AP_Vehicle, &vehicle, func, rate_hz, max_time_micros, prio)
 
 /*
@@ -264,7 +275,23 @@ void AP_Vehicle::setup()
 
 void AP_Vehicle::loop()
 {
+    //zrz add to measure overhead
+    vehical_loop_t1 = std::chrono::high_resolution_clock::now();//zrz add to measure overhead
     scheduler.loop();
+    //zrz add to measure overhead
+    vehical_loop_t2 = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(vehical_loop_t2 -vehical_loop_t1).count();
+    vehical_loop_total += duration;
+    vehical_loop_count += 1;
+    if (vehical_loop_count % 1000 == 0){
+        // FILE *fp = fopen("/tmp/update_xy_time_zrz.txt", "a");
+        // if (fp) {
+        //     fprintf(fp, "average update_xy_controller measure time microseconds is %llu!\n", update_xy_total/1000);
+        //     fclose(fp);
+        // }
+        printf("average vehical_loop measure time microseconds is %llu!\n",vehical_loop_total/1000);
+        vehical_loop_total = 0;
+    }
     G_Dt = scheduler.get_loop_period_s();
 
     if (!done_safety_init) {

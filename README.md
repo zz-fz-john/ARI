@@ -82,7 +82,7 @@ $ source ./llvm-link_cmd.txt
 $ ../conattestllvm/build/bin/opt -f -load ../conattestllvm/build/lib/LLVMgold.so -HexboxAnaysis --hexbox-analysis-results=./analysis_result.json ./build/SITL_arm_linux_gnueabihf/after_global.ll > ./build/SITL_arm_linux_gnueabihf/after_hexbox_info_clct.bc
 $ python2 ../graph_analysis/analyzer.py -j=./analysis_result.json -s=./size_result.json -o=./compartments_result.json -m=controller -b=STM32F479 -T=../oat-evaluation/syringe-cb/arm_link_script_syringe.txt  -L=./arm_link_script_syringe_intermidea.txt
 
-######partition by operation
+######partition by operation,execute this command
 $ python2 ../graph_analysis/analyzer.py -j=./analysis_result.json -s=./size_result.json -o=./compartments_result.json  -m=operation -b=STM32F479 -T=../oat-evaluation/syringe-cb/arm_link_script_syringe.txt -f=./critical_function.txt -L=./arm_link_script_syringe_intermidea.txt
 
 $ ../conattestllvm/build/bin/opt -f -load ../conattestllvm/build/lib/LLVMgold.so -HexboxApplication --hexbox-policy=./compartments_result.json ./build/SITL_arm_linux_gnueabihf/after_global.ll > ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc

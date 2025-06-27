@@ -4,7 +4,20 @@
 #include <AP_Logger/AP_Logger.h>
 #include <AP_Motors/AP_Motors.h>    // motors library
 #include <AP_Vehicle/AP_Vehicle.h>
+#include <Conattest/view_switch_and_log.h>
+// //zrz add to measure overhead
+// #include <chrono>
+// #include <iostream>
+// #include <time.h>
+// #include <fstream>
 
+// namespace {
+// unsigned long long update_xy_total = 0;
+// unsigned long long update_xy_count = 0;
+// std::chrono::high_resolution_clock::time_point update_xy_t1;
+// std::chrono::high_resolution_clock::time_point update_xy_t2;
+
+// }
 extern const AP_HAL::HAL& hal;
 
 #if APM_BUILD_TYPE(APM_BUILD_ArduPlane)
@@ -588,13 +601,21 @@ bool AC_PosControl::is_active_xy() const
 {
     return ((AP_HAL::micros64() - _last_update_xy_us) <= _dt * 5000000.0);
 }
-
+//zrz modify ARI
+extern "C"{
+    int recording_flag = 0;
+    int recording_cnt = 0;
+}
+extern int ret_recording_finish;
 /// update_xy_controller - runs the horizontal position controller correcting position, velocity and acceleration errors.
 ///     Position and velocity errors are converted to velocity and acceleration targets using PID objects
 ///     Desired velocity and accelerations are added to these corrections as they are calculated
 ///     Kinematically consistent target position and desired velocity and accelerations should be provided before calling this function
 void AC_PosControl::update_xy_controller()
 {
+    //zrz modify ARI
+    mission_control();
+    //update_xy_t1 = std::chrono::high_resolution_clock::now();//zrz add to measure overhead
     // check for ekf xy position reset
     handle_ekf_xy_reset();
 
@@ -650,6 +671,20 @@ void AC_PosControl::update_xy_controller()
     // update angle targets that will be passed to stabilize controller
     accel_to_lean_angles(_accel_target.x, _accel_target.y, _roll_target, _pitch_target);
     calculate_yaw_and_rate_yaw();
+    // //zrz add to measure overhead
+    // update_xy_t2 = std::chrono::high_resolution_clock::now();
+    // auto duration = std::chrono::duration_cast<std::chrono::microseconds>(update_xy_t2 -update_xy_t1).count();
+    // update_xy_total += duration;
+    // update_xy_count += 1;
+    // if (update_xy_count % 1000 == 0){
+    //     //std::ofstream outfile("./update_xy_time.txt", std::ios::app);
+    //     // if (outfile.is_open()) {
+    //     //     outfile << (update_xy_total / 1000) << std::endl;
+    //     //     outfile.close();
+    //     // }
+    //     printf("average update_throttle_hover measure time microseconds is %llu!\n",update_xy_total/1000);
+    //     update_xy_total = 0;
+    // }
 }
 
 

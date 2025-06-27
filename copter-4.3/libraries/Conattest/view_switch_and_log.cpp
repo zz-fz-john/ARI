@@ -111,7 +111,7 @@ extern "C"
 
 	extern RingBuffer ringBuffer;
 
-	#define DBG
+	//#define DBG
 
 
 	int invoke_cnt = 0;

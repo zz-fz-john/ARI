@@ -926,9 +926,9 @@ def partition_by_operation(G, T,key_operations):
         # 获取该操作相关的完整调用链
         critical_func.update(get_call_subgraph(Region_Graph, op))
     # 将critical_func集合写入文件
-    with open("crit_func.txt", "w") as f:
+    with open("crit_func.txt", "w") as file:
         for func in critical_func:
-            f.write(func + "\n")
+            file.write(func + "\n")
     # print("critical func is ___________ ")
     # print(critical_func)
     #获取shared_functions和更新critical_func

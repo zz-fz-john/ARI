@@ -10,7 +10,7 @@
 
 #define BUFFER_SIZE 10000000  // Change this according to your requirements
 
-#define DBG
+//#define DBG
 
 
 typedef struct {
