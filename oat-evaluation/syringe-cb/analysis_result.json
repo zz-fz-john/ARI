@@ -1,5 +1,5 @@
 {
-	"  call void %11(i32 2), !dbg !120" : 
+	"  call void %11(i32 2), !dbg !117" : 
 	{
 		"Attr" : 
 		{
@@ -16,7 +16,7 @@
 			}
 		}
 	},
-	"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !128" : 
+	"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !125" : 
 	{
 		"Attr" : 
 		{
@@ -679,24 +679,6 @@
 			}
 		}
 	},
-	"error_found" : 
-	{
-		"Attr" : 
-		{
-			"Address Taken" : false,
-			"Filename" : "/home/osboxes/Desktop/conattest/trampoline_lib/ict_checking.c",
-			"LLVM_Type" : "void ()*",
-			"Type" : "Function"
-		},
-		"Connections" : 
-		{
-			"printf" : 
-			{
-				"Count" : 1,
-				"Type" : "Callee"
-			}
-		}
-	},
 	"forward_target" : 
 	{
 		"Attr" : 
@@ -770,7 +752,7 @@
 		"Attr" : 
 		{
 			"Address Taken" : false,
-			"LLVM_Type" : "i32 (%struct.timeval*, %struct.timeval*)*",
+			"LLVM_Type" : "i32 (%struct.timeval*, i8*)*",
 			"Type" : "Function"
 		},
 		"Connections" : 
@@ -806,24 +788,6 @@
 			{
 				"Count" : 2,
 				"Type" : "Data"
-			}
-		}
-	},
-	"ict_checking" : 
-	{
-		"Attr" : 
-		{
-			"Address Taken" : false,
-			"Filename" : "/home/osboxes/Desktop/conattest/trampoline_lib/ict_checking.c",
-			"LLVM_Type" : "i32 (i32)*",
-			"Type" : "Function"
-		},
-		"Connections" : 
-		{
-			"llvm.dbg.declare" : 
-			{
-				"Count" : 1,
-				"Type" : "Callee"
 			}
 		}
 	},
@@ -1282,12 +1246,12 @@
 		},
 		"Connections" : 
 		{
-			"  call void %11(i32 2), !dbg !120" : 
+			"  call void %11(i32 2), !dbg !117" : 
 			{
 				"Count" : 1,
 				"Type" : "Indirect Call Type"
 			},
-			"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !128" : 
+			"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !125" : 
 			{
 				"Count" : 1,
 				"Type" : "Indirect Call Type"
@@ -1506,11 +1470,6 @@
 				"Type" : "Caller"
 			},
 			"digitalRead" : 
-			{
-				"Count" : 1,
-				"Type" : "Caller"
-			},
-			"error_found" : 
 			{
 				"Count" : 1,
 				"Type" : "Caller"

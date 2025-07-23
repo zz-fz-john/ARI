@@ -84,6 +84,15 @@ SECTIONS
 	.DATA_REGION_0__data_end = .;
 	} 
 
+	. = 0x20000; 
+	.CODE_REGION_1_  ALIGN(4): 
+	{
+	PROVIDE(.CODE_REGION_1__start = .);
+	*(.CODE_REGION_1_);
+	*(.CODE_REGION_1_*);
+	PROVIDE(.CODE_REGION_1__end = . );
+	} 
+
 	.DATA_REGION_1__svma_start = LOADADDR(.DATA_REGION_1__share);
 	.DATA_REGION_1__share ALIGN(2):
 	{
@@ -118,12 +127,13 @@ SECTIONS
 	.DATA_REGION_1__bss_end = .;
 	} 
 
-	.CODE_REGION_1_  ALIGN(4): 
+	. = 0x40000; 
+	.CODE_REGION_2_  ALIGN(4): 
 	{
-	PROVIDE(.CODE_REGION_1__start = .);
-	*(.CODE_REGION_1_);
-	*(.CODE_REGION_1_*);
-	PROVIDE(.CODE_REGION_1__end = . );
+	PROVIDE(.CODE_REGION_2__start = .);
+	*(.CODE_REGION_2_);
+	*(.CODE_REGION_2_*);
+	PROVIDE(.CODE_REGION_2__end = . );
 	} 
 
 	.DATA_REGION_2__svma_start = LOADADDR(.DATA_REGION_2__share);
@@ -158,118 +168,6 @@ SECTIONS
 	*(.DATA_REGION_2__bss*);
 	. = ALIGN(4);
 	.DATA_REGION_2__bss_end = .;
-	} 
-
-	.CODE_REGION_2_  ALIGN(4): 
-	{
-	PROVIDE(.CODE_REGION_2__start = .);
-	*(.CODE_REGION_2_);
-	*(.CODE_REGION_2_*);
-	PROVIDE(.CODE_REGION_2__end = . );
-	} 
-
-	.DATA_REGION_3__svma_start = LOADADDR(.DATA_REGION_3__share);
-	.DATA_REGION_3__share ALIGN(2):
-	{
-	.DATA_REGION_3__sdata_start = .;
-	. = ALIGN(2);
-	.DATA_REGION_3__smpu_start = .;
-	*(.DATA_REGION_3__share);
-	*(.DATA_REGION_3__share*);
-	. = ALIGN(4);
-	.DATA_REGION_3__sdata_end = .;
-	} 
-
-	.DATA_REGION_3__vma_start = LOADADDR(.DATA_REGION_3__data);
-	.DATA_REGION_3__data ALIGN(4):
-	{
-	.DATA_REGION_3__data_start = .;
-	. = ALIGN(4);
-	.DATA_REGION_3__mpu_start = .;
-	*(.DATA_REGION_3__data);
-	*(.DATA_REGION_3__data*);
-	. = ALIGN(4);
-	.DATA_REGION_3__data_end = .;
-	} 
-
-	.DATA_REGION_3__bss : 
-	{
-	.DATA_REGION_3__bss_start = .;
-	. = ALIGN(4);
-	*(.DATA_REGION_3__bss);
-	*(.DATA_REGION_3__bss*);
-	. = ALIGN(4);
-	.DATA_REGION_3__bss_end = .;
-	} 
-
-	.CODE_REGION_3_  ALIGN(4): 
-	{
-	PROVIDE(.CODE_REGION_3__start = .);
-	*(.CODE_REGION_3_);
-	*(.CODE_REGION_3_*);
-	PROVIDE(.CODE_REGION_3__end = . );
-	} 
-
-	.DATA_REGION_4__svma_start = LOADADDR(.DATA_REGION_4__share);
-	.DATA_REGION_4__share ALIGN(2):
-	{
-	.DATA_REGION_4__sdata_start = .;
-	. = ALIGN(2);
-	.DATA_REGION_4__smpu_start = .;
-	*(.DATA_REGION_4__share);
-	*(.DATA_REGION_4__share*);
-	. = ALIGN(4);
-	.DATA_REGION_4__sdata_end = .;
-	} 
-
-	.CODE_REGION_4_  ALIGN(4): 
-	{
-	PROVIDE(.CODE_REGION_4__start = .);
-	*(.CODE_REGION_4_);
-	*(.CODE_REGION_4_*);
-	PROVIDE(.CODE_REGION_4__end = . );
-	} 
-
-	.DATA_REGION_5__svma_start = LOADADDR(.DATA_REGION_5__share);
-	.DATA_REGION_5__share ALIGN(2):
-	{
-	.DATA_REGION_5__sdata_start = .;
-	. = ALIGN(2);
-	.DATA_REGION_5__smpu_start = .;
-	*(.DATA_REGION_5__share);
-	*(.DATA_REGION_5__share*);
-	. = ALIGN(4);
-	.DATA_REGION_5__sdata_end = .;
-	} 
-
-	.DATA_REGION_5__vma_start = LOADADDR(.DATA_REGION_5__data);
-	.DATA_REGION_5__data ALIGN(4):
-	{
-	.DATA_REGION_5__data_start = .;
-	. = ALIGN(4);
-	.DATA_REGION_5__mpu_start = .;
-	*(.DATA_REGION_5__data);
-	*(.DATA_REGION_5__data*);
-	. = ALIGN(4);
-	.DATA_REGION_5__data_end = .;
-	} 
-
-	.DATA_REGION_5__bss : 
-	{
-	.DATA_REGION_5__bss_start = .;
-	. = ALIGN(4);
-	*(.DATA_REGION_5__bss);
-	*(.DATA_REGION_5__bss*);
-	. = ALIGN(4);
-	.DATA_REGION_5__bss_end = .;
-	} 
-
-	.CODE_REGION_5_  ALIGN(4): 
-	{
-	PROVIDE(.CODE_REGION_5__start = .);
-	*(.CODE_REGION_5_);
-	*(.CODE_REGION_5_*);
-	PROVIDE(.CODE_REGION_5__end = . );
 	} 
 
   .text           :

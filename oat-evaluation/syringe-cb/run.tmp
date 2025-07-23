@@ -13,7 +13,7 @@
 	},
 	"Serial_write" : 
 	{
-		"Size" : 56
+		"Size" : 64
 	},
 	"analogRead" : 
 	{
@@ -21,15 +21,15 @@
 	},
 	"bolus" : 
 	{
-		"Size" : 320
+		"Size" : 492
 	},
 	"checkTriggers" : 
 	{
-		"Size" : 180
+		"Size" : 300
 	},
 	"delayMicroseconds" : 
 	{
-		"Size" : 36
+		"Size" : 44
 	},
 	"digitalRead" : 
 	{
@@ -37,15 +37,11 @@
 	},
 	"digitalWrite" : 
 	{
-		"Size" : 20
+		"Size" : 36
 	},
 	"doKeyAction" : 
 	{
-		"Size" : 360
-	},
-	"error_found" : 
-	{
-		"Size" : 20
+		"Size" : 496
 	},
 	"forward_target" : 
 	{
@@ -55,41 +51,37 @@
 	{
 		"Size" : 120
 	},
-	"ict_checking" : 
-	{
-		"Size" : 20
-	},
 	"lcd_begin" : 
 	{
-		"Size" : 76
+		"Size" : 80
 	},
 	"lcd_clear" : 
 	{
-		"Size" : 40
+		"Size" : 48
 	},
 	"lcd_print" : 
 	{
-		"Size" : 64
+		"Size" : 72
 	},
 	"lcd_setCursor" : 
 	{
-		"Size" : 60
+		"Size" : 68
 	},
 	"led_off" : 
 	{
-		"Size" : 24
+		"Size" : 32
 	},
 	"led_on" : 
 	{
-		"Size" : 40
+		"Size" : 60
 	},
 	"loop" : 
 	{
-		"Size" : 140
+		"Size" : 180
 	},
 	"main" : 
 	{
-		"Size" : 148
+		"Size" : 172
 	},
 	"millis" : 
 	{
@@ -101,27 +93,27 @@
 	},
 	"processSerial" : 
 	{
-		"Size" : 204
+		"Size" : 352
 	},
 	"readKey" : 
 	{
-		"Size" : 212
+		"Size" : 272
 	},
 	"readSerial" : 
 	{
-		"Size" : 104
+		"Size" : 112
 	},
 	"setup" : 
 	{
-		"Size" : 152
+		"Size" : 240
 	},
 	"toUInt" : 
 	{
-		"Size" : 40
+		"Size" : 48
 	},
 	"updateScreen" : 
 	{
-		"Size" : 348
+		"Size" : 436
 	},
 	"usecs" : 
 	{

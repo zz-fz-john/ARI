@@ -1,11 +1,11 @@
 make llc-comp
 
-cd ~/Desktop/conattest/oat-evaluation/syringe-cb && make trampoline
+make trampoline
 
-/home/osboxes/devel/optee/toolchains/aarch32/arm-linux-gnueabihf/bin/ld -T ./arm_link_script_syringe_intermidea.txt after_comp_combo.s /home/osboxes/Desktop/OAT-Project/oat-trampoline-lib/trampoline.o /home/osboxes/Desktop/conattest/oat-evaluation/syringe-cb/ta_trampoline.o /home/osboxes/Desktop/conattest/trampoline_lib/shared_data_sections.o  --sysroot=/ -L/usr/lib/gcc-cross/arm-linux-gnueabihf/5.4.0 -L/usr/arm-linux-gnueabihf/lib -L/home/osboxes/Desktop/raspbian-tee/optee_client/out/export/lib -lteec -lgcc -lc -lpthread --entry main -o syringe--baseline_after_compt.elf  
+/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/bin/ld -T ./arm_link_script_syringe_intermidea.txt after_comp_combo.s ../../oat-trampoline-lib/trampoline.o ../../trampoline_lib/ta_trampoline.o ../../trampoline_lib/shared_data_sections.o  --sysroot=/ -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.2.1 -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib -L/home/zrz0517/study/chain_attestation/ARI-zrz/optee_client-master/out/export/lib -lteec -lgcc -lc -lpthread --entry main -o syringe--baseline_after_compt.elf  
 
 make llc-comp-asm
 
-/home/osboxes/devel/optee/toolchains/aarch32/bin/arm-linux-gnueabihf-objdump -D ./syringe--baseline_after_compt.elf > ./objdump_syringe.S
+/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-objdump -D ./syringe--baseline_after_compt.elf > ./objdump_syringe.S
 
 scp ./syringe--baseline_after_compt.elf pi@192.168.0.198:~

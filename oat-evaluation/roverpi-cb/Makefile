@@ -10,14 +10,14 @@ LLC_ARM = ~/work/llvm-env/build/bin/llc
 FILE=insPi.sh
 
 tcp: 
-	clang tcp.c -S -emit-llvm -o tcp.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang tcp.c -S -emit-llvm -o tcp.bc
 
 rovertcp:
 	#clang -D_GNU_SOURCE --target=aarch64 -S -emit-llvm light-controller.c -o light-controller.bc
-	clang -S -emit-llvm  rovertcp.c -o rovertcp.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang -S -emit-llvm  rovertcp.c -o rovertcp.bc
 
 test-combo: tcp rovertcp 
-	llvm-link tcp.bc rovertcp.bc -o test_combo.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-link  tcp.bc rovertcp.bc -o test_combo.bc
 
 opt-combo:
 	$(OPT) -load $(NOVA_PATH)/LLVMNova.so -nova < test_combo.bc > combo.bc 2>err.log

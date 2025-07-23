@@ -2,20 +2,24 @@ rm -rf ./util.bc ./LiquidCrystal.bc ./led.bc ./syringePump.bc ./test_combo.bc /h
 
 make test-combo
 
-opt -f -load /home/osboxes/Desktop/llvm/build/lib/LLVMgold.so -HexboxAnaysis --hexbox-analysis-results=./analysis_result.json ./test_combo.bc > after_analyze_test_combo.bc
+/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/opt -f -load /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/lib/LLVMgold.so -HexboxAnaysis --hexbox-analysis-results=./analysis_result.json ./test_combo.bc > after_analyze_test_combo.bc
 
-python /home/osboxes/Desktop/conattest/graph_analysis/analyzer.py -j=/home/osboxes/Desktop/conattest/oat-evaluation/syringe-cb/analysis_result.json -s=/home/osboxes/Desktop/conattest/oat-evaluation/syringe-cb/size_result.json -o=/home/osboxes/Desktop/conattest/oat-evaluation/syringe-cb/compartments_result.json -m=filename-no-opt -b=STM32F479 -T=/home/osboxes/Desktop/conattest/oat-evaluation/syringe-cb/arm_link_script_syringe.txt -L=/home/osboxes/Desktop/conattest/oat-evaluation/syringe-cb/arm_link_script_syringe_intermidea.txt
+python2 ../../graph_analysis/analyzer.py  -j=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/analysis_result.json -s=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/size_result.json -o=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/compartments_result.json -m=operation -f=./critical_function.txt -b=STM32F479 -T=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/arm_link_script_syringe.txt -L=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/arm_link_script_syringe_intermidea.txt
 
-opt -f -load /home/osboxes/Desktop/llvm/build/lib/LLVMgold.so -HexboxApplication --hexbox-policy=./compartments_result.json ./test_combo.bc > after_compartment_test_combo.bc
+/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/opt -f -load /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/lib/LLVMgold.so -HexboxApplication --hexbox-policy=./compartments_result.json ./test_combo.bc > after_compartment_test_combo.bc
 
 make llvm-dis-comp
 
 make llc-comp
+#下一条命令不使用
+#/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/bin/ld -T ./arm_link_script_syringe_intermidea.txt after_comp_combo.s ../../trampoline_lib/trampoline_fw.o --sysroot=/ -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.2.1  -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib -lgcc -lc --entry main -o syringe--baseline_after_compt.elf  
 
-/home/osboxes/devel/optee/toolchains/aarch32/arm-linux-gnueabihf/bin/ld -T ./arm_link_script_syringe_intermidea.txt after_comp_combo.s /home/osboxes/Desktop/conattest/trampoline_lib/trampoline_fw.o --sysroot=/ -L/usr/lib/gcc-cross/arm-linux-gnueabihf/5.4.0 -L/usr/arm-linux-gnueabihf/lib -lgcc -lc --entry main -o syringe--baseline_after_compt.elf  
+
+#使用该命令
+/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/bin/ld -T ./arm_link_script_syringe_intermidea.txt after_comp_combo.s ../../trampoline_lib/blake2s ../../trampoline_lib/ict_checking.o  ../../trampoline_lib/trampoline_fw.o ../../trampoline_lib/trampoline.o ../../trampoline_lib/ta_trampoline.o ../../trampoline_lib/shared_data_sections.o  --sysroot=/ -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.2.1 -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/lib/../lib -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../lib -L/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/../lib -L/lib/arm-linux-gnueabihf -L/usr/lib/../lib -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/lib -L/lib -L/usr/lib  -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib -L/home/zrz0517/study/chain_attestation/ARI-zrz/optee_client-master/out/export/lib -lteec /home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf//lib/gcc/arm-linux-gnueabihf/6.2.1/libgcc.a -lc -lpthread --entry main -o syringe--baseline_after_compt.elf  
 
 make llc-comp-asm
 
-/home/osboxes/devel/optee/toolchains/aarch32/bin/arm-linux-gnueabihf-objdump -D ./syringe--baseline_after_compt.elf > ./objdump_syringe.S
+/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-objdump -D ./syringe--baseline_after_compt.elf > ./objdump_syringe.S
 
 scp ./syringe--baseline_after_compt.elf pi@192.168.0.111:~

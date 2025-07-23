@@ -6,14 +6,14 @@ NUC_TARGET ?= ~/work/ra-project/evaluation/alarm4pi/
 objdump ?= aarch64-linux-gnu-objdump 
 hikey ?= your-hikey-board-ip 
 # TEEC_EXPORT ?= /home/linaro/work/tee/export
-TA ?= /home/linaro/work/tee/ta/
+TA ?= /home/zrz0517/study/chain_attestation/ARI-zrz/lcu14_optee_hello_world-master/ta
 hikey_target ?= ~/work/alarm4pi/
 
 NOVA_PATH = ~/work/llvm-env/build/lib/
 # LLC_ARM = ~/work/llvm-env/buildc/bin/llc
-LLC_ARM = /home/osboxes/Desktop/llvm/build/bin/llc
+LLC_ARM = /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/llc
 
-TEEC_EXPORT ?=/home/osboxes/Desktop/raspbian-tee/optee_client/out/export
+TEEC_EXPORT ?=/home/zrz0517/study/chain_attestation/ARI-zrz/optee_client-master/out/export/lib
 
 CFLAGS += -Wall -I$(TA)/include -I$(TEEC_EXPORT)/include -I./include
 #Add/link other required libraries here
@@ -34,31 +34,31 @@ ta_trampoline:
 	$(GCC) $(LDADD)  ta_trampoline.c -o ta_trampoline.o -lc
 
 util:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm util.c -o util.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm util.c -o util.bc
 
 bcm-gpio:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm bcm_gpio.c -o bcm_gpio.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm bcm_gpio.c -o bcm_gpio.bc
 
 alarm4pi:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm alarm4pi.c -o alarm4pi.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm alarm4pi.c -o alarm4pi.bc
 
 log-msgs:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm log_msgs.c -o log_msgs.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm log_msgs.c -o log_msgs.bc
 
 proc-helper:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm proc_helper.c -o proc_helper.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm proc_helper.c -o proc_helper.bc
 
 public-ip:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm public_ip.c -o public_ip.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm public_ip.c -o public_ip.bc
 
 pushover:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm pushover.c -o pushover.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm pushover.c -o pushover.bc
 
 gpio-polling:
 	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm gpio_polling.c -o gpio_polling.bc
 
 gpio-polling-orig:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm gpio_polling_orig.c -o gpio_polling_orig.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm gpio_polling_orig.c -o gpio_polling_orig.bc
 
 test-orig: util alarm4pi gpio-polling-orig pushover public-ip proc-helper log-msgs bcm-gpio
 	$(CC) $(LDADD_ORIG) -g util.o alarm4pi.o gpio_polling_orig.o pushover.o public_ip.o proc_helper.o log_msgs.o bcm_gpio.o  -o test_orig

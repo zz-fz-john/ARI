@@ -30,10 +30,10 @@ light-controller:
 
 lc-bc:
 	#clang -D_GNU_SOURCE --target=aarch64 -S -emit-llvm light-controller.c -o light-controller.bc
-	clang -S -emit-llvm  light-controller.c -o light-controller.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang -S -emit-llvm  light-controller.c -o light-controller.bc
 
 test-combo: lc-bc
-	llvm-link light-controller.bc -o test_combo.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-link light-controller.bc -o test_combo.bc
 
 opt-combo:
 	$(OPT) -load $(NOVA_PATH)/LLVMNova.so -nova < test_combo.bc > combo.bc 2>err.log

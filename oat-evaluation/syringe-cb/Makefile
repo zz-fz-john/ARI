@@ -4,7 +4,7 @@ NUC_PC ?= your-pc-ip
 objdump ?= aarch64-linux-gnu-objdump 
 hikey ?= your-hikey-board-ip 
 TEEC_EXPORT ?=../../optee_client-master/out/export
-TA ?= /your/path/to/work/tee_workspace/devel/optee_hikey_debian/hello_world/ta
+TA ?= /home/zrz0517/study/chain_attestation/ARI-zrz/lcu14_optee_hello_world-master/ta
 GCC = ../../gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
 RESERVE_R8 = -ffixed-r8
 
@@ -17,9 +17,9 @@ LDADD += -lteec -L$(TEEC_EXPORT)/lib -I$(TEEC_EXPORT)/include -mfloat-abi=hard -
 
 
 NOVA_PATH = ~/work/llvm-env/build/lib/
-LLC_ARM = llc
-LLVM_DIS = llvm-dis
-OPT = ~/work/llvm-env/build/bin/opt
+LLC_ARM = /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/llc
+LLVM_DIS = /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/llvm-dis
+OPT = /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/opt
 
 VM = your-server-for-llvm:~/work/ra-project/evaluation/syringe-cb/
 
@@ -35,7 +35,7 @@ TRAMPOLINE_GCC_CONFIG = -mfloat-abi=hard -O0 -fPIC -g -c -Wall
 TRAMPOLINE_PATH =../../trampoline_lib
 
 ta_trampoline:
-	$(GCC) $(LDADD)  ta_trampoline.c -o ta_trampoline.o -lc
+	$(GCC) $(LDADD)  ta_trampoline.c -o $(TRAMPOLINE_PATH)/ta_trampoline.o -lc
 
 trampoline:
 	$(GCC) $(TRAMPOLINE_GCC_CONFIG) $(TRAMPOLINE_PATH)/trampoline_fw.S -o $(TRAMPOLINE_PATH)/trampoline_fw.o
@@ -45,23 +45,26 @@ trampoline:
 ict_checking:
 	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm $(TRAMPOLINE_PATH)/ict_checking.c -o $(TRAMPOLINE_PATH)/ict_checking.bc
 	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-dis $(TRAMPOLINE_PATH)/ict_checking.bc -o $(TRAMPOLINE_PATH)/ict_checking.ll
+
 util:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm util.c -o util.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm util.c -o util.bc
 
 lcd:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm LiquidCrystal.c -o LiquidCrystal.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm LiquidCrystal.c -o LiquidCrystal.bc
 
 led:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm led.c -o led.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm led.c -o led.bc
 
 syringe:
-	clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm syringePump.c -o syringePump.bc
-
-test-combo: syringe led lcd util trampoline ict_checking
-	llvm-link syringePump.bc util.bc led.bc LiquidCrystal.bc $(TRAMPOLINE_PATH)/ict_checking.bc -o test_combo.bc
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) -S -emit-llvm syringePump.c -o syringePump.bc
 
 cit_checking_obj:
 	$(GCC) $(TRAMPOLINE_GCC_CONFIG) $(RESERVE_R8) $(TRAMPOLINE_PATH)/ict_checking.c -o $(TRAMPOLINE_PATH)/ict_checking.o
+
+test-combo: syringe led lcd util trampoline cit_checking_obj ta_trampoline
+	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-link syringePump.bc util.bc led.bc LiquidCrystal.bc  -o test_combo.bc
+
+
 
 
 

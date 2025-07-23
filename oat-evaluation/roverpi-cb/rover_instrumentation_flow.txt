@@ -1,0 +1,14 @@
+rm -rf test_combo.bc server test_combo.bc
+make test-combo
+
+/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/opt -f -load /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/lib/LLVMgold.so -HexboxAnaysis --hexbox-analysis-results=./analysis_result.json ./test_combo.bc > after_analyze_test_combo.bc
+
+python2 ../../graph_analysis/analyzer.py  -j=./analysis_result.json -s=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/size_result.json -o=./compartments_result.json -m=filename-no-opt -b=STM32F479 -T=/home/zrz0517/study/chain_attestation/ARI-zrz/oat-evaluation/syringe-cb/arm_link_script_syringe.txt -L=./arm_link_script_syringe_intermidea.txt
+
+/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/opt -f -load /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/lib/LLVMgold.so -HexboxApplication --hexbox-policy=./compartments_result.json ./test_combo.bc > after_compartment_test_combo.bc
+
+/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/llvm-dis after_compartment_test_combo.bc -o after_compartment_test_combo.ll
+
+/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/llc -float-abi=hard -filetype=obj   after_compartment_test_combo.bc -o after_comp_combo.s
+
+/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/bin/ld -T ./arm_link_script_syringe_intermidea.txt after_comp_combo.s ../../oat-trampoline-lib/trampoline.o ../../trampoline_lib/ta_trampoline.o ../../trampoline_lib/shared_data_sections.o  --sysroot=/ -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.2.1 -L/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib -L/home/zrz0517/study/chain_attestation/ARI-zrz/optee_client-master/out/export/lib -lteec -lgcc -lc -lpthread --entry main -o rover-baseline_after_compt.elf  

@@ -18,7 +18,7 @@
 #include <stdio.h>
 
 //#include "lib/cfa_stub.h"
-#include "cfv_bellman.h"
+// #include "cfv_bellman.h"
 
 
 /* -- Constants -- */
@@ -39,7 +39,8 @@
 
 int global_data = 369;
 
-
+int recording_flag=0;
+int recording_cnt=0;
 long ustepsPerMM = MICROSTEPS_PER_STEP * STEPS_PER_REVOLUTION / THREADED_ROD_PITCH;
 long ustepsPerML = (MICROSTEPS_PER_STEP * STEPS_PER_REVOLUTION * SYRINGE_BARREL_LENGTH_MM) / (SYRINGE_VOLUME_ML * THREADED_ROD_PITCH );
 //long ustepsPerMM = 2;
@@ -208,6 +209,7 @@ void readSerial(){
 
 void processSerial(){
 	//process serial commands as they are read in
+	recording_flag=1;
 	if(serialStr[0] == '+'){
 		bolus(PUSH);
 		updateScreen();
@@ -228,6 +230,7 @@ void processSerial(){
 	}
 	serialStrReady = false;
 	serialStrLen = 0;
+	recording_flag=0;
 }
 
 void bolus(int direction){

@@ -1912,7 +1912,7 @@ if __name__ == '__main__':
                         help=('Number of MPU regions on target'),
                         default=8, type=int
                         )
-    parser.add_argument("-f","--critical_file_name",dest='critical_file_name',
+    parser.add_argument("-f","--critical_file_name",dest='critical_file_name',#specify critical operation
                         help="critical file name")
     args = parser.parse_args()
     # global MAX_DATA_REGIONS
@@ -1924,28 +1924,28 @@ if __name__ == '__main__':
 
     cnt_over_ivct = 0
     # global dic_weight
-    for line in open("../ardupilot/invocation_wt.txt"):
-        fun_wt_list = line.strip().split(",")
-        # if PDG.node.has_key(fun_wt_list[0]):
-        if not dic_weight.has_key(fun_wt_list[0]):
-            dic_weight[fun_wt_list[0]] = {fun_wt_list[1]: fun_wt_list[2]}
-            if int(fun_wt_list[2]) >= IVCT_LARGEEST_NUM:
-                if not dic_over_ivct.has_key(fun_wt_list[0]):
-                    dic_over_ivct[fun_wt_list[0]] = [fun_wt_list[1]]
-                    cnt_over_ivct += 1
-                else:  
-                    dic_over_ivct[fun_wt_list[0]].append(fun_wt_list[1])
-                    cnt_over_ivct += 1
+    # for line in open("../ardupilot/invocation_wt.txt"):
+    #     fun_wt_list = line.strip().split(",")
+    #     # if PDG.node.has_key(fun_wt_list[0]):
+    #     if not dic_weight.has_key(fun_wt_list[0]):
+    #         dic_weight[fun_wt_list[0]] = {fun_wt_list[1]: fun_wt_list[2]}
+    #         if int(fun_wt_list[2]) >= IVCT_LARGEEST_NUM:
+    #             if not dic_over_ivct.has_key(fun_wt_list[0]):
+    #                 dic_over_ivct[fun_wt_list[0]] = [fun_wt_list[1]]
+    #                 cnt_over_ivct += 1
+    #             else:  
+    #                 dic_over_ivct[fun_wt_list[0]].append(fun_wt_list[1])
+    #                 cnt_over_ivct += 1
 
-        else:
-            dic_weight[fun_wt_list[0]].update({fun_wt_list[1]: fun_wt_list[2]})
-            if int(fun_wt_list[2]) >= IVCT_LARGEEST_NUM:
-                if not dic_over_ivct.has_key(fun_wt_list[0]):
-                    dic_over_ivct[fun_wt_list[0]] = [fun_wt_list[1]]
-                    cnt_over_ivct += 1
-                else:  
-                    dic_over_ivct[fun_wt_list[0]].append(fun_wt_list[1])
-                    cnt_over_ivct += 1
+    #     else:
+    #         dic_weight[fun_wt_list[0]].update({fun_wt_list[1]: fun_wt_list[2]})
+    #         if int(fun_wt_list[2]) >= IVCT_LARGEEST_NUM:
+    #             if not dic_over_ivct.has_key(fun_wt_list[0]):
+    #                 dic_over_ivct[fun_wt_list[0]] = [fun_wt_list[1]]
+    #                 cnt_over_ivct += 1
+    #             else:  
+    #                 dic_over_ivct[fun_wt_list[0]].append(fun_wt_list[1])
+    #                 cnt_over_ivct += 1
 
     # print dic_weight
 

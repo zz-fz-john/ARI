@@ -94,5 +94,6 @@
         "scoped_allocator": "cpp",
         "typeindex": "cpp"
     },
-    "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm"
+    "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm",
+    "git.ignoreLimitWarning": true
 }
