@@ -12,7 +12,7 @@ RESERVE_R8 = -ffixed-r8
 
 # CFLAGS += -Wall -I$(TA)/include -I$(TEEC_EXPORT)/include -I./include
 #Add/link other required libraries here
-LDADD += -lteec -L$(TEEC_EXPORT)/lib -I$(TEEC_EXPORT)/include -mfloat-abi=hard -O0 -g -c -gdwarf-5 -fPIC
+LDADD += -lteec -L$(TEEC_EXPORT)/lib/ -I$(TEEC_EXPORT)/include -mfloat-abi=hard -O0 -g -c -gdwarf-5 -fPIC
 
 
 
@@ -35,7 +35,7 @@ TRAMPOLINE_GCC_CONFIG = -mfloat-abi=hard -O0 -fPIC -g -c -Wall
 TRAMPOLINE_PATH =../../trampoline_lib
 
 ta_trampoline:
-	$(GCC) $(LDADD)  ta_trampoline.c -o $(TRAMPOLINE_PATH)/ta_trampoline.o -lc
+	$(GCC) $(LDADD)   $(TRAMPOLINE_PATH)/ta_trampoline.c -o $(TRAMPOLINE_PATH)/ta_trampoline.o -lc
 
 trampoline:
 	$(GCC) $(TRAMPOLINE_GCC_CONFIG) $(TRAMPOLINE_PATH)/trampoline_fw.S -o $(TRAMPOLINE_PATH)/trampoline_fw.o

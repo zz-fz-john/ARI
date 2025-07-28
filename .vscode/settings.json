@@ -92,7 +92,8 @@
         "csignal": "cpp",
         "cuchar": "cpp",
         "scoped_allocator": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "pthread.h": "c"
     },
     "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm",
     "git.ignoreLimitWarning": true

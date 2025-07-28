@@ -1901,6 +1901,10 @@ namespace {
 
                                     DelInstVect.push_back(MI);   
                                 }
+                                else if(MI->getOperand(0).getGlobal()->getGlobalIdentifier()=="__AMI_fake_shared_wrt")
+                                {
+                                    DelInstVect.push_back(MI);
+                                }
                                 break;                              
                             }
 

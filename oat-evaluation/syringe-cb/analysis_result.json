@@ -1,5 +1,5 @@
 {
-	"  call void %11(i32 2), !dbg !117" : 
+	"  call void %11(i32 2), !dbg !120" : 
 	{
 		"Attr" : 
 		{
@@ -16,7 +16,7 @@
 			}
 		}
 	},
-	"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !125" : 
+	"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !128" : 
 	{
 		"Attr" : 
 		{
@@ -1246,12 +1246,12 @@
 		},
 		"Connections" : 
 		{
-			"  call void %11(i32 2), !dbg !117" : 
+			"  call void %11(i32 2), !dbg !120" : 
 			{
 				"Count" : 1,
 				"Type" : "Indirect Call Type"
 			},
-			"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !125" : 
+			"  call void %12(%struct.LiquidCrystalStruct* @lcd, i32 16, i32 2), !dbg !128" : 
 			{
 				"Count" : 1,
 				"Type" : "Indirect Call Type"
@@ -1285,6 +1285,11 @@
 			{
 				"Count" : 1,
 				"Type" : "Callee"
+			},
+			"start_new_thread" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
 			}
 		}
 	},
@@ -1314,6 +1319,15 @@
 				"Count" : 1,
 				"Type" : "Caller"
 			}
+		}
+	},
+	"mission_control" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : true,
+			"LLVM_Type" : "void (...)*",
+			"Type" : "Function"
 		}
 	},
 	"motorDirPin" : 
@@ -1557,6 +1571,11 @@
 				"Count" : 1,
 				"Type" : "Caller"
 			},
+			"mission_control" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
 			"toUInt" : 
 			{
 				"Count" : 2,
@@ -1774,6 +1793,15 @@
 				"Count" : 4,
 				"Type" : "Caller"
 			}
+		}
+	},
+	"start_new_thread" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : true,
+			"LLVM_Type" : "void (...)*",
+			"Type" : "Function"
 		}
 	},
 	"toUInt" : 

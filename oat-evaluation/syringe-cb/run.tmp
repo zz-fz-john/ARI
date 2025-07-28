@@ -25,7 +25,7 @@
 	},
 	"checkTriggers" : 
 	{
-		"Size" : 300
+		"Size" : 292
 	},
 	"delayMicroseconds" : 
 	{
@@ -41,7 +41,7 @@
 	},
 	"doKeyAction" : 
 	{
-		"Size" : 496
+		"Size" : 484
 	},
 	"forward_target" : 
 	{
@@ -53,7 +53,7 @@
 	},
 	"lcd_begin" : 
 	{
-		"Size" : 80
+		"Size" : 76
 	},
 	"lcd_clear" : 
 	{
@@ -73,15 +73,15 @@
 	},
 	"led_on" : 
 	{
-		"Size" : 60
+		"Size" : 56
 	},
 	"loop" : 
 	{
-		"Size" : 180
+		"Size" : 172
 	},
 	"main" : 
 	{
-		"Size" : 172
+		"Size" : 176
 	},
 	"millis" : 
 	{
@@ -93,7 +93,7 @@
 	},
 	"processSerial" : 
 	{
-		"Size" : 352
+		"Size" : 344
 	},
 	"readKey" : 
 	{
@@ -101,7 +101,7 @@
 	},
 	"readSerial" : 
 	{
-		"Size" : 112
+		"Size" : 104
 	},
 	"setup" : 
 	{

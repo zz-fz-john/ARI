@@ -101,7 +101,7 @@ namespace {
         CompTyVec.push_back(MPURegionTy);
         StructType * CompTy = StructType::create(CompTyVec,"__hexbox_comparment");
 
-        DEBUG(errs() << "Building Compartment Global Variables---------------------\n");
+        errs() << "Building Compartment Global Variables---------------------\n";
 
 
         for(auto CompName: comps.getMemberNames()){
@@ -311,6 +311,7 @@ namespace {
     }
 
      void initBssAndDataSections(Module &M, IRBuilder<> * IRB, Json::Value &Root){
+        errs()<<"Initializing BSS and Data Sections\n";
         Json::Value PolicyRegions=Root.get("Regions","");
         for(auto RegionName: PolicyRegions.getMemberNames()){
             Json::Value Region = PolicyRegions[RegionName];
@@ -371,6 +372,7 @@ namespace {
     */
     void assignLinkerSections(Module &M, Json::Value &Root){
         Json::Value PolicyRegions=Root.get("Regions","");
+        errs()<<"assignLinkerSections\n";
         for(auto RegionName: PolicyRegions.getMemberNames()){
             Json::Value Region = PolicyRegions[RegionName];
             Json::Value region_type = Region["Type"];
@@ -878,8 +880,13 @@ namespace {
         //locate to the callee block
         Json::Value Func_Regions = CFGRoot.get(callee->getName().str(),"");
         //locate to the connection block
+        // if (!Func_Regions.isObject() || !Func_Regions.isMember("Connections"))
+        //     return 0;
         Json::Value Connec_Regions = Func_Regions.get("Connections","");
         //iterate connected functions
+        if (!Connec_Regions.isObject())
+            return 0;
+        errs()<<"has_intra_cpt_ivk on "<<callee->getName().str()<<"\n";
         for(auto func_name_region: Connec_Regions.getMemberNames()){
             // errs() << func_name_region << "\n";
             Json::Value Func = Connec_Regions.get(func_name_region, "");

@@ -5,22 +5,41 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <sys/mman.h>
-
+#include <pthread.h>
 #include <string.h>
 #include <err.h>
 #include <tee_client_api.h>
 #include <time.h>
 
 #include <stdint.h>
-
+#include "blake2.h"
 
 #define PTA_INVOKE_TESTS_UUID \
     { 0xd96a5b40, 0xc3e5, 0x21e3, \
       { 0x87, 0x94, 0x10, 0x02, 0xa5, 0xd5, 0xc6, 0x1b } }
 #define PTA_INVOKE_TESTS_CMD_TRACE    0
+#define BUFFER_SIZE 10000000  // Change this according to your requirements
+#define HASH_OUTBYTES 32
+typedef struct {
+    uint32_t srcAddr;
+    uint32_t destAddr;
+    uint32_t cond;
+    uint8_t Type;
+} Element;
 
-
-
+typedef struct {
+    Element buffer[BUFFER_SIZE];
+    size_t head;
+    size_t tail;
+} RingBuffer;
+int ret_recording_finish = 0;
+blake2s_state state;
+uint8_t hash[HASH_OUTBYTES];
+int ret_hash_init_flag = 0;
+extern int recording_flag;
+extern int recording_cnt;
+extern int ringbuffer_init_flag;
+extern RingBuffer ringBuffer;
 #define handle_error(msg) \
 	do { perror(msg); exit(EXIT_FAILURE); } while (0)
 
@@ -48,7 +67,28 @@
 	// uint64_t rd_count_loop =0;
 	// uint64_t rd_bb_exit =0;
 
+	void mission_control(){
 
+	    if(recording_cnt == 0){
+	        recording_flag = 1;
+	    }
+
+	    if(recording_cnt == 4){
+	        ret_recording_finish = 1;        
+	    }
+
+	    if(recording_cnt == 5){
+	        recording_flag = 0;
+	    }
+	    else 
+	    if (recording_cnt < 5){
+	    	printf("+++++++++cnt:%d++++++++++\n", recording_cnt);
+	        recording_cnt += 1;
+	    }
+
+	    return;
+
+	}
 
 	//cpsr, condition type, cfe_type
 	int invoke_cnt = 0;
@@ -204,15 +244,13 @@ void create_files(const char* filename1, const char* filename2, const char* file
 		}
 	}
 }
-void* read_measurement(void*){
+void* read_measurement(){
 
 	// uint32_t read_value;
 	Element poppedElem;
 
 	//contineous read measurement from the ringbuffer
 	while(true){
-
-
 		if(pop(&ringBuffer, &poppedElem)){
 			// printf("------type:%d----0x%d------\n", poppedElem.Type, poppedElem.destAddr);
 			
@@ -288,6 +326,7 @@ void* read_measurement(void*){
 						}
 						write_array_to_file(hash, sizeof(hash), "./ARI_ret_hash.txt");
 						print_hash(hash, sizeof(hash));
+						break;
 					}
 			}
 
@@ -327,8 +366,56 @@ void* read_measurement(void*){
 		}
 	}
 
-	return nullptr;
+	return NULL;
 }
 // int main(){
 // 	return 0;
 // }
+void write_number_to_file(uint32_t number, const char* filename) {
+	FILE* file = fopen(filename, "a");
+	if(file != NULL) {
+		char number_str[12];  // Buffer to hold the number as a string, 10 digits + newline + null terminator
+		sprintf(number_str, "%x\n", number);  // Convert the number to a string
+		fputs(number_str, file);  // Write the number string to the file
+		fclose(file);
+	} else {
+		printf("Failed to open the file %s\n", filename);
+	}
+}
+
+
+void write_array_to_file(uint8_t *array, size_t array_size, const char *filename) {
+	FILE *file = fopen(filename, "wb");  // Open the file in binary write mode
+
+	if(file != NULL){
+		for(size_t i = 0; i < array_size; i++){
+			fprintf(file, "%x\n", array[i]);
+		}
+		fclose(file);
+	}
+	else{
+		printf("Failed to open the file %s\n", filename);
+	}
+
+	// if (file != NULL) {
+	//     fwrite(array, sizeof(uint8_t), array_size, file);  // Write the array to the file
+	//     fclose(file);  // Close the file after writing
+	// } else {
+	//     printf("Failed to open the file %s\n", filename);
+	// }
+}
+	void start_new_thread(){
+		// run_thread(my_print);
+
+		//create measurement storage file here
+		create_files("./ARI_branch.txt", "./ARI_ind_jmp.txt", "./ARI_ret_hash.txt", \
+			"./ARI_tsf.txt", "./ARI_tsf_cond.txt");
+
+		run_thread(read_measurement);
+		return;
+	}
+void run_thread(void *(*function)(void*)){
+	  pthread_t thread;
+    pthread_create(&thread, NULL, function, NULL);
+    pthread_detach(thread);  // Let the thread run independently.	
+	}

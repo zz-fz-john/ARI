@@ -36,7 +36,10 @@
 
 #define	boolean	_Bool
 #define three_dec_places( x ) ( (int)( (x*1e3)+0.5 - (((int)x)*1e3) ) )
-
+extern void* read_measurement();
+extern void mission_control();
+extern void create_files(const char* filename1, const char* filename2, const char* filename3,\
+	const char* filename4, const char* filename5);
 int global_data = 369;
 
 int recording_flag=0;
@@ -209,7 +212,8 @@ void readSerial(){
 
 void processSerial(){
 	//process serial commands as they are read in
-	recording_flag=1;
+	mission_control();
+	//recording_flag=1;
 	if(serialStr[0] == '+'){
 		bolus(PUSH);
 		updateScreen();
@@ -230,7 +234,9 @@ void processSerial(){
 	}
 	serialStrReady = false;
 	serialStrLen = 0;
-	recording_flag=0;
+	//recording_flag=0;
+	//read_measurement();
+
 }
 
 void bolus(int direction){
@@ -419,11 +425,14 @@ void forward_target(int i){
 	return ;
 }
 
-
+extern void start_new_thread();
 //C-FLAT new code
 int main(int argc, char **args) {
 	printf("Starting syringe pump\n");
 	printf("hhhhhhhhhhhhhh\n");
+	//create_files("./ARI_branch.txt", "./ARI_ind_jmp.txt", "./ARI_ret_hash.txt", \
+	"./ARI_tsf.txt", "./ARI_tsf_cond.txt");
+	start_new_thread();
 	setup();
 	void (*funptr)(int);
 	funptr = &forward_target;
