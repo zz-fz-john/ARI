@@ -96,7 +96,8 @@
         "pthread.h": "c",
         "types.h": "c",
         "in.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "stdio.h": "c"
     },
     "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm",
     "git.ignoreLimitWarning": true

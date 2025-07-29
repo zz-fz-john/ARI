@@ -5,6 +5,7 @@
 //#include <wiringPi.h>
 //#include <pthread.h>
 #include "tcp.h"
+#include "lib/util.h"
 //#include "cfv_bellman.h"
 
 #define MOTOR_RIGHT_A	0

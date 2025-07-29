@@ -18,12 +18,13 @@ RESERVE_R8 = -ffixed-r8
 LDADD += -lteec -L$(TEEC_EXPORT)/lib/ -I$(TEEC_EXPORT)/include -mfloat-abi=hard -O0 -g -c -gdwarf-5 -fPIC
 TRAMPOLINE_PATH =../../trampoline_lib
 SYSROOT=/home/zrz0517/study/chain_attestation/ARI-zrz/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc
+TARGET = --target=arm-linux-gnueabihf
 UNAME := $(shell uname -m)
 WARNING_FLAGS := -Wall -Wextra -Wshadow -Wswitch-enum \
     -Wswitch-default
 C_WARNING_FLAGS := -Wmissing-prototypes -Wmissing-declarations \
     -Wstrict-prototypes
-TARGET = --target=arm-linux-gnueabihf
+
 
 ifeq ($(UNAME), armv6l)
 	CFLAGS := ${WARNING_FLAGS} ${C_WARNING_FLAGS} -DRASPI=1

@@ -22,10 +22,18 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <telldus-core.h>
+//#include <telldus-core.h>
 #include <time.h>
-#include "cfv_bellman.h"
-
+#include "lib/util.h"
+//#include "cfv_bellman.h"
+extern void* read_measurement();//ari need
+extern void mission_control();//ari need
+extern void start_new_thread();//ari need
+extern void create_files(const char* filename1, const char* filename2, const char* filename3,\
+	const char* filename4, const char* filename5);//ari need
+int recording_flag=0;//ari need
+int recording_cnt=0;//ari need
+extern int ret_recording_finish;//ari need
 typedef enum SwitchDevices {
     DEVICE_NONE = 0,
     DEVICE_MAKUUHUONE_KIRKAS = 1,
@@ -184,10 +192,10 @@ static void react_to_pattern(uint64_t now)
         if (has_match) {
             if (pattern->react & REACT_TURNON) {
                 printf("PATTERN %zu Turn on %d\n", pattern_index, pattern->targetDevice);
-                tdTurnOn(pattern->targetDevice);
+                //tdTurnOn(pattern->targetDevice);
             } else if (pattern->react & REACT_TURNOFF) {
                 printf("PATTERN %zu Turn off %d\n", pattern_index, pattern->targetDevice);
-                tdTurnOff(pattern->targetDevice);
+                //tdTurnOff(pattern->targetDevice);
             }
         }
     }
@@ -228,14 +236,16 @@ void listen_to_events(const char *data, int controllerId, int callbackId, void *
             if (strcmp(method_start, METHOD_TURNON) == 0) {
                 printf("Turn on %d\n", device_routing->targetDevice);
                 if (device_routing->react & REACT_TURNON) {
-                    tdTurnOn(device_routing->targetDevice);
+                    //tdTurnOn(device_routing->targetDevice);
+                    printf("tdTurnOn %d\n", device_routing->targetDevice);
                 } else {
                     printf("IGNORED\n");
                 }
             } else if (strcmp(method_start, METHOD_TURNOFF) == 0) {
                 printf("Turn off %d\n", device_routing->targetDevice);
                 if (device_routing->react & REACT_TURNOFF) {
-                    tdTurnOff(device_routing->targetDevice);
+                    //tdTurnOff(device_routing->targetDevice);
+                    printf("tdTurnOff %d\n", device_routing->targetDevice);
                 } else {
                     printf("IGNORED\n");
                 }
@@ -254,10 +264,11 @@ void listen_to_events(const char *data, int controllerId, int callbackId, void *
 
 int main(void)
 {
-    tdInit();
-    int callbackId = tdRegisterRawDeviceEvent(listen_to_events, NULL);
-    printf("%d %d\n", callbackId, tdGetNumberOfDevices());
-
+    //tdInit();
+    //int callbackId = tdRegisterRawDeviceEvent(listen_to_events, NULL);
+    //printf("%d %d\n", callbackId, tdGetNumberOfDevices());
+	create_files("./ARI_branch.txt", "./ARI_ind_jmp.txt", "./ARI_ret_hash.txt", \
+	"./ARI_tsf.txt", "./ARI_tsf_cond.txt");
     unsigned long start, end;
     int count = 0;
     char data[] = "class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;";
@@ -268,7 +279,8 @@ int main(void)
     // const char METHOD_TURNOFF[] = "method:turnoff;";
     
     start = usecs();
-    cfv_init(1024);
+    //cfv_init(1024);
+    recording_flag=1;
     for (count = 0 ; count < 10; count++)
         listen_to_events(data,0,0,NULL);
    // while (count++ < 100) {
@@ -276,11 +288,13 @@ int main(void)
    //    // nanosleep(&wait_time, NULL);
    // 
    // }
-
-    cfv_quote();
+	recording_flag=0;
+	ret_recording_finish=1;
+	read_measurement();
+    //cfv_quote();
     end = usecs();
     printf("round with attestation time usecs: %lu\n", end - start);
 
-    tdClose();
+    //tdClose();
     return 0;
 }

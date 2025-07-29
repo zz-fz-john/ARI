@@ -135,6 +135,7 @@ int main(int argc, char *argv[])
        }
        
       main_err = init_polling(&Exit_daemon_loop, "Server: http://%s:"WEB_SERVER_PORT);
+      printf("main_err: %d\n", main_err);
       if(main_err == 0) // Success
         {
          wait_polling_end();

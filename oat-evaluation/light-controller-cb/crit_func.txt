@@ -1,0 +1,7 @@
+strncmp
+clock_gettime
+printf
+react_to_pattern
+listen_to_events
+strlen
+strcmp

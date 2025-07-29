@@ -1,0 +1,1197 @@
+{
+	"DEVICE_ROUTINGS" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"METHOD_TURNOFF" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 2,
+				"Type" : "Data"
+			}
+		}
+	},
+	"METHOD_TURNON" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"PATTERN_HIMMEA_KIRKAS" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"react_to_pattern" : 
+			{
+				"Count" : 3,
+				"Type" : "Data"
+			}
+		}
+	},
+	"PATTERN_KIRKAS_HIMMEA" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"react_to_pattern" : 
+			{
+				"Count" : 3,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_KAIKKI_HIMMEA" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 2,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_KAIKKI_KIRKAS" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 2,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_KAJARIT_DUMMY_1" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_KAJARIT_DUMMY_2" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_KAJARIT_DUMMY_3" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_KAJARIT_DUMMY_4" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_MAKUUHUONE_HIMMEA" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 6,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_MAKUUHUONE_KIRKAS" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 6,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_OLOHUONE_HIMMEA" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 6,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_OLOHUONE_KIRKAS" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 6,
+				"Type" : "Data"
+			}
+		}
+	},
+	"SWITCH_PATTERNS" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"react_to_pattern" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"Serial_available" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"getchar" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"Serial_begin" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"Serial_read" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"getchar" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"Serial_write" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"__func__.Serial_available" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"Serial_available" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.Serial_begin" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"Serial_begin" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.Serial_write" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"Serial_write" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.digitalRead" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"digitalRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.listen_to_events" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.pinMode" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"pinMode" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.react_to_pattern" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"react_to_pattern" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__isoc99_scanf" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*, ...)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"analogRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"digitalRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"analogRead" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"__isoc99_scanf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"atoi" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"toUInt" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"clock_gettime" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32, %struct.timespec*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"create_files" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*, i8*, i8*, i8*, i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"delayMicroseconds" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (float)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"usleep" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"digitalRead" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"__isoc99_scanf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"digitalWrite" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (i32, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"g_switch_memory" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 3,
+				"Type" : "Data"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"getchar" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"Serial_available" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"Serial_read" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"gettimeofday" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (%struct.timespec*, i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"millis" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"usecs" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"listen_to_events" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "light-controller.c",
+			"LLVM_Type" : "void (i8*, i32, i32, i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"clock_gettime" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 15,
+				"Type" : "Callee"
+			},
+			"llvm.memcpy.p0i8.p0i8.i32" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"llvm.var.annotation" : 
+			{
+				"Count" : 4,
+				"Type" : "Callee"
+			},
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"printf" : 
+			{
+				"Count" : 10,
+				"Type" : "Callee"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"strcmp" : 
+			{
+				"Count" : 3,
+				"Type" : "Callee"
+			},
+			"strlen" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"strncmp" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"llvm.memcpy.p0i8.p0i8.i32" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*, i8*, i32, i32, i1)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 2,
+				"Type" : "Caller"
+			},
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"llvm.var.annotation" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*, i8*, i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 4,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"main" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "light-controller.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"create_files" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 4,
+				"Type" : "Callee"
+			},
+			"llvm.memcpy.p0i8.p0i8.i32" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"read_measurement" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"usecs" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"main.data" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"millis" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"gettimeofday" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"pinMode" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (i32, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"printf" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*, ...)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"Serial_available" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"Serial_begin" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"Serial_write" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"analogRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"digitalRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"listen_to_events" : 
+			{
+				"Count" : 10,
+				"Type" : "Caller"
+			},
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"pinMode" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"react_to_pattern" : 
+			{
+				"Count" : 3,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"react_to_pattern" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "light-controller.c",
+			"LLVM_Type" : "void (i64)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 7,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 3,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"read_measurement" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : true,
+			"LLVM_Type" : "i8* (...)*",
+			"Type" : "Function"
+		}
+	},
+	"recording_flag" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "light-controller.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 2,
+				"Type" : "Data"
+			}
+		}
+	},
+	"ret_recording_finish" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"strcmp" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*, i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 3,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"strlen" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"strncmp" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*, i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"listen_to_events" : 
+			{
+				"Count" : 2,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"toUInt" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"atoi" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 3,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"usecs" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"gettimeofday" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"main" : 
+			{
+				"Count" : 2,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"usleep" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"delayMicroseconds" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	}
+}

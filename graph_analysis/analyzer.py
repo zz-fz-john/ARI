@@ -381,6 +381,10 @@ def add_region_to_comp_desc(R,r_node,comp_desc):
     # print r_node
     # print ("--------")
     # print OBJECTS_KEY
+    
+    if not R.node[r_node].has_key(OBJECTS_KEY):
+        print(r_node)
+        R.node[r_node][OBJECTS_KEY] = []
     region = {POLICY_REGION_KEY_OBJECTS: R.node[r_node][OBJECTS_KEY],
               POLICY_REGION_KEY_TYPE: policy_r_type,
               "Size":0,

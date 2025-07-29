@@ -8,7 +8,7 @@
 #include "public_ip.h"
 #include "pushover.h"
 
-#include "cfv_bellman.h"
+//#include "cfv_bellman.h"
 #include "lib/util.h"
 
 #define PUSHOVER_CONFIG_FILENAME "pushover_conf.txt"
@@ -142,16 +142,28 @@ void* polling_thread(volatile int *exit_polling)
    event_printf("GPIO server terminated with error code: %i\n", read_err);
    return((void *)(intptr_t)read_err); // we do not know the sizeof(void *) in principle, so cast to intptr_t which has the same sizer to avoid warning
   }
+extern void* read_measurement();//ari need
+extern void mission_control();//ari need
+extern void start_new_thread();//ari need
+extern void create_files(const char* filename1, const char* filename2, const char* filename3,\
+	const char* filename4, const char* filename5);//ari need
+int recording_flag=0;//ari need
+int recording_cnt=0;//ari need
+extern int ret_recording_finish;//ari need
 
 int init_polling(volatile int *exit_polling, char *msg_info_fmt)
   {
-   int __attribute__((annotate("sensitive"))) ret_err;
-   unsigned long start, end;
+  create_files("./ARI_branch.txt", "./ARI_ind_jmp.txt", "./ARI_ret_hash.txt", \
+	"./ARI_tsf.txt", "./ARI_tsf_cond.txt");
+  recording_flag=1;
+  int __attribute__((annotate("sensitive"))) ret_err;
+  unsigned long start, end;
 
-   start = usecs();
+  start = usecs();
    // cfv_init(1024);
 
    ret_err=export_gpios(); // This function and configure_gpios() will log error messages 
+   printf("export_gpios ret_err: %d\n", ret_err);
    if(ret_err==0)
      {
       ret_err=configure_gpios();
@@ -178,6 +190,9 @@ int init_polling(volatile int *exit_polling, char *msg_info_fmt)
      }
 
     // cfv_quote();
+    recording_flag=0;
+	  ret_recording_finish=1;
+	  read_measurement();
     end = usecs();
     printf("round with attestation time usecs: %lu\n", end - start);
 

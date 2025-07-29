@@ -1,0 +1,159 @@
+{
+    "Compartments": {
+        ".CODE_REGION_1_": {
+            "Data": [
+                ".DATA_REGION_1_"
+            ],
+            "Peripherals": [],
+            "Priv": false
+        },
+        ".CODE_REGION_2_": {
+            "Data": [
+                ".DATA_REGION_2_"
+            ],
+            "Peripherals": [],
+            "Priv": false
+        }
+    },
+    "MPU_CONFIG": {
+        ".CODE_REGION_1_": {
+            "Addrs": [
+                134217744,
+                536870929,
+                134742034,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "Attrs": [
+                100794405,
+                319160355,
+                100794387,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        ".CODE_REGION_2_": {
+            "Addrs": [
+                134217744,
+                536870929,
+                134742034,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "Attrs": [
+                100794405,
+                319160355,
+                100794387,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "__hexbox_default": {
+            "Addrs": null,
+            "Attrs": null
+        }
+    },
+    "NUM_MPU_REGIONS": 8,
+    "Regions": {
+        ".CODE_REGION_1_": {
+            "Align": 1,
+            "Objects": [
+                "strncmp",
+                "clock_gettime",
+                "react_to_pattern",
+                "printf",
+                "listen_to_events",
+                "strlen",
+                "strcmp"
+            ],
+            "Size": 0,
+            "Type": "Code"
+        },
+        ".CODE_REGION_2_": {
+            "Align": 1,
+            "Objects": [
+                "usleep",
+                "Serial_begin",
+                "main",
+                "getchar",
+                "create_files",
+                "digitalWrite",
+                "millis",
+                "analogRead",
+                "Serial_read",
+                "gettimeofday",
+                "atoi",
+                "Serial_available",
+                "__isoc99_scanf",
+                "usecs",
+                "digitalRead",
+                "toUInt",
+                "Serial_write",
+                "pinMode",
+                "read_measurement",
+                "delayMicroseconds"
+            ],
+            "Size": 0,
+            "Type": "Code"
+        },
+        ".DATA_REGION_0_": {
+            "Align": 1,
+            "Objects": [],
+            "Size": 0,
+            "Type": "Data"
+        },
+        ".DATA_REGION_1_": {
+            "Align": 1,
+            "Objects": [
+                "METHOD_TURNON",
+                "SWITCH_KAIKKI_HIMMEA",
+                "g_switch_memory",
+                "SWITCH_OLOHUONE_HIMMEA",
+                "SWITCH_MAKUUHUONE_KIRKAS",
+                "PATTERN_KIRKAS_HIMMEA",
+                "__func__.listen_to_events",
+                "SWITCH_PATTERNS",
+                "SWITCH_KAJARIT_DUMMY_4",
+                "SWITCH_KAJARIT_DUMMY_3",
+                "SWITCH_KAJARIT_DUMMY_2",
+                "SWITCH_KAJARIT_DUMMY_1",
+                "PATTERN_HIMMEA_KIRKAS",
+                "SWITCH_KAIKKI_KIRKAS",
+                "SWITCH_OLOHUONE_KIRKAS",
+                "__func__.react_to_pattern",
+                "METHOD_TURNOFF",
+                "DEVICE_ROUTINGS",
+                "SWITCH_MAKUUHUONE_HIMMEA"
+            ],
+            "Size": 0,
+            "Type": "Data"
+        },
+        ".DATA_REGION_2_": {
+            "Align": 1,
+            "Objects": [
+                "__func__.digitalRead",
+                "__func__.Serial_begin",
+                "ret_recording_finish",
+                "main.data",
+                "__func__.pinMode",
+                "__func__.Serial_available",
+                "recording_flag",
+                "__func__.Serial_write"
+            ],
+            "Size": 0,
+            "Type": "Data"
+        }
+    }
+}

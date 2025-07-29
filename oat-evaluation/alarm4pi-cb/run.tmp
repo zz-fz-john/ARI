@@ -1,27 +1,27 @@
 {
 	"GPIO_direction" : 
 	{
-		"Size" : 204
+		"Size" : 292
 	},
 	"GPIO_export" : 
 	{
-		"Size" : 288
+		"Size" : 496
 	},
 	"GPIO_read" : 
 	{
-		"Size" : 188
+		"Size" : 316
 	},
 	"GPIO_unexport" : 
 	{
-		"Size" : 128
+		"Size" : 180
 	},
 	"GPIO_write" : 
 	{
-		"Size" : 204
+		"Size" : 292
 	},
 	"close_log_file" : 
 	{
-		"Size" : 72
+		"Size" : 92
 	},
 	"close_log_files" : 
 	{
@@ -29,11 +29,11 @@
 	},
 	"configure_gpios" : 
 	{
-		"Size" : 292
+		"Size" : 540
 	},
 	"configure_timer" : 
 	{
-		"Size" : 244
+		"Size" : 300
 	},
 	"daemonize" : 
 	{
@@ -41,11 +41,11 @@
 	},
 	"exit_deamon_handler" : 
 	{
-		"Size" : 68
+		"Size" : 108
 	},
 	"export_gpios" : 
 	{
-		"Size" : 520
+		"Size" : 728
 	},
 	"get_current_exec_path" : 
 	{
@@ -53,7 +53,7 @@
 	},
 	"get_localtime_str" : 
 	{
-		"Size" : 108
+		"Size" : 196
 	},
 	"get_public_ip" : 
 	{
@@ -65,15 +65,15 @@
 	},
 	"hostname_to_ip" : 
 	{
-		"Size" : 260
+		"Size" : 284
 	},
 	"hostname_to_ip_at_dns" : 
 	{
-		"Size" : 1048
+		"Size" : 1228
 	},
 	"init_polling" : 
 	{
-		"Size" : 204
+		"Size" : 460
 	},
 	"kill_processes" : 
 	{
@@ -81,27 +81,27 @@
 	},
 	"main" : 
 	{
-		"Size" : 356
+		"Size" : 512
 	},
 	"msg_printf" : 
 	{
-		"Size" : 216
+		"Size" : 380
 	},
 	"open_log_files" : 
 	{
-		"Size" : 88
+		"Size" : 116
 	},
 	"open_msg_file" : 
 	{
-		"Size" : 344
+		"Size" : 384
 	},
 	"polling_thread" : 
 	{
-		"Size" : 320
+		"Size" : 528
 	},
 	"pushover_init" : 
 	{
-		"Size" : 1016
+		"Size" : 1204
 	},
 	"resp_code_msg" : 
 	{
@@ -109,42 +109,42 @@
 	},
 	"run_background_command" : 
 	{
-		"Size" : 484
+		"Size" : 628
 	},
 	"send_info_notif" : 
 	{
-		"Size" : 76
+		"Size" : 92
 	},
 	"send_notification" : 
 	{
-		"Size" : 1128
+		"Size" : 1736
 	},
 	"set_signal_handler" : 
 	{
-		"Size" : 176
+		"Size" : 200
 	},
 	"timer_handler" : 
 	{
-		"Size" : 56
+		"Size" : 96
 	},
 	"unexport_gpios" : 
 	{
-		"Size" : 188
+		"Size" : 312
 	},
 	"update_ip_msg" : 
 	{
-		"Size" : 136
+		"Size" : 180
 	},
 	"usecs" : 
 	{
-		"Size" : 48
+		"Size" : 56
 	},
 	"wait_polling_end" : 
 	{
-		"Size" : 72
+		"Size" : 112
 	},
 	"wait_processes" : 
 	{
-		"Size" : 292
+		"Size" : 348
 	}
 }
