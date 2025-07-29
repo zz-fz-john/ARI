@@ -79,7 +79,7 @@
 #include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
-#include "cfv_bellman.h"
+//#include "cfv_bellman.h"
 
 // #include "mailbox.h"
 // #define MBFILE            DEVICE_FILE_NAME    /* From mailbox.h */
@@ -274,8 +274,14 @@ void sha1_transform(struct SHA1_CTX *ctx, const BYTE data[]);
 int base64_encode(unsigned char *in, int inlen, char *out);
 const char* websocket_handshake_response(const char* const handshake);
 void decode_websocket_message(char message[]);
-
-
+extern void* read_measurement();//ari need
+extern void mission_control();//ari need
+extern void start_new_thread();//ari need
+extern void create_files(const char* filename1, const char* filename2, const char* filename3,\
+	const char* filename4, const char* filename5);//ari need
+int recording_flag=0;//ari need
+int recording_cnt=0;//ari need
+extern int ret_recording_finish;//ari need
 int main(int argc, char** argv) {
     struct pi_options options = get_args(argc, argv);
     int i;
@@ -473,8 +479,10 @@ int main(int argc, char** argv) {
     printf(" debug line:%d", __LINE__);
 
     start = usecs();
-    cfv_init(1024);
-
+	create_files("./ARI_branch.txt", "./ARI_ind_jmp.txt", "./ARI_ret_hash.txt", \
+	"./ARI_tsf.txt", "./ARI_tsf_cond.txt");
+    //cfv_init(1024);
+    recording_flag=1;
     while (count++ < 100) {
         /* This is nonblocking because we set it as such as above */
         int bytes_count = 0;
@@ -630,7 +638,10 @@ int main(int argc, char** argv) {
         usleep(100000);
     }
 
-    cfv_quote();
+    //cfv_quote();
+	recording_flag=0;
+	ret_recording_finish=1;
+	read_measurement();
     end = usecs();
     printf("round with attestation time usecs: %lu\n", end - start);
 

@@ -8,13 +8,21 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include "tcp.h"
+#include "lib/util.h"
 
+int recording_flag=0;//ari need
+int recording_cnt=0;//ari need
+extern int ret_recording_finish;//ari need
+extern void start_new_thread();//ari need
+extern void mission_control();//ari need
+extern void* read_measurement();//ari need
 void tcpError(const char *msg) {
     perror(msg);
     exit(1);
 }
 
 void *tcpListener(void *arg){
+	recording_flag=1;
 	char buffer[5];
 	int sockfd;
 	socklen_t clilen;
@@ -36,7 +44,8 @@ void *tcpListener(void *arg){
 	listen(sockfd,5);
        printf("%s %d\n",__func__, __LINE__);
 	clilen = sizeof(cli_addr);
-	delay(2000);
+	//delay(2000);
+	usleep(200 * 1000);
 	newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr,&clilen);
        printf("%s %d\n",__func__, __LINE__);
 	if (newsockfd < 0)
@@ -51,6 +60,9 @@ void *tcpListener(void *arg){
 	}
 	close(newsockfd);
 	close(sockfd);
+	recording_flag=0;
+	ret_recording_finish=1;
+	read_measurement();
 	return NULL;
 }
 #endif

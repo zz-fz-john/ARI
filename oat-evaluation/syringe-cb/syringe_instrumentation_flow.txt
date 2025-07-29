@@ -1,4 +1,4 @@
-rm -rf ./util.bc ./LiquidCrystal.bc ./led.bc ./syringePump.bc ./test_combo.bc ../../trampoline_lib/ict_checking.bc ../../trampoline_lib/trampoline_fw.o ./after_compartment_test_combo.bc ./after_comp_combo_asm.s ./after_comp_combo.s ./after_compartment_test_combo.ll ../../trampoline_lib/ta_trampoline.o ../../trampoline_lib/shared_data_sections.o ../../trampoline_lib0/trampoline.o  
+rm -rf ./util.bc ./LiquidCrystal.bc ./led.bc ./syringePump.bc ./test_combo.bc ../../trampoline_lib/ict_checking.bc ../../trampoline_lib/trampoline_fw.o ./after_compartment_test_combo.bc ./after_comp_combo_asm.s ./after_comp_combo.s ./after_compartment_test_combo.ll ../../trampoline_lib/ta_trampoline.o ../../trampoline_lib/shared_data_sections.o ../../trampoline_lib/trampoline.o  
 
 make test-combo
 

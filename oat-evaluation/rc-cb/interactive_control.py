@@ -185,7 +185,7 @@ def make_parser():
         '--server',
         dest='server',
         help='The server to send control commands to.',
-        default='127.1'
+        default='192.168.1.101'
     )
     return parser
 

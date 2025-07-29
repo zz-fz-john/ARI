@@ -36,14 +36,16 @@
 
 #define	boolean	_Bool
 #define three_dec_places( x ) ( (int)( (x*1e3)+0.5 - (((int)x)*1e3) ) )
-extern void* read_measurement();
-extern void mission_control();
+extern void* read_measurement();//ari need
+extern void mission_control();//ari need
+extern void start_new_thread();//ari need
 extern void create_files(const char* filename1, const char* filename2, const char* filename3,\
-	const char* filename4, const char* filename5);
+	const char* filename4, const char* filename5);//ari need
+int recording_flag=0;//ari need
+int recording_cnt=0;//ari need
 int global_data = 369;
 
-int recording_flag=0;
-int recording_cnt=0;
+
 long ustepsPerMM = MICROSTEPS_PER_STEP * STEPS_PER_REVOLUTION / THREADED_ROD_PITCH;
 long ustepsPerML = (MICROSTEPS_PER_STEP * STEPS_PER_REVOLUTION * SYRINGE_BARREL_LENGTH_MM) / (SYRINGE_VOLUME_ML * THREADED_ROD_PITCH );
 //long ustepsPerMM = 2;
@@ -425,7 +427,7 @@ void forward_target(int i){
 	return ;
 }
 
-extern void start_new_thread();
+
 //C-FLAT new code
 int main(int argc, char **args) {
 	printf("Starting syringe pump\n");

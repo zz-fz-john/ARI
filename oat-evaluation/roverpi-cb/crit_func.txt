@@ -1,0 +1,14 @@
+usleep
+perror
+socket
+read
+bind
+accept
+exit
+tcpError
+tcpListener
+printf
+close
+htons
+read_measurement
+listen

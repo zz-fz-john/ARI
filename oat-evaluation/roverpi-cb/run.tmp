@@ -1,0 +1,62 @@
+{
+	"Serial_available" : 
+	{
+		"Size" : 72
+	},
+	"Serial_begin" : 
+	{
+		"Size" : 40
+	},
+	"Serial_read" : 
+	{
+		"Size" : 32
+	},
+	"Serial_write" : 
+	{
+		"Size" : 56
+	},
+	"analogRead" : 
+	{
+		"Size" : 52
+	},
+	"delayMicroseconds" : 
+	{
+		"Size" : 36
+	},
+	"digitalRead" : 
+	{
+		"Size" : 56
+	},
+	"digitalWrite" : 
+	{
+		"Size" : 20
+	},
+	"main" : 
+	{
+		"Size" : 600
+	},
+	"millis" : 
+	{
+		"Size" : 60
+	},
+	"pinMode" : 
+	{
+		"Size" : 52
+	},
+	"tcpError" : 
+	{
+		"Size" : 28
+	},
+	"tcpListener" : 
+	{
+		"Size" : 680
+	},
+	"toUInt" : 
+	{
+		"Size" : 40
+	},
+	"usecs" : 
+	{
+		"Size" : 48
+	}
+}

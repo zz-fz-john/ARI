@@ -1,0 +1,1075 @@
+{
+	"Serial_available" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"getchar" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"Serial_begin" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"Serial_read" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"getchar" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"Serial_write" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"__func__.Serial_available" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"Serial_available" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.Serial_begin" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"Serial_begin" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.Serial_write" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"Serial_write" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.digitalRead" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"digitalRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.main" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 3,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.pinMode" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"pinMode" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__func__.tcpListener" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 7,
+				"Type" : "Data"
+			}
+		}
+	},
+	"__isoc99_scanf" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*, ...)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"analogRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"digitalRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"accept" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32, %struct.sockaddr*, i32*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"analogRead" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"__isoc99_scanf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"atoi" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"toUInt" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"bind" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32, %struct.sockaddr*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"close" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 2,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"create_files" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*, i8*, i8*, i8*, i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"delayMicroseconds" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (float)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"usleep" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"digitalRead" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"__isoc99_scanf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"digitalWrite" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : true,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (i32, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"exit" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpError" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"getchar" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"Serial_available" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"Serial_read" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"gettimeofday" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (%struct.timeval*, i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"millis" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"usecs" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"htons" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i16 (i16)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"listen" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"llvm.memset.p0i8.i32" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*, i8, i32, i32, i1)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 2,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"llvm.var.annotation" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*, i8*, i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"main" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "rovertcp.c",
+			"LLVM_Type" : "i32 (i32, i8**)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"__isoc99_scanf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"create_files" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"digitalWrite" : 
+			{
+				"Count" : 16,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 6,
+				"Type" : "Callee"
+			},
+			"llvm.var.annotation" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"pinMode" : 
+			{
+				"Count" : 4,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 10,
+				"Type" : "Callee"
+			},
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"usecs" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"usleep" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"millis" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"gettimeofday" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"mode" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "./tcp.h",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 8,
+				"Type" : "Data"
+			},
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"n" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "./tcp.h",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"newsockfd" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "./tcp.h",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 4,
+				"Type" : "Data"
+			}
+		}
+	},
+	"perror" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "void (i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpError" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"pinMode" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : true,
+			"Filename" : "util.c",
+			"LLVM_Type" : "void (i32, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"printf" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"portno" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "./tcp.h",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			},
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"printf" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i8*, ...)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"Serial_available" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"Serial_begin" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"Serial_write" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"analogRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"digitalRead" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"main" : 
+			{
+				"Count" : 10,
+				"Type" : "Caller"
+			},
+			"pinMode" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"tcpListener" : 
+			{
+				"Count" : 8,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"read" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32, i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"read_measurement" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : true,
+			"LLVM_Type" : "i8* (...)*",
+			"Type" : "Function"
+		}
+	},
+	"recording_flag" : 
+	{
+		"Attr" : 
+		{
+			"Filename" : "tcp.c",
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 2,
+				"Type" : "Data"
+			}
+		}
+	},
+	"ret_recording_finish" : 
+	{
+		"Attr" : 
+		{
+			"Size" : 4,
+			"Type" : "Global"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Data"
+			}
+		}
+	},
+	"socket" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32, i32, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"tcpError" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "tcp.c",
+			"LLVM_Type" : "void (i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"exit" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"perror" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"tcpListener" : 
+			{
+				"Count" : 3,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"tcpListener" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "tcp.c",
+			"LLVM_Type" : "i8* (i8*)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"accept" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"bind" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"close" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"htons" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"listen" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 7,
+				"Type" : "Callee"
+			},
+			"llvm.memset.p0i8.i32" : 
+			{
+				"Count" : 2,
+				"Type" : "Callee"
+			},
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"printf" : 
+			{
+				"Count" : 8,
+				"Type" : "Callee"
+			},
+			"read" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"read_measurement" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"socket" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"tcpError" : 
+			{
+				"Count" : 3,
+				"Type" : "Callee"
+			},
+			"usleep" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"toUInt" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 (i8*, i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"atoi" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 3,
+				"Type" : "Callee"
+			}
+		}
+	},
+	"usecs" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"Filename" : "util.c",
+			"LLVM_Type" : "i32 ()*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"gettimeofday" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"llvm.dbg.declare" : 
+			{
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"main" : 
+			{
+				"Count" : 2,
+				"Type" : "Caller"
+			}
+		}
+	},
+	"usleep" : 
+	{
+		"Attr" : 
+		{
+			"Address Taken" : false,
+			"LLVM_Type" : "i32 (i32)*",
+			"Type" : "Function"
+		},
+		"Connections" : 
+		{
+			"delayMicroseconds" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"main" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			},
+			"tcpListener" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
+			}
+		}
+	}
+}
