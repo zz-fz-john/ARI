@@ -1,0 +1,8 @@
+../conattestllvm/build/bin/llc -filetype=obj ./build/SITL_arm_linux_gnueabihf/after_compartment_llvm_link.bc -o ./build/SITL_arm_linux_gnueabihf/llvm-link_cond_br.o
+cd ../oat-evaluation/syringe-cb
+make trampoline
+make cit_checking_obj
+cd ../../ardurover
+source ./single_bc_final_link.txt  
+scp ./build/SITL_arm_linux_gnueabihf/ardurover43_ARI pi@192.168.1.101:
+cd ../../../

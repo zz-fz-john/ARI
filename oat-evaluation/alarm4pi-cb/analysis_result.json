@@ -2237,7 +2237,12 @@
 			},
 			"printf" : 
 			{
-				"Count" : 2,
+				"Count" : 1,
+				"Type" : "Callee"
+			},
+			"pushover_init" : 
+			{
+				"Count" : 1,
 				"Type" : "Callee"
 			},
 			"read_measurement" : 
@@ -2973,11 +2978,6 @@
 				"Count" : 4,
 				"Type" : "Callee"
 			},
-			"send_info_notif" : 
-			{
-				"Count" : 1,
-				"Type" : "Callee"
-			},
 			"strerror" : 
 			{
 				"Count" : 1,
@@ -2997,7 +2997,7 @@
 		{
 			"init_polling" : 
 			{
-				"Count" : 2,
+				"Count" : 1,
 				"Type" : "Caller"
 			},
 			"main" : 
@@ -3079,6 +3079,11 @@
 			{
 				"Count" : 1,
 				"Type" : "Callee"
+			},
+			"init_polling" : 
+			{
+				"Count" : 1,
+				"Type" : "Caller"
 			},
 			"llvm.dbg.declare" : 
 			{
@@ -3312,11 +3317,6 @@
 				"Count" : 3,
 				"Type" : "Callee"
 			},
-			"polling_thread" : 
-			{
-				"Count" : 1,
-				"Type" : "Caller"
-			},
 			"send_notification" : 
 			{
 				"Count" : 1,
@@ -3326,11 +3326,6 @@
 			{
 				"Count" : 1,
 				"Type" : "Callee"
-			},
-			"update_ip_msg" : 
-			{
-				"Count" : 1,
-				"Type" : "Caller"
 			}
 		}
 	},
@@ -4059,11 +4054,6 @@
 				"Type" : "Callee"
 			},
 			"msg_printf" : 
-			{
-				"Count" : 1,
-				"Type" : "Callee"
-			},
-			"send_info_notif" : 
 			{
 				"Count" : 1,
 				"Type" : "Callee"

@@ -1,0 +1,79 @@
+pi@navio:~$ ./syringe-_baseline_after_compt
+Starting syringe pumq
+hhhhhhhhhhhhhh
+Deleted successfully the file ./ARI_branch.txt
+Successfully created the file ./ARI_branch.txt
+Deleted successfully the file ./ARI_ind_jmp.txt
+Successfully created the file ./ARI_ind_jmp.txt
+Deleted successfully the file ./ARI_ret_hash.txt
+Successfully created the file ./ARI_ret_hash.txt
+Deleted successfully the file ./ARI_tsf.txt
+Successfully created the file ./AVI_tsf.txt
+Deleted successfully the file ./ARI_tsf_cond.txt
+Successfully created the file ./ARI_tsf_cond.txt
+lcd_begin (LiquidCrystal * lcd = 0x57d04, unsigned int cols = 16, unsigned int rows = 2)
+lcd_clear (LiquidCrystal * lcd = 0x46821
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = SyringePump v2.0, int len = 16)
+pinMode (int pin = 0, int mode = 0)
+pinMode (int pin = 0, int mode = 0)
+pinMode (int pin = 2, int mode = 1)
+pinMode (int pin = 3, int mode = 1)
+Serial_begin (int baud = 57600)
+forward_target executing 
+lcd_begin (LiquidCrystal * lcd = 0x57d04, unsigned int cols = 16, unsigned int rows = 2)
++++++++++cnt:0++++++++++
+led_on
+lcd_clear (LiquidCrystal * lcd = 0x44821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Used 0.11 mL, int len = 12)
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Bolus 0.11 mL, int len = 13)
+mLBolus = 0.011000, time usecs: 29265
++++++++++cnt:1++++++++++
+led_on
+lcd_clear (LiquidCrystal * lcd = 0x46821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Used 0.32 mL, int len = 12)
+lcd_setCursor��LiquidCrystal * lcd = 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Bolus 0.21 mL, int len = 13)
+mLBolus = 0.021000, time usecs: 55045
++++++++++cnt:2++++++++++
+led_on
+lcd_clear (LiquidCrys�al * lcd = 0x46821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Used 0.63 mL, int len = 12)
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Bolus 0.31 mL, int len = 13)
+mLBolus = 0.031000, time usecs: 81447
++++++++++cnt:3++++++++++
+led_on
+lcd_clear (LiquidCrystal * lcd = 0x46821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Used 0.104 mL, int len = 13)
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Bolus 0.41 mL, int len = 13)
+mLBolus = 0.041000, time usecs: 107657
++++++++++cnt:4++++++++++
+led_on
+lcd_clear (LiquidCrystal * lcd = 0x46821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Used 0.155 mL, int len = 13)
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Bolus 2.51 mL, int len = 13)
+mLBolus = 0.051000, time usecs: 134331
+led_on
+1340ec453b6125d93c2a6d85f64f94bf61250ac57913e36516487816d826ad47
+lcd_clear (LiquidCrystal * lcd = 0x46821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int$x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Used 0.216 mL, int len = 13)
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, c�ar* output = Bolus 0.61 mL, int len = 13)
+mLBolus = 0.061000, time usecs: 152278
+led_on
+lcd_clear (LiquidCrystal * lcd = 0x46821
+lcd_setCursor (LiquidCrystal * lcd = 0x0, int x = 0, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x=7d04, char* output = Used 0.287 mL, int len = 13)
+lcd_setCursor (LiquidCrystal * lcd ? 0x0, int x = 1, int y = 357736
+lcd_print (LiquidCrystal * lcd = 0x57d04, char* output = Bolus 0.71 mL, int len = 13)
+mLBolus = 0.071000, tkme usecs: 174800
+Ending syringe pump

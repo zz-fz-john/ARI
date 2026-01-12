@@ -79,6 +79,7 @@ extern RingBuffer ringBuffer;
 
 	    if(recording_cnt == 5){
 	        recording_flag = 0;
+			recording_cnt = 0;
 	    }
 	    else 
 	    if (recording_cnt < 5){
@@ -277,7 +278,7 @@ void* read_measurement(){
 					printf("%s\n", "Failed to update BLAKE2s hash\n");
 				}
 
-				printf("return update: 0x%x\n", poppedElem.destAddr);
+				//printf("return update: 0x%x\n", poppedElem.destAddr);
 
 				#ifdef DBG
 				printf("read3: des:0x%x, src:0x%x, type:%d ret_finish %d, rcd_flag %d\n", \
@@ -322,10 +323,10 @@ void* read_measurement(){
 			if(is_empty(&ringBuffer) && !recording_flag){
 					if(ret_recording_finish){
 						if (blake2s_final(&state, hash, HASH_OUTBYTES) != 0){
-							printf("%s\n", "Failed to finalized BLAKE2s hash");
+							//printf("%s\n", "Failed to finalized BLAKE2s hash");
 						}
 						write_array_to_file(hash, sizeof(hash), "./ARI_ret_hash.txt");
-						print_hash(hash, sizeof(hash));
+						//print_hash(hash, sizeof(hash));
 						break;
 					}
 			}

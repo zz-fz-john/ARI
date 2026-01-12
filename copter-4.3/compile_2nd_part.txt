@@ -2,5 +2,7 @@
 cd ../oat-evaluation/syringe-cb
 make trampoline
 make cit_checking_obj
-cd ../../ardupilot
-source ./single_bc_final_link.txt  && cd ./bin/ && scp ./arducopter pi@10.228.106.170:~ && cd ../../../
+cd ../../copter-4.3
+source ./single_bc_final_link.txt 
+scp ./build/SITL_arm_linux_gnueabihf/arducopter43_ARI pi@192.168.1.101:
+cd ../../../

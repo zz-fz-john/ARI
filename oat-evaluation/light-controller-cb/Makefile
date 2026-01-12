@@ -53,7 +53,7 @@ lc-bc:
 	#clang -D_GNU_SOURCE --target=aarch64 -S -emit-llvm light-controller.c -o light-controller.bc
 	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang $(TARGET) $(RPI3_GCC_CONFIG) --sysroot=$(SYSROOT) -S -emit-llvm  light-controller.c -o light-controller.bc
 
-test-combo: lc-bc util
+test-combo:lc-bc util
 	/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-link light-controller.bc util.bc -o test_combo.bc
 
 opt-combo:

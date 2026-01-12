@@ -47,7 +47,7 @@ namespace {
 
   struct HexboxAnalysis : public FunctionPass {
     static char ID;
-    HexboxAnalysis() : FunctionPass(ID) {
+    HexboxAnalysis() : FunctionPass(ID), DbgInfoInitialized(false) {
         initializeHexboxAnalysisPass(*PassRegistry::getPassRegistry());
     }
 
@@ -55,6 +55,11 @@ namespace {
     std::map<std::string, int> controller_filename;
     std::map<std::string, int> sensor_actrator_filename;
     std::map<std::string, int> peripheral_filename;
+
+    // Cache for debug info to avoid repeated processModule calls
+    DebugInfoFinder DbgFinder;
+    std::map<std::string, std::string> GlobalVarToFilename;
+    bool DbgInfoInitialized;
 
     // std::string is_controller(){
     //     return NULL;
@@ -665,6 +670,28 @@ namespace {
         //AMI policy
         init_cpt_policy();
 
+        // Initialize debug info once for the entire module
+        if (!DbgInfoInitialized) {
+            DbgFinder.processModule(M);
+            
+            // Build cache of global variable name to filename mapping
+            for (DICompileUnit *DIC : DbgFinder.compile_units()) {
+                for (DIGlobalVariable *DIG : DIC->getGlobalVariables()) {
+                    std::string linkageName = DIG->getLinkageName().str();
+                    std::string displayName = DIG->getDisplayName().str();
+                    std::string filename = DIG->getFile()->getFilename().str();
+                    
+                    if (!linkageName.empty()) {
+                        GlobalVarToFilename[linkageName] = filename;
+                    }
+                    if (!displayName.empty()) {
+                        GlobalVarToFilename[displayName] = filename;
+                    }
+                }
+            }
+            DbgInfoInitialized = true;
+        }
+
         for (GlobalVariable &GV : M.globals()){
             // if( GV.hasInitializer() && !GV.getName().startswith(".") ){
             if(!GV.getName().startswith(".") ){
@@ -734,59 +761,31 @@ namespace {
 
     //获取使用该全局变量的函数
     void addFunctionUses(GlobalVariable & GV, Value * V, Module & M){
+         // Cache global variable name to avoid repeated str() calls
+         std::string gvName = GV.getName().str();
+         
          for (User * U : V->users()){ //users of global variables
              Json::Value * Global;
              Function * F = nullptr;
 
              if ( Instruction * I = dyn_cast<Instruction>(U) ) {//如果使用该全局变量的用户是一个指令，获取使用该变量的指令以及该指令所在的函数
                  F = I->getFunction();
-                 Global = &OutputJsonRoot[GV.getName().str()];
+                 Global = &OutputJsonRoot[gvName];
                  add_connection(*Global,F->getName().str(),"Data");
                  (*Global)["Attr"]["Type"]="Global";
                  (*Global)["Attr"]["Size"] = M.getDataLayout().getTypeAllocSize(GV.getType());
-                 // Don't know why you use 0 in the getMetadata() below but I've tried a bunch of other options
-                 // like Metadata::DIGlobalVariableExpressionKind etc and always get null
-                
-                 // original commented codes
-                 // if ( DIGlobalVariableExpression * DI_GVE = dyn_cast_or_null<DIGlobalVariableExpression>(GV.getMetadata(0)) ){
-                 //        (*Global)["Attr"]["Filename"] = DI_GVE->getVariable()->getFilename().str();
-                 // }
-
-                //newly tested codes
-
-                //starts commend
-                DebugInfoFinder F;
-                F.processModule(M);
-
-                for (DICompileUnit *DIC : F.compile_units()) {
-                    // Create our live global variable list.
-                    bool GlobalVariableChange = false;
-                    for (DIGlobalVariable *DIG : DIC->getGlobalVariables()) {
-                        // Make sure we only visit each global variable only once.
-                        // if (!VisitedSet.insert(DIG).second)
-                        //   continue;
-
-                        // errs() << "displayname: "<< DIG->getDisplayName() << "\n";
-                        // errs() << "linkagename: " << DIG->getLinkageName() << "\n";
-
-                        // if(GV.getName().str() == DIG->getDisplayName()){
-                        if(GV.getName().str() == DIG->getLinkageName() || GV.getName().str() == DIG->getDisplayName()){
-                            // errs() << "condition branch entered\n";
-                            // errs() << DIG->getDisplayName();
-                            (*Global)["Attr"]["Filename"] = DIG->getFile()->getFilename().str();//获取该函数所在的文件
-
-                            std::string filename = DIG->getFile()->getFilename().str();
-                            //AMI controller policy
-                            std::map<std::string, int>::iterator controller_it;
-                            controller_it = controller_filename.find(filename);
-                            if(controller_it != controller_filename.end()){//该函数所在的文件是一个controller文件，则添加一个新的属性。
-                                (*Global)["Attr"]["Controller"] = filename;
-                                // errs() << "********" << "\n";
-                            }
-                        }
-                    }
-                }
-                //ends commend
+                 
+                 // Use cached debug info lookup instead of processModule in loop
+                 auto it = GlobalVarToFilename.find(gvName);
+                 if (it != GlobalVarToFilename.end()) {
+                     const std::string& filename = it->second;
+                     (*Global)["Attr"]["Filename"] = filename;
+                     
+                     //AMI controller policy
+                     if (controller_filename.find(filename) != controller_filename.end()) {
+                         (*Global)["Attr"]["Controller"] = filename;
+                     }
+                 }
 
              }else if ( Constant * C = dyn_cast<Constant>(U) ){//如果是该全局变量的用户是一个常量类型，则递归遍历
                  addFunctionUses(GV,C,M);

@@ -1,6 +1,7 @@
-rm -rf  light-controller.bc test_combo.bc server test_combo.bc ../../trampoline_lib/ict_checking.bc ../../trampoline_lib/trampoline_fw.o ../../trampoline_lib/ta_trampoline.o ../../trampoline_lib/shared_data_sections.o ../../trampoline_lib/trampoline.o util.bc 
+rm -rf  light-controller.bc test_combo.bc server test_combo.bc ../../trampoline_lib/ict_checking.bc  util.bc 
 
-make test_combo
+
+make test-combo
 
 /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/opt -f -load /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/lib/LLVMgold.so -HexboxAnaysis --hexbox-analysis-results=./analysis_result.json ./test_combo.bc > after_analyze_test_combo.bc
 

@@ -1,0 +1,30 @@
+pi@navio:~$ ./rover_baseline_after_compt 
+Deleted successfully the file ./ARI_branch.txt
+Successfully created the file ./ARI_rranch.txt
+Deleted successfully the file ./ARI_ind_jmp.txt
+Successfully created the file ./ARI_ind_jmp.txt
+Deleted successfully the file ./ARI_ret_hash.txt
+Successfully created the file ./ARI_ret_hash.txt
+Deleted successfully the file ./ARI_tsf.txt
+Successfully created the file ./ARI_tsf.txt
+Deleted successfully the file ./ARI_tsf_cond.txt
+Successfully created the file ./ARI_tsf_cond.txt
+What port do you want to open?
+3000
+pinMode (int pin = 3, int mode = 1)
+pinMode (int pin = 4, int mode = 1)
+pinMode (int pin = 0, int mode = 1)
+pinMode (int pin = 2, int mode = 1)
+Starting Mainloop!
+main 50
+main 52
+tcpListener 31
+tcpListener 35
+tcpListener 40
+tcpListener 43
+tcpListener 45
+tcpListener 50
+tcpListener 53
+1340ec453b6125d93c3a6d85f64f94bf61250ac57913e36516487816d826ad47
+main 54
+round with attestation time usecs: 1824907

@@ -128,6 +128,8 @@ unsigned long long twentyfive_hz_logging_count = 0;
 std::chrono::high_resolution_clock::time_point twentyfive_hz_logging_t1;
 std::chrono::high_resolution_clock::time_point twentyfive_hz_logging_t2;
 
+
+
 }
 
 #define SCHED_TASK(func, rate_hz, max_time_micros) SCHED_TASK_CLASS(Copter, &copter, func, rate_hz, max_time_micros)

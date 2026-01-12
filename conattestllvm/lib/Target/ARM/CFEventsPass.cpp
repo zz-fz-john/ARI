@@ -1488,7 +1488,7 @@ int test_sanxbox_blx(MachineBasicBlock *MBB, MachineBasicBlock::iterator &BBI, c
             if(MF.getName() == "read_measurement" || MF.getName() == "pop" || MF.getName() == "push" \
                 || MF.getName() == "run_thread" || MF.getName() == "write_number_to_file" || MF.getName() == "write_array_to_file" \
                 || MF.getName() == "write_two_numbers_to_file" || MF.getName() == "print_hash" || MF.getName() == "create_files" \
-                || MF.getName() == "start_new_thread" || MF.getName() == "view_switch_to_text_and_log"){
+                || MF.getName() == "start_new_thread" || MF.getName() == "view_switch_to_text_and_log"||MF.getName() =="mission_control"){
                 return false;
             }
 

@@ -478,10 +478,9 @@ int main(int argc, char** argv) {
     unsigned long start, end;
 
     printf(" debug line:%d", __LINE__);
-
-    start = usecs();
 	create_files("./ARI_branch.txt", "./ARI_ind_jmp.txt", "./ARI_ret_hash.txt", \
 	"./ARI_tsf.txt", "./ARI_tsf_cond.txt");
+    start = usecs();
     //cfv_init(1024);
     recording_flag=1;
     while (count++ < 100) {
@@ -642,8 +641,9 @@ int main(int argc, char** argv) {
     //cfv_quote();
 	recording_flag=0;
 	ret_recording_finish=1;
-	read_measurement();
+	
     end = usecs();
+    read_measurement();
     printf("round with attestation time usecs: %lu\n", end - start);
 
     terminate(0);

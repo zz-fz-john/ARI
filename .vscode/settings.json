@@ -97,7 +97,9 @@
         "types.h": "c",
         "in.h": "c",
         "unistd.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "util.h": "c",
+        "string.h": "c"
     },
     "cmake.sourceDirectory": "/home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm",
     "git.ignoreLimitWarning": true

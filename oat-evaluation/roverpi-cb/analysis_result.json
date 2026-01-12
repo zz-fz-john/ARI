@@ -403,7 +403,7 @@
 	{
 		"Attr" : 
 		{
-			"Address Taken" : true,
+			"Address Taken" : false,
 			"Filename" : "util.c",
 			"LLVM_Type" : "void (i32, i32)*",
 			"Type" : "Function"
@@ -414,6 +414,11 @@
 			{
 				"Count" : 2,
 				"Type" : "Callee"
+			},
+			"main" : 
+			{
+				"Count" : 16,
+				"Type" : "Caller"
 			}
 		}
 	},
@@ -709,7 +714,7 @@
 	{
 		"Attr" : 
 		{
-			"Address Taken" : true,
+			"Address Taken" : false,
 			"Filename" : "util.c",
 			"LLVM_Type" : "void (i32, i32)*",
 			"Type" : "Function"
@@ -720,6 +725,11 @@
 			{
 				"Count" : 2,
 				"Type" : "Callee"
+			},
+			"main" : 
+			{
+				"Count" : 4,
+				"Type" : "Caller"
 			},
 			"printf" : 
 			{

@@ -1,0 +1,113 @@
+pi@navio:~$ ./light_baseline_after_compt 
+Deleted successfully the file ./ARI_branch.txt
+Successfully created the file ./ARI_branch.txt
+Deleted successfully the file ./ARI_ind_jmp.txt
+Successfully created the file ./ARI_ind_jmp.txt
+Deleted successfully the file ./ARI_ret_hash.txt
+Successfully created the file ./ARI_ret_hash.txt
+Deleted successfully the file ./ARI_tsf.txt
+Successfully created the file ./ARI_tsf.txt
+Deleted successfully the file ./ARI_tsf_cond.txt
+Successfully created the file ./ARI_tsf_cond.txt
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;grup:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+ listen_to_events 
+ device none
+ device none
+ device none
+ device none
+Turn on 6
+IGNORED
+Turn on 7
+IGNORED
+II 0 0 class:command;protocol:arctech;model:selflearning;house:11799578;unit:12;group:0;method:turnon;
+1340ec453b6125d93c2a6d85f64f94bf61250ac57913e36516487816d826ad47
+round with attestation time usecs: 156296

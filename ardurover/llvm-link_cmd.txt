@@ -1,0 +1,10 @@
+../conattestllvm/build/bin/llvm-ranlib ./build/SITL_arm_linux_gnueabihf/lib/libRover_libs.a
+cd build/SITL_arm_linux_gnueabihf
+
+/usr/bin/arm-linux-gnueabihf-ld.gold -EL -z relro -X --hash-style=gnu --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /lib/ld-linux-armhf.so.3 -o ./llvm-link.bc /home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/arm-linux-gnueabihf/libc/usr/lib/crt1.o /home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/arm-linux-gnueabihf/libc/usr/lib/crti.o /home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/lib/gcc/arm-linux-gnueabihf/8.2.1/crtbegin.o -Llib -L/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/ -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9 -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/lib/../lib -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../lib -L/lib/arm-linux-gnueabihf -L/lib/../lib -L/usr/lib/arm-linux-gnueabihf -L/usr/lib/../lib -L/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/lib -L/home/zrz0517/llvm-arm-cross/llvm-project-16.0.0/build/bin/../lib -L/lib -L/usr/lib -plugin /home/zrz0517/study/chain_attestation/ARI-zrz/conattestllvm/build/bin/../lib/LLVMgold.so -plugin-opt=mcpu=arm1176jzf-s --export-dynamic --gc-sections --plugin-opt=emit-llvm Rover/*.o  -Bstatic -Llib -lRover_libs
+
+#/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++ --target=arm-linux-gnueabihf -Wl,--export-dynamic  -flto -Wl,--plugin-opt=emit-llvm -o ./llvm-link.bc Rover/*.o  -Bstatic -Llib -lRover_libs
+ 
+../../../conattestllvm/build/bin/opt -S   -passes="globalopt" llvm-link.bc -o  after_global.ll
+
+cd ../..

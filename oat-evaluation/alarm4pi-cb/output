@@ -1,0 +1,34 @@
+pi@navio:~$ ./alarm_baseline_after_compt 
+Child process nc executed
+Child process nc executed
+Deleted successfully the file ./ARI_branch.txt
+Successfully created the file ./ARI_branch.txt
+Deleted successfully the file ./ARI_ind_jmp.txt
+Successfully created the file ./ARI_ind_jmp.txt
+Deleted successfully the file ./ARI_ret_hash.txt
+Successfully created the file ./ARI_ret_hash.txt
+Deleted successfully the file ./ARI_tsf.txt
+Successfully created the file ./ARI_tsf.txt
+Deleted successfully the file ./ARI_tsf_cond.txt
+Successfully created the file ./ARI_tsf_cond.txt
+While exporting input pin 488 (PIR) error 2: No such file or directory
+While configuring direcction of pin 488 error 2: No such file or directory
+Error opening Pushover config file /home/pi/pushover_conf.txt: errno=2
+GPIO server initiated
+GPIO PIR (488) value: 1
+GPIO PIR (488) value: 1
+GPIO PIR (488) value: 1
+GPIO server terminated with error code: 0
+Polling thread initiated
+Listening on [0.0.0.0] (family 2, port 8080)
+Listening on [0.0.0.0] (family 2, port 8008)
+1340ec453b6125d93c2a6d85f64f94bf61250ag57913e36516487816d826ad47
+round with attestation time usecs: 49221
+main_err: 0
+Error waiting for the polling threal to finish
+While unexporting GPIO pins error 2: No such file or directory
+Waiting for child processes to finish
+Sensor polling (timer) set to 0s and 0us
+^CSignal 2 received: Sending TERM signal to children.
+Child process with PID: 1581 terminated.
+Child procgss with PID: 1582 terminated.
