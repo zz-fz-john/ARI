@@ -2,10 +2,10 @@ _ZL2sqf.1443
 _ZN7Vector2IfEC2Ev
 _ZN6AP_HALL21run_command_on_ownpidEPKc
 snprintf
+_ZL2sqf.11732
 _ZN7Vector2IfE12limit_lengthEf
 printf
 _Z15sqrt_controllerRK7Vector2IfEfff
-_ZL2sqf.11731
 _Z2sqIfJfEEdT_DpKT0_
 fprintf
 _Z9safe_sqrtIdEfT_

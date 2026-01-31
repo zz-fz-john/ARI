@@ -1,5 +1,5 @@
-# project  configured on Tue Jun 17 15:23:33 2025 by
-# waf 1.9.2 (abi 99, python 20712f0 on linux2)
+# project  configured on Sat Jan 31 21:03:41 2026 by
+# waf 1.9.2 (abi 99, python 3080af0 on linux)
 # using /home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot/modules/waf/waf-light --disable-tests configure --board=sitl
 #
 ----------------------------------------
@@ -17,13 +17,13 @@ sitl
 ---------------------------------------------
 Checking for program 'arm-linux-gnueabihf-ar'
 /home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar
-find program=['arm-linux-gnueabihf-ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['arm-linux-gnueabihf-ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
 ---------------------------------------------
 Using toolchain
 arm-linux-gnueabihf
 ---------------------------------------------
 Checking for 'g++' (C++ compiler)
-find program=['arm-linux-gnueabihf-g++', 'arm-linux-gnueabihf-c++'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CXX' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
+find program=['arm-linux-gnueabihf-g++', 'arm-linux-gnueabihf-c++'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CXX' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-dM', '-E', '-']
 out: #define _LP64 1
 #define __ATOMIC_ACQUIRE 2
@@ -346,9 +346,9 @@ from /home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot: Could not find gcc
 not found
 ---------------------------------------------
 Checking for 'clang++' (C++ compiler)
-find program=['arm-linux-gnueabihf-gcc'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CROSS_GCC' -> ['/usr/lib/ccache/arm-linux-gnueabihf-gcc']
-find program=['arm-linux-gnueabihf-ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
-find program=['clang++'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CXX' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
+find program=['arm-linux-gnueabihf-gcc'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CROSS_GCC' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-gcc']
+find program=['arm-linux-gnueabihf-ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['clang++'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CXX' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-dM', '-E', '-']
 out: #define _LP64 1
 #define __ATOMIC_ACQUIRE 2
@@ -667,12 +667,12 @@ out: #define _LP64 1
 #define linux 1
 #define unix 1
 
-find program=['llvm-ar', 'ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
-find program=['ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['llvm-ar', 'ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
 /home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++
 ---------------------------------------------
 Checking for 'gcc' (C compiler)
-find program=['arm-linux-gnueabihf-gcc', 'arm-linux-gnueabihf-cc'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CC' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
+find program=['arm-linux-gnueabihf-gcc', 'arm-linux-gnueabihf-cc'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CC' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang', '-dM', '-E', '-']
 out: #define _LP64 1
 #define __ATOMIC_ACQUIRE 2
@@ -995,9 +995,9 @@ from /home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot: Could not find gcc
 not found
 ---------------------------------------------
 Checking for 'clang' (C compiler)
-find program=['arm-linux-gnueabihf-gcc'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CROSS_GCC' -> ['/usr/lib/ccache/arm-linux-gnueabihf-gcc']
-find program=['arm-linux-gnueabihf-ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
-find program=['clang'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CC' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
+find program=['arm-linux-gnueabihf-gcc'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CROSS_GCC' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-gcc']
+find program=['arm-linux-gnueabihf-ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='TOOLCHAIN_CROSS_AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['clang'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='CC' -> ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang']
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang', '-dM', '-E', '-']
 out: #define _LP64 1
 #define __ATOMIC_ACQUIRE 2
@@ -1316,15 +1316,15 @@ out: #define _LP64 1
 #define linux 1
 #define unix 1
 
-find program=['llvm-ar', 'ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
-find program=['ar'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['llvm-ar', 'ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
+find program=['ar'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='AR' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-ar']
 /home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang
 ---------------------------------------------
 Checking for c flags '-MMD'
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_3e8624ddfd081607807d54dc3437a6d9/test.c[0m
+[1/1] Compiling [32mbuild/.conf_check_9145a16013eb2e0307fe89c3a6f74b36/test.c[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang', '-MMD', '-DWAF_BUILD=1', '../../test.c', '-c', '-otest.c.1.o']
 yes
@@ -1333,7 +1333,7 @@ Checking for cxx flags '-MMD'
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_1bd623f19f9876ea3904627651f673a7/test.cpp[0m
+[1/1] Compiling [32mbuild/.conf_check_5e753e9982cda9576c5b9df77eacea14/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '-DWAF_BUILD=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
 yes
@@ -1347,10 +1347,10 @@ Checking for need to link with librt
             clock_gettime(CLOCK_REALTIME, NULL);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_a0b5a7fb176f8d5e0afbdf1fd8aab9a7/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_dcebb5c5a102940be47f9968244b0234/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_a0b5a7fb176f8d5e0afbdf1fd8aab9a7/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_dcebb5c5a102940be47f9968244b0234/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 not necessary
@@ -1364,10 +1364,10 @@ Checking for HAVE_CMATH_ISFINITE
           return std::isfinite(1.0f);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_6f4b53510a323a4603a90ca0ee6c49b0/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_e14a78352d715c40aba8822846a76cda/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_6f4b53510a323a4603a90ca0ee6c49b0/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_e14a78352d715c40aba8822846a76cda/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1381,10 +1381,10 @@ Checking for HAVE_CMATH_ISINF
           return std::isinf(1.0f);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_c11c1e30156194ac5264c5ee33c13601/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_38ce67f96269887ad6b2b8db17ea9dad/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_c11c1e30156194ac5264c5ee33c13601/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_38ce67f96269887ad6b2b8db17ea9dad/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1398,10 +1398,10 @@ Checking for HAVE_CMATH_ISNAN
           return std::isnan(1.0f);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_4ad5a5c03fd77cf86034e5d77cdc7bda/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_833b7a322d74a329089d79447d98b11f/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_4ad5a5c03fd77cf86034e5d77cdc7bda/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_833b7a322d74a329089d79447d98b11f/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1418,10 +1418,10 @@ Checking for NEED_CMATH_ISFINITE_STD_NAMESPACE
           return isfinite((double)1);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_5e88d6c9a4afe158c0c2dd7406472ff3/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_6b39c4d66b15be85a07d42c80dfa7fa2/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_5e88d6c9a4afe158c0c2dd7406472ff3/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_6b39c4d66b15be85a07d42c80dfa7fa2/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1438,10 +1438,10 @@ Checking for NEED_CMATH_ISINF_STD_NAMESPACE
           return isinf((double)1);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_9d0573253d5a128efd371e3913dc522c/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_d4687c29633a7b5ecf33906b53890bc1/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_9d0573253d5a128efd371e3913dc522c/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_d4687c29633a7b5ecf33906b53890bc1/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1458,10 +1458,10 @@ Checking for NEED_CMATH_ISNAN_STD_NAMESPACE
           return isnan((double)1);
         }
 <==
-[1/2] Compiling [32mbuild/.conf_check_a9f7d666a2d12127cfa8049a9268ab75/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_aa045619116fa70692ff7c5ef0973a03/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_a9f7d666a2d12127cfa8049a9268ab75/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_aa045619116fa70692ff7c5ef0973a03/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1476,10 +1476,10 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_727e763c1d4a94f13a79408d88df0080/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_4730462a0162f61383994b2af125146b/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '-DNEED_CMATH_ISNAN_STD_NAMESPACE=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_727e763c1d4a94f13a79408d88df0080/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_4730462a0162f61383994b2af125146b/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
@@ -1494,61 +1494,61 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_7d31567e29a448e1e169681b981ea4e7/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_f3e550232f6b3a2a79eeefadaf716be2/test.cpp[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-DCONFIG_HAL_BOARD=HAL_BOARD_SITL', '-DCONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE', '-DWAF_BUILD=1', '-D__STDC_FORMAT_MACROS=1', '-DHAVE_CMATH_ISFINITE=1', '-DHAVE_CMATH_ISINF=1', '-DHAVE_CMATH_ISNAN=1', '-DNEED_CMATH_ISFINITE_STD_NAMESPACE=1', '-DNEED_CMATH_ISINF_STD_NAMESPACE=1', '-DNEED_CMATH_ISNAN_STD_NAMESPACE=1', '-DHAVE_ENDIAN_H=1', '../../test.cpp', '-c', '-otest.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_7d31567e29a448e1e169681b981ea4e7/testbuild/sitl/testprog[0m
+[2/2] Linking [33mbuild/.conf_check_f3e550232f6b3a2a79eeefadaf716be2/testbuild/sitl/testprog[0m
 
 ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++', '-Wl,--gc-sections', '-pthread', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', 'test.cpp.1.o', '-otestprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lm']
 yes
 ----------------------------------------------
 Checking for program 'python'
 /usr/bin/python
-find program=['python'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='PYTHON' -> ['/usr/bin/python']
+find program=['python'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='PYTHON' -> ['/usr/bin/python']
 ['/usr/bin/python', '-c', 'import imp;print(imp.get_tag())']
-err: Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-AttributeError: 'module' object has no attribute 'get_tag'
+out: cpython-38
+
+err: <string>:1: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
 
 ['/usr/bin/python', '-c', 'import sys\nfor x in sys.version_info: print(str(x))']
-out: 2
-7
-18
+out: 3
+8
+10
 final
 0
 
 ['/usr/bin/python', '-c', "from distutils.sysconfig import get_config_var, get_python_lib\n\nprint(repr(get_python_lib(standard_lib=0, prefix='/usr') or ''))"]
-out: '/usr/lib/python2.7/dist-packages'
+out: '/usr/lib/python3/dist-packages'
 
-'/usr/lib/python2.7/dist-packages'
+'/usr/lib/python3/dist-packages'
 
 ['/usr/bin/python', '-c', "from distutils.sysconfig import get_config_var, get_python_lib\n\nprint(repr(get_python_lib(plat_specific=1, standard_lib=0, prefix='/usr') or ''))"]
-out: '/usr/lib/python2.7/dist-packages'
+out: '/usr/lib/python3/dist-packages'
 
-'/usr/lib/python2.7/dist-packages'
+'/usr/lib/python3/dist-packages'
 
 ----------------------------------------------
 Checking for python version >= 2.7.0
-2.7.18
+3.8.10
 ----------------------------------------------
 Checking for program 'python'
 /usr/bin/python
-find program=['python'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='PYTHON' -> ['/usr/bin/python']
+find program=['python'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='PYTHON' -> ['/usr/bin/python']
 ['/usr/bin/python', '-c', 'import imp;print(imp.get_tag())']
-err: Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-AttributeError: 'module' object has no attribute 'get_tag'
+out: cpython-38
+
+err: <string>:1: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
 
 ['/usr/bin/python', '-c', 'import sys\nfor x in sys.version_info: print(str(x))']
-out: 2
-7
-18
+out: 3
+8
+10
 final
 0
 
 ----------------------------------------------
 Checking for python version >= 2.7.0
-2.7.18
+3.8.10
 ----------------------------------------------
 Source is git repository
 no
@@ -1558,11 +1558,11 @@ no
 ----------------------------------------------
 Checking for program 'git'
 /usr/bin/git
-find program=['git'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='GIT' -> ['/usr/bin/git']
+find program=['git'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='GIT' -> ['/usr/bin/git']
 -----------------------------------------------
 Checking for program 'arm-linux-gnueabihf-size'
 /home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-size
-find program=['arm-linux-gnueabihf-size'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='SIZE' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-size']
+find program=['arm-linux-gnueabihf-size'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='SIZE' -> ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-size']
 -----------------------------------------------
 Benchmarks
 disabled
@@ -1572,4 +1572,4 @@ disabled
 -----------------------------------------------
 Checking for program 'rsync'
 /usr/bin/rsync
-find program=['rsync'] paths=['/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='RSYNC' -> ['/usr/bin/rsync']
+find program=['rsync'] paths=['/opt/gcc-arm-none-eabi-9-2020-q2-update/bin', '/home/zrz0517/study/chain_attestation/rt-ateest/zrz-attest/ardupilot/Tools/autotest', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/', '/usr/lib/ccache', '/home/zrz0517/Ardupilot/ardupilot/Tools/autotest', '/opt/gcc-arm-none-eabi-10-2020-q4-major/bin', '/home/zrz0517/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/home/zrz0517/.local/bin'] var='RSYNC' -> ['/usr/bin/rsync']

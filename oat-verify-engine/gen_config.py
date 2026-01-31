@@ -22,7 +22,7 @@ def extract_text_start_and_end_from_ph(phfile):
 
 	# text_start_re = re.compile('^\s+\[[\s\d]+\]\s\.text\s+PROGBITS\s+0000000000([0-9a-f]{6})\s+[0-9a-f]+$')
 	# text_end_re = re.compile('^\s+\[[\s\d]+\]\s\.fini\s+PROGBITS\s+0000000000([0-9a-f]{6})\s+[0-9a-f]+$')
-	text_start_re = re.compile('^\s+\[[\s\d]+\]\s\.CODE_REGION_0_\s+PROGBITS\s+([0-9a-f]{8})\s+([0-9a-f]{6})\s+[0-9a-f]+')
+	text_start_re = re.compile('^\s+\[[\s\d]+\]\s\.CODE_REGION_1_\s+PROGBITS\s+([0-9a-f]{8})\s+([0-9a-f]{6})\s+[0-9a-f]+')
 	text_end_re = re.compile('^\s+\[[\s\d]+\]\s\.fini\s+PROGBITS\s+([0-9a-f]{8})\s+([0-9a-f]{6})\s+[0-9a-f]+')
 
 	ph = open(phfile, 'r')
@@ -68,6 +68,7 @@ if __name__ == '__main__':
 	phfile = args.ph if args.ph != None else None
 	if phfile is not None:
 		text_start, text_end = extract_text_start_and_end_from_ph(phfile)
+		print("Extracted text_start: %s, text_end: %s" % (text_start, text_end))
 		CONFIG_DEFAULTS['text_start'] = text_start
 		CONFIG_DEFAULTS['text_end'] = text_end
 

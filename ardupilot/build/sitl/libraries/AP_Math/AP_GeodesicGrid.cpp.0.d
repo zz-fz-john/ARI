@@ -2,11 +2,9 @@ libraries/AP_Math/AP_GeodesicGrid.cpp.0.o: \
   ../../libraries/AP_Math/AP_GeodesicGrid.cpp ap_config.h \
   /usr/arm-linux-gnueabihf/include/assert.h \
   /usr/arm-linux-gnueabihf/include/features.h \
-  /usr/arm-linux-gnueabihf/include/features-time64.h \
-  /usr/arm-linux-gnueabihf/include/bits/wordsize.h \
-  /usr/arm-linux-gnueabihf/include/bits/timesize.h \
   /usr/arm-linux-gnueabihf/include/stdc-predef.h \
   /usr/arm-linux-gnueabihf/include/sys/cdefs.h \
+  /usr/arm-linux-gnueabihf/include/bits/wordsize.h \
   /usr/arm-linux-gnueabihf/include/bits/long-double.h \
   /usr/arm-linux-gnueabihf/include/gnu/stubs.h \
   /usr/arm-linux-gnueabihf/include/gnu/stubs-hard.h \
@@ -31,7 +29,7 @@ libraries/AP_Math/AP_GeodesicGrid.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
   /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
   /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/sys_errlist.h \
   ../../libraries/AP_Param/AP_Param.h \
   /usr/arm-linux-gnueabihf/include/string.h \
   /usr/arm-linux-gnueabihf/include/strings.h \

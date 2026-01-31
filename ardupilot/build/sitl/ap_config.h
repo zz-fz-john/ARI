@@ -13,8 +13,8 @@
 #define NEED_CMATH_ISNAN_STD_NAMESPACE 1
 #define HAVE_ENDIAN_H 1
 #define HAVE_BYTESWAP_H 1
-#define PYTHONDIR "/usr/lib/python2.7/dist-packages"
-#define PYTHONARCHDIR "/usr/lib/python2.7/dist-packages"
+#define PYTHONDIR "/usr/lib/python3/dist-packages"
+#define PYTHONARCHDIR "/usr/lib/python3/dist-packages"
 #define _GNU_SOURCE 1
 
 #endif /* W_SITL_AP_CONFIG_H_WAF */

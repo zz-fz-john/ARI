@@ -79,7 +79,7 @@ extern RingBuffer ringBuffer;
 
 	    if(recording_cnt == 5){
 	        recording_flag = 0;
-			recording_cnt = 0;
+			//recording_cnt = 0;
 	    }
 	    else 
 	    if (recording_cnt < 5){
@@ -323,7 +323,7 @@ void* read_measurement(){
 			if(is_empty(&ringBuffer) && !recording_flag){
 					if(ret_recording_finish){
 						if (blake2s_final(&state, hash, HASH_OUTBYTES) != 0){
-							//printf("%s\n", "Failed to finalized BLAKE2s hash");
+							printf("%s\n", "Failed to finalized BLAKE2s hash");
 						}
 						write_array_to_file(hash, sizeof(hash), "./ARI_ret_hash.txt");
 						//print_hash(hash, sizeof(hash));

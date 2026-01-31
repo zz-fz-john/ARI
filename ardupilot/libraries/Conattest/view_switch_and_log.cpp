@@ -142,6 +142,7 @@ extern "C" { // C naming instead of C++ mangling
 
 	    if(recording_cnt == 5){
 	        recording_flag = 0;
+			recording_cnt=0;
 	    }
 	    else 
 	    if (recording_cnt < 5){

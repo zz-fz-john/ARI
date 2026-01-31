@@ -21,7 +21,7 @@ libraries/SITL/SIM_Aircraft.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
   /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
   /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/sys_errlist.h \
   ../../libraries/AP_Param/AP_Param.h \
   /usr/arm-linux-gnueabihf/include/string.h \
   /usr/arm-linux-gnueabihf/include/strings.h \
@@ -354,5 +354,4 @@ libraries/SITL/SIM_Aircraft.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/confname.h \
   /usr/arm-linux-gnueabihf/include/bits/getopt_posix.h \
   /usr/arm-linux-gnueabihf/include/bits/getopt_core.h \
-  /usr/arm-linux-gnueabihf/include/bits/unistd_ext.h \
-  /usr/arm-linux-gnueabihf/include/linux/close_range.h
+  /usr/arm-linux-gnueabihf/include/bits/unistd_ext.h

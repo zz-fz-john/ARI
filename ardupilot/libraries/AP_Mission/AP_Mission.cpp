@@ -4,7 +4,7 @@
 #include "AP_Mission.h"
 #include <AP_Terrain/AP_Terrain.h>
 #include <GCS_MAVLink/GCS.h>
-
+#include <Conattest/view_switch_and_log.h>
 const AP_Param::GroupInfo AP_Mission::var_info[] = {
 
     // @Param: TOTAL
@@ -458,11 +458,15 @@ bool AP_Mission::set_current_cmd(uint16_t index)
     // if we got this far we must have successfully advanced the nav command
     return true;
 }
-
+extern "C"{
+    int recording_flag = 0;
+    int recording_cnt = 0;
+}
 /// load_cmd_from_storage - load command from storage
 ///     true is return if successful
 bool AP_Mission::read_cmd_from_storage(uint16_t index, Mission_Command& cmd) const
 {
+    mission_control();
     // exit immediately if index is beyond last command but we always let cmd #0 (i.e. home) be read
     if (index >= (unsigned)_cmd_total && index != 0) {
         return false;

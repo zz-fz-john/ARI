@@ -1,0 +1,3 @@
+arm-linux-gnueabihf-objdump -d /home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI  > /home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI.S
+#python2 gen_config.py /home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI.S --program-header arducopter_output.ph -o ./replay_single.cfg
+python2 ./verify_engine -c ./replay_single.cfg  -l -o ./veri_output.txt  -t ARI_branch.txt -i ARI_ind_jmp.txt  -ee ARI_tsf.txt  -bf /home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI -cr ../ardupilot/crit_cpt_num.txt -rt ARI_ret_hash.txt /home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI

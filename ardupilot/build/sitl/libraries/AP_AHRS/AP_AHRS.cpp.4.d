@@ -21,7 +21,7 @@ libraries/AP_AHRS/AP_AHRS.cpp.4.o: ../../libraries/AP_AHRS/AP_AHRS.cpp \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
   /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
   /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/sys_errlist.h \
   ../../libraries/AP_Param/AP_Param.h \
   /usr/arm-linux-gnueabihf/include/string.h \
   /usr/arm-linux-gnueabihf/include/strings.h \

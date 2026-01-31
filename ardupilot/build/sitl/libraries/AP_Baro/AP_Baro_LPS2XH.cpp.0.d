@@ -16,9 +16,7 @@ libraries/AP_Baro/AP_Baro_LPS2XH.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
   /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
   /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn-common.h \
-  /usr/arm-linux-gnueabihf/include/bits/long-double.h \
+  /usr/arm-linux-gnueabihf/include/bits/sys_errlist.h \
   ../../libraries/AP_Baro/AP_Baro_LPS2XH.h \
   ../../libraries/AP_HAL/AP_HAL.h \
   /usr/arm-linux-gnueabihf/include/stdint.h \
@@ -48,6 +46,9 @@ libraries/AP_Baro/AP_Baro_LPS2XH.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/stdlib.h \
   /usr/arm-linux-gnueabihf/include/bits/waitflags.h \
   /usr/arm-linux-gnueabihf/include/bits/waitstatus.h \
+  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/floatn-common.h \
+  /usr/arm-linux-gnueabihf/include/bits/long-double.h \
   /usr/arm-linux-gnueabihf/include/sys/types.h \
   /usr/arm-linux-gnueabihf/include/bits/types/clock_t.h \
   /usr/arm-linux-gnueabihf/include/bits/types/clockid_t.h \
@@ -67,7 +68,6 @@ libraries/AP_Baro/AP_Baro_LPS2XH.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/pthreadtypes.h \
   /usr/arm-linux-gnueabihf/include/bits/thread-shared-types.h \
   /usr/arm-linux-gnueabihf/include/bits/pthreadtypes-arch.h \
-  /usr/arm-linux-gnueabihf/include/bits/atomic_wide_counter.h \
   /usr/arm-linux-gnueabihf/include/bits/struct_mutex.h \
   /usr/arm-linux-gnueabihf/include/bits/struct_rwlock.h \
   /usr/arm-linux-gnueabihf/include/alloca.h \

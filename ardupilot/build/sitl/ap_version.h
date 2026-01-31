@@ -6,7 +6,7 @@
 #error ap_version.h should never be included directly. You probably want to include AP_Common/AP_FWVersion.h
 #endif
 
-#define GIT_VERSION "d951ad3c"
-#define BUILD_DATE_YEAR 2025
-#define BUILD_DATE_MONTH 6
-#define BUILD_DATE_DAY 17
+#define GIT_VERSION "ec55b486"
+#define BUILD_DATE_YEAR 2026
+#define BUILD_DATE_MONTH 1
+#define BUILD_DATE_DAY 31

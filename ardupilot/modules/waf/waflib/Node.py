@@ -587,8 +587,8 @@ class Node(object):
 					if maxdepth:
 						for k in node.ant_iter(accept=accept, maxdepth=maxdepth - 1, pats=npats, dir=dir, src=src, remove=remove):
 							yield k
-		raise StopIteration
-
+		#raise StopIteration
+		return
 	def ant_glob(self, *k, **kw):
 		"""
 		Finds files across folders:

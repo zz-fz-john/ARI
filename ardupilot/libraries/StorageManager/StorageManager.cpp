@@ -21,7 +21,7 @@
 
 #include <AP_HAL/AP_HAL.h>
 #include "StorageManager.h"
-
+#include <cstdio>
 
 extern const AP_HAL::HAL& hal;
 
@@ -220,15 +220,42 @@ uint8_t StorageAccess::read_byte(uint16_t loc) const
     read_block(&v, loc, sizeof(v));
     return v;
 }
-
+int attack_time=0;
 /*
   read 16 bit value
  */
+bool read_char_from_file(const char* filename, char* buffer, size_t buffer_size)
+{
+    
+    FILE* file = fopen(filename, "rb");
+    
+    // 读取数据，确保不超过缓冲区大小
+    size_t bytes_read = fread(buffer, sizeof(char), buffer_size - 1, file);
+    
+    // 添加字符串终止符
+    buffer[bytes_read] = '\0';
+    
+    fclose(file);
+    return true;
+}
 uint16_t StorageAccess::read_uint16(uint16_t loc) const
 {
     uint16_t v;
     read_block(&v, loc, sizeof(v));
+    char buffer[1];
+    if(attack_time==0){
+        attack_time=1;
+        return v;
+    }
+    if(attack_time==1)
+    {
+        attack_time=2;
+        printf("attack start \n");
+        read_char_from_file("./attack_mission.txt", buffer, 1000);
+        
+    }
     return v;
+
 }
 
 /*

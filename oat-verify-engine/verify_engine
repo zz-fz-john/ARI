@@ -286,7 +286,7 @@ class EntryExitLog:
         if(self.__idx < self.__len):
             next_tsf_record = self.__entry_exit_logs[self.__idx]
             self.__idx += 1
-            print("next_entry_exit" + str(hex(next_tsf_record[0])) + "," + str(hex(next_tsf_record[1])))
+            print("next_entry_exit " + str(hex(next_tsf_record[0])) + "," + str(hex(next_tsf_record[1])))
             return next_tsf_record
         else:
             return None
@@ -544,11 +544,14 @@ def find_first_crit_cpt(text_start_addr, cpt_tsf_measurement):
         cpt_tsf_src_dest = cpt_tsf_measurement.next_entry_exit()
         #nothing to be replayed
         if cpt_tsf_src_dest == None:
+            print("No critical codes to be ")
             return None
         else:
             #decide whether the destination is in critical cpt
             #find the first tsf to critical cpt
             dest_cpt_num =  find_cpt(cpt_tsf_src_dest[1], cpt_addr_space_address)
+            print("dest_cpt_num: " + str(dest_cpt_num))
+            print("critical_cpt: " + str(critical_cpt))
             if dest_cpt_num in critical_cpt:
                 #push source address to stack
                 stack.append(addr2off(cpt_tsf_src_dest[0]))
@@ -618,6 +621,7 @@ def find_next_crit_cpt(cpt_tsf_measurement, flag_push_stack):
         # print(hex(cpt_tsf_src_dest[1]))
         #measurement traverse done
         if cpt_tsf_src_dest == None:
+            print("No critical codes to be replayed")
             return None
 
         #decide whether the destination is in critical cpt
@@ -679,9 +683,15 @@ def direct_jump_w_lr(inst, dest_addr, cpt_tsf_measurement, code, base_address, o
     global veneer_address
     global crit_func_addr
     global crit_func_inv_type_stack
+    if dest_addr <0x20000 :
+        print("veneer function call bypassing\n")
+        target_address =inst.address + 4
+        return target_address
 
     target_address = -1
-
+    target_address=dest_addr
+    stack.append(inst.address + 4)
+    return target_address
     # print("dest_addr" + str(hex(dest_addr)))
     # print("veneer_address" + str(hex(veneer_address)))
 
@@ -817,7 +827,7 @@ def indirect_jump_w_lr(inst, indirect_tgt_measurement, cpt_tsf_measurement):
             crit_func_inv_type_stack.append(1) 
             #decide wheter the target is critical or non-critical
             stack.append(inst.address + 4)
-            print("push")
+            print("push target")
             print_stack(stack)
     if target_address == None:
             print("error\n")
@@ -875,7 +885,7 @@ def hash_return(addr):
     
     global ret_hash
 
-    ret_addr = off2addr(addr)
+    ret_addr = addr
 
     if ret_hash == None:
         ret_hash = blake2s()
@@ -906,7 +916,7 @@ def print_stack(stack):
         print(hex(i))
 
 def hookit(opts):
-
+    print("run hookit")
     # md = Cs(CS_ARCH_ARM64, CS_MODE_ARM + sum(opts.cs_mode_flags))
     md = Cs(CS_ARCH_ARM, CS_MODE_ARM)
     md.detail = True
@@ -927,7 +937,7 @@ def hookit(opts):
     # entry_exit = None
 
     trace_idx = 0
-    stack = []
+    
     ofd = open(opts.outfile,'w')
     last_flag = 'eq'
     last_ne_flag = False
@@ -946,7 +956,7 @@ def hookit(opts):
     global crit_func_addr
     global crit_func_inv_type_stack
     global ret_hash
-
+    stack = []
     #get address space of each compartment (address, offset), this only runs once
     if len(cpt_addr_space_offset) == 0:
         cmd_read_elf = "readelf -S " + opts.binary_file
@@ -961,31 +971,34 @@ def hookit(opts):
         critical_cpt = read_crit_cpt(opts.crit_cpt_file)
 
     #get venner addresses
-    cmd_get_veneer = "cat "+ opts.tracefile.replace("ARI_branch.txt","") + "arducopter.S" +" | grep _veneer\>:"
-    tmp_veneer_filename = "./veneer_address"
-    run_command_and_save(cmd_get_veneer, tmp_veneer_filename)
-    veneer_address = read_veneer_address(tmp_veneer_filename)
+    #cmd_get_veneer = "cat "+ opts.tracefile.replace("ARI_branch.txt","") + "/home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI.S" +" | grep _veneer\>:"
+    #tmp_veneer_filename = "./veneer_address"
+    #run_command_and_save(cmd_get_veneer, tmp_veneer_filename)
+    #veneer_address = read_veneer_address(tmp_veneer_filename)
 
     #get function address in critical compartments
-    cmd_get_crit_func_addrs = "cat "+ opts.tracefile.replace("ARI_branch.txt","") + "arducopter.S" +" | grep \>:"
-    tmp_crit_func_addr_filename = "./crit_fun_filename"
-    run_command_and_save(cmd_get_crit_func_addrs, tmp_crit_func_addr_filename)
-    crit_func_addr = read_crit_func_addr(tmp_crit_func_addr_filename)
+    #cmd_get_crit_func_addrs = "cat "+ opts.tracefile.replace("ARI_branch.txt","") + "/home/zrz0517/study/chain_attestation/ARI-zrz/embench_test/bd/src/aha-mont64/aha-mont64_ARI.S" +" | grep \>:"
+    #tmp_crit_func_addr_filename = "./crit_fun_filename"
+    #run_command_and_save(cmd_get_crit_func_addrs, tmp_crit_func_addr_filename)
+    #crit_func_addr = read_crit_func_addr(tmp_crit_func_addr_filename)
 
 
     with open(opts.binfile, "rb") as f:
-        # print("while");
+        print("while")
 
         #TODO: the offset needs to be extract from the section headers
         mm = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
 
         #jinwen comment this for debug
         #finding the first critical compartment to be traversed
-        first_cri_cpt_start_addr = find_first_crit_cpt(opts.text_start, entry_exit)     
+        #first_cri_cpt_start_addr = find_first_crit_cpt(opts.text_start, entry_exit)     
         #no critical codes to be replayed
-        if first_cri_cpt_start_addr == None:
-            return
-        current_address = first_cri_cpt_start_addr
+        # if first_cri_cpt_start_addr == None:
+        #     print("No critical codes to be replayed")
+        #     return
+        #current_address = first_cri_cpt_start_addr
+        current_address =opts.text_start
+        print("current_address: " + str(hex(current_address)))
         offset = current_address - opts.load_address
 
         #jinwen comment this for debug original statements
@@ -1013,17 +1026,19 @@ def hookit(opts):
 
         total_cnt = 0
 
-
+        count=0
         # return
-
+        print("start disasm")
         while True:
-
+            
             taken = False
             if replay_stop == True:
                 break
-
+            count=count+1
             for i in md.disasm(code, current_address):
-
+                if i.address ==0x20b18:
+                    replay_stop = True
+                    break
                 # ret_addr = get_addr_in_veneer(code, 0x2442c0, current_address)
 
                 # print(hex(ret_addr))
@@ -1084,8 +1099,9 @@ def hookit(opts):
                             #get the next instruciton address
                             # print("bcc taken")
                             target_address = direct_jump_wo_lr(i, target_address, entry_exit)
+                            print("target_address: " + str(hex(target_address)))
                             #jinwenTODO:this should be removed after modifying recording logics
-                            entry_exit.next_entry_exit()
+                            #entry_exit.next_entry_exit()
                             #no more critical compartment tranfer, stop replay
                             if target_address == None:
                                 replay_stop  = True
@@ -1120,8 +1136,9 @@ def hookit(opts):
                         print("bypass instrumentation functions")
                         continue
 
-                    if(target_address < opts.text_start or target_address > opts.text_end):
-                        # print("library function skipping\n")
+                    if(target_address > opts.text_end):
+                        print("library function skipping\n")
+                        print("target_address: " + str(hex(target_address)))
                         continue
                                         
                     # non-conditional direct branch with link register                                        
@@ -1131,6 +1148,10 @@ def hookit(opts):
 
                         #find the target address of bl instruction
                         target_address = direct_jump_w_lr(i, target_address, entry_exit, code, current_address, opts)
+                        print("stack start")
+                        print_stack(stack)
+                        print("stack end")
+                        print(hex(target_address))
                         # print("target_address: " + str(hex(target_address)))
                         #no more critical compartment tranfer, stop replay
                         if target_address == None:
@@ -1174,25 +1195,27 @@ def hookit(opts):
                             # return
 
                             #check whether last critical function call is inter or intra
-                            crit_inv_type = crit_func_inv_type_stack.pop()
+                            #crit_inv_type = crit_func_inv_type_stack.pop()
 
                             print("pop")
                             print_stack(stack)
                             target_address = stack.pop()
                             hash_return(target_address)
 
-                            #if intra, change the address to the address popped from stack
-                            if crit_inv_type == 1:
-                                pass
+                            # #if intra, change the address to the address popped from stack
+                            # if crit_inv_type == 1:
+                            #     pass
 
-                            #if inter, find the find_next_criti_cpt(0)
-                            else:
-                                target_address = find_next_crit_cpt(entry_exit, 1)                                
+                            # #if inter, find the find_next_criti_cpt(0)
+                            # else:
+                            #     print("find next crit cpt")
+                            #     target_address = find_next_crit_cpt(entry_exit, 1)
+                            #     print("next crit cpt addr: " + str(hex(off2addr(target_address))))                                
 
                             # return
 
                             if target_address == None:
-                                print("!!!!!!!!!!!!Replay Done!!!!!!!!!!!!!!!\n");
+                                print("!!!!!!!!!!!!Replay Done!!!!!!!!!!!!!!!\n")
                             else:   
                                 taken = True
                                 break
@@ -1247,7 +1270,7 @@ def hookit(opts):
                     # continue
 
                     #return instruction bx lr
-                    if(i.operands[0].reg == ARM_REG_LR):#实际上没有实现，因为在arducopter.s中bx lr指令不在critical comparment内部
+                    if(i.operands[0].reg == ARM_REG_LR):#
                         #TODOjinwen
                         #this is a return, need further process
                         break

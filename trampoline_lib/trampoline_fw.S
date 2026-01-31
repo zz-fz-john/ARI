@@ -154,22 +154,22 @@ __trampoline_bkwd_pop:
 	bx r8 					@jumping to target
 
 __AMI_fake_direct_transfer:
-	nop
+	bx lr
 
 __AMI_fake_indirect_transfer:
-	nop
+	bx lr
 
 __AMI_fake_rt_transfer:
-	nop
+	bx lr
 
 __AMI_fake_local_wrt:
-	nop
+	bx lr
 
 __AMI_fake_shared_wrt:
-	nop
+	bx lr
 
 __AMI_fake_pop_pc_transfer:
-	nop
+	bx lr
 
 __error:
 	b error_found

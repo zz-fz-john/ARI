@@ -20,7 +20,7 @@ CLANG_FLAGS = ['--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TE
 COMPILER_CC = 'clang'
 COMPILER_CXX = 'clang++'
 CPPPATH_ST = '-I%s'
-CROSS_GCC = ['/usr/lib/ccache/arm-linux-gnueabihf-gcc']
+CROSS_GCC = ['/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/arm-linux-gnueabihf-gcc']
 CXX = ['/home/zrz0517/llvm-3.9/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++']
 CXXFLAGS = ['-emit-llvm', '-std=gnu++11', '-fdata-sections', '-ffunction-sections', '-fno-exceptions', '-fsigned-char', '-Wall', '-Wextra', '-Wformat', '-Wshadow', '-Wpointer-arith', '-Wcast-align', '-Wundef', '-Wno-unused-parameter', '-Wno-missing-field-initializers', '-Wno-reorder', '-Wno-redundant-decls', '-Wno-unknown-pragmas', '-Wfatal-errors', '-Wno-trigraphs', '-fcolor-diagnostics', '-Wno-gnu-designator', '-Wno-inconsistent-missing-override', '-Wno-mismatched-tags', '-Wno-gnu-variable-sized-type-not-at-end', '-Wno-c++11-narrowing', '-O3', '-fno-slp-vectorize', '-O0', '-g', '--target=arm-linux-gnueabihf', '-I/usr/arm-linux-gnueabihf/include', '-I/usr/arm-linux-gnueabihf/include/c++/11/arm-linux-gnueabihf', '-MMD', '--target=arm-linux-gnueabihf', '--gcc-toolchain=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32', '--sysroot=/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin/../arm-linux-gnueabihf/libc', '-B/home/zrz0517/TEE/optee-v3.4/toolchains/aarch32/bin', '-I../../../lcu14_optee_hello_world-master/ta/include', '-I../../../optee_client-master/out/export/include', '-fno-PIC']
 CXXFLAGS_MACBUNDLE = ['-fPIC']
@@ -33,7 +33,7 @@ CXX_TGT_F = ['-c', '-o']
 DEBUG = False
 DEFINES = ['SKETCHBOOK="/home/zrz0517/study/chain_attestation/ARI-zrz/ardupilot"', 'CONFIG_HAL_BOARD=HAL_BOARD_SITL', 'CONFIG_HAL_BOARD_SUBTYPE=HAL_BOARD_SUBTYPE_NONE']
 DEFINES_ST = '-D%s'
-DEFINE_COMMENTS = {'HAVE_CMATH_ISINF': '', 'NEED_CMATH_ISFINITE_STD_NAMESPACE': '', 'NEED_CMATH_ISNAN_STD_NAMESPACE': '', 'WAF_BUILD': '', 'NEED_CMATH_ISINF_STD_NAMESPACE': '', '__STDC_FORMAT_MACROS': '', 'HAVE_ENDIAN_H': '', 'HAVE_BYTESWAP_H': '', 'PYTHONDIR': '', 'HAVE_CMATH_ISFINITE': '', 'HAVE_CMATH_ISNAN': '', '_GNU_SOURCE': '', 'PYTHONARCHDIR': ''}
+DEFINE_COMMENTS = {'WAF_BUILD': '', '__STDC_FORMAT_MACROS': '', 'HAVE_CMATH_ISFINITE': '', 'HAVE_CMATH_ISINF': '', 'HAVE_CMATH_ISNAN': '', 'NEED_CMATH_ISFINITE_STD_NAMESPACE': '', 'NEED_CMATH_ISINF_STD_NAMESPACE': '', 'NEED_CMATH_ISNAN_STD_NAMESPACE': '', 'HAVE_ENDIAN_H': '', 'HAVE_BYTESWAP_H': '', 'PYTHONDIR': '', 'PYTHONARCHDIR': '', '_GNU_SOURCE': ''}
 DEST_BINFMT = 'elf'
 DEST_CPU = 'x86_64'
 DEST_OS = 'linux'
@@ -74,10 +74,11 @@ PYC = 1
 PYFLAGS = ''
 PYFLAGS_OPT = '-O'
 PYO = 1
+PYTAG = 'cpython-38'
 PYTHON = ['/usr/bin/python']
-PYTHONARCHDIR = '/usr/lib/python2.7/dist-packages'
-PYTHONDIR = '/usr/lib/python2.7/dist-packages'
-PYTHON_VERSION = '2.7'
+PYTHONARCHDIR = '/usr/lib/python3/dist-packages'
+PYTHONDIR = '/usr/lib/python3/dist-packages'
+PYTHON_VERSION = '3.8'
 ROMFS_FILES = []
 RPATH_ST = '-Wl,-rpath,%s'
 RSYNC = ['/usr/bin/rsync']

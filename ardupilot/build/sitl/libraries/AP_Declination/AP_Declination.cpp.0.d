@@ -20,7 +20,7 @@ libraries/AP_Declination/AP_Declination.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
   /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
   /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/sys_errlist.h \
   ../../libraries/AP_Math/AP_Math.h \
   ../../libraries/AP_Common/missing/type_traits \
   ../../libraries/AP_Param/AP_Param.h \

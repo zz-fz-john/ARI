@@ -137842,20 +137842,28 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 64,
+			"Addr" : 1,
 			"ArgNum" : 0,
-			"DataSize" : 0,
-			"DataType" : "void (%class.AP_BattMonitor_SMBus*)*",
+			"DataSize" : 12,
+			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "void (%class.AP_BattMonitor_SMBus*)* inttoptr (i32 64 to void (%class.AP_BattMonitor_SMBus*)*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 1 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
-			"Write" : false
+			"Write" : true
 		},
 		"Connections" : 
 		{
-			"_ZN7FunctorIvJEE14method_wrapperI20AP_BattMonitor_SMBusXadL_ZNS2_5timerEvEEEEvPv" : 
+			"createstdfile" : 
+			{
+				"Type" : "Peripheral"
+			},
+			"luaL_loadfilex" : 
+			{
+				"Type" : "Peripheral"
+			},
+			"luaopen_io" : 
 			{
 				"Type" : "Peripheral"
 			}
@@ -137911,33 +137919,6 @@
 	{
 		"Attr" : 
 		{
-			"Addr" : 3,
-			"ArgNum" : 0,
-			"DataSize" : 12,
-			"DataType" : "%struct.apfs_file*",
-			"IsArg" : false,
-			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 3 to %struct.apfs_file*)",
-			"Read" : false,
-			"Type" : "Peripheral",
-			"Write" : false
-		},
-		"Connections" : 
-		{
-			"createstdfile" : 
-			{
-				"Type" : "Peripheral"
-			},
-			"luaopen_io" : 
-			{
-				"Type" : "Peripheral"
-			}
-		}
-	},
-	".Peripheral_4" : 
-	{
-		"Attr" : 
-		{
 			"Addr" : 2,
 			"ArgNum" : 0,
 			"DataSize" : 12,
@@ -137961,20 +137942,20 @@
 			}
 		}
 	},
-	".Peripheral_5" : 
+	".Peripheral_4" : 
 	{
 		"Attr" : 
 		{
-			"Addr" : 1,
+			"Addr" : 3,
 			"ArgNum" : 0,
 			"DataSize" : 12,
 			"DataType" : "%struct.apfs_file*",
 			"IsArg" : false,
 			"IsParam" : false,
-			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 1 to %struct.apfs_file*)",
+			"LLVM::Value" : "%struct.apfs_file* inttoptr (i32 3 to %struct.apfs_file*)",
 			"Read" : false,
 			"Type" : "Peripheral",
-			"Write" : true
+			"Write" : false
 		},
 		"Connections" : 
 		{
@@ -137982,11 +137963,30 @@
 			{
 				"Type" : "Peripheral"
 			},
-			"luaL_loadfilex" : 
+			"luaopen_io" : 
 			{
 				"Type" : "Peripheral"
-			},
-			"luaopen_io" : 
+			}
+		}
+	},
+	".Peripheral_5" : 
+	{
+		"Attr" : 
+		{
+			"Addr" : 64,
+			"ArgNum" : 0,
+			"DataSize" : 0,
+			"DataType" : "void (%class.AP_BattMonitor_SMBus*)*",
+			"IsArg" : false,
+			"IsParam" : false,
+			"LLVM::Value" : "void (%class.AP_BattMonitor_SMBus*)* inttoptr (i32 64 to void (%class.AP_BattMonitor_SMBus*)*)",
+			"Read" : false,
+			"Type" : "Peripheral",
+			"Write" : false
+		},
+		"Connections" : 
+		{
+			"_ZN7FunctorIvJEE14method_wrapperI20AP_BattMonitor_SMBusXadL_ZNS2_5timerEvEEEEvPv" : 
 			{
 				"Type" : "Peripheral"
 			}

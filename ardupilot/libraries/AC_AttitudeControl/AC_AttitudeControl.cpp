@@ -252,8 +252,7 @@ void AC_AttitudeControl::input_quaternion(Quaternion attitude_desired_quat)
 
 
 //jinwen write this for test verification
-int recording_flag = 0;
-int recording_cnt = 0;
+
 // extern int ret_recording_finish;
 
 
@@ -268,7 +267,7 @@ void AC_AttitudeControl::input_euler_angle_roll_pitch_euler_rate_yaw(float euler
     //jinwen write this for test verification
 
     
-    mission_control();
+    
     
     // if(recording_cnt == 0){
     //     recording_flag = 1;

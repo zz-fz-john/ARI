@@ -2,11 +2,9 @@ libraries/AP_ROMFS/tinflate.cpp.0.o: \
   ../../libraries/AP_ROMFS/tinflate.cpp ap_config.h \
   /usr/arm-linux-gnueabihf/include/assert.h \
   /usr/arm-linux-gnueabihf/include/features.h \
-  /usr/arm-linux-gnueabihf/include/features-time64.h \
-  /usr/arm-linux-gnueabihf/include/bits/wordsize.h \
-  /usr/arm-linux-gnueabihf/include/bits/timesize.h \
   /usr/arm-linux-gnueabihf/include/stdc-predef.h \
   /usr/arm-linux-gnueabihf/include/sys/cdefs.h \
+  /usr/arm-linux-gnueabihf/include/bits/wordsize.h \
   /usr/arm-linux-gnueabihf/include/bits/long-double.h \
   /usr/arm-linux-gnueabihf/include/gnu/stubs.h \
   /usr/arm-linux-gnueabihf/include/gnu/stubs-hard.h \
@@ -21,6 +19,7 @@ libraries/AP_ROMFS/tinflate.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/types/__locale_t.h \
   /usr/arm-linux-gnueabihf/include/sys/types.h \
   /usr/arm-linux-gnueabihf/include/bits/types.h \
+  /usr/arm-linux-gnueabihf/include/bits/timesize.h \
   /usr/arm-linux-gnueabihf/include/bits/typesizes.h \
   /usr/arm-linux-gnueabihf/include/bits/time64.h \
   /usr/arm-linux-gnueabihf/include/bits/types/clock_t.h \
@@ -42,7 +41,6 @@ libraries/AP_ROMFS/tinflate.cpp.0.o: \
   /usr/arm-linux-gnueabihf/include/bits/pthreadtypes.h \
   /usr/arm-linux-gnueabihf/include/bits/thread-shared-types.h \
   /usr/arm-linux-gnueabihf/include/bits/pthreadtypes-arch.h \
-  /usr/arm-linux-gnueabihf/include/bits/atomic_wide_counter.h \
   /usr/arm-linux-gnueabihf/include/bits/struct_mutex.h \
   /usr/arm-linux-gnueabihf/include/bits/struct_rwlock.h \
   /usr/arm-linux-gnueabihf/include/alloca.h \

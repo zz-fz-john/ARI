@@ -10,7 +10,7 @@ ArduCopter/sensors.cpp.22.o: ../../ArduCopter/sensors.cpp ap_config.h \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_FILE.h \
   /usr/arm-linux-gnueabihf/include/bits/types/cookie_io_functions_t.h \
   /usr/arm-linux-gnueabihf/include/bits/stdio_lim.h \
-  /usr/arm-linux-gnueabihf/include/bits/floatn.h \
+  /usr/arm-linux-gnueabihf/include/bits/sys_errlist.h \
   ../../libraries/AP_HAL/AP_HAL.h \
   /usr/arm-linux-gnueabihf/include/stdint.h \
   /usr/arm-linux-gnueabihf/include/bits/wchar.h \
@@ -414,7 +414,6 @@ ArduCopter/sensors.cpp.22.o: ../../ArduCopter/sensors.cpp ap_config.h \
   /usr/arm-linux-gnueabihf/include/bits/types/struct_iovec.h \
   /usr/arm-linux-gnueabihf/include/linux/falloc.h \
   /usr/arm-linux-gnueabihf/include/bits/stat.h \
-  /usr/arm-linux-gnueabihf/include/bits/struct_stat.h \
   /usr/arm-linux-gnueabihf/include/unistd.h \
   /usr/arm-linux-gnueabihf/include/bits/posix_opt.h \
   /usr/arm-linux-gnueabihf/include/bits/environments.h \
@@ -422,7 +421,6 @@ ArduCopter/sensors.cpp.22.o: ../../ArduCopter/sensors.cpp ap_config.h \
   /usr/arm-linux-gnueabihf/include/bits/getopt_posix.h \
   /usr/arm-linux-gnueabihf/include/bits/getopt_core.h \
   /usr/arm-linux-gnueabihf/include/bits/unistd_ext.h \
-  /usr/arm-linux-gnueabihf/include/linux/close_range.h \
   /usr/arm-linux-gnueabihf/include/sys/socket.h \
   /usr/arm-linux-gnueabihf/include/bits/socket.h \
   /usr/arm-linux-gnueabihf/include/bits/socket_type.h \

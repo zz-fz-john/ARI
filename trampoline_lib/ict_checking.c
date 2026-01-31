@@ -5,10 +5,10 @@
 #include <stdbool.h>
 
 
-#define BUFFER_SIZE 1024*1024
+#define BUFFER_SIZE 10000000
 
 
-#define BUFFER_SIZE 1024*1024  // Change this according to your requirements
+#define BUFFER_SIZE 10000000 // Change this according to your requirements
 
 //#define DBG
 
@@ -31,25 +31,25 @@ RingBuffer ringBuffer;
 
 bool push(RingBuffer* ringBuffer, Element value) {
     size_t next_head = (ringBuffer->head + 1) % BUFFER_SIZE;
-    // if (next_head != atomic_load(&ringBuffer->tail)) {
+	if (next_head != atomic_load(&ringBuffer->tail)) {
         ringBuffer->buffer[ringBuffer->head] = value;
         atomic_store(&ringBuffer->head, next_head);
         return true;
-    // } else {
-    //     // Buffer is full
-    //     return false;
-    // }
+    } else {
+        // Buffer is full
+        return false;
+    }
 }
 
 bool pop(RingBuffer* ringBuffer, Element* value) {
-    // if (atomic_load(&ringBuffer->head) == atomic_load(&ringBuffer->tail)) {
-    //     // Buffer is empty
-    //     return false;
-    // } else {
+    if (atomic_load(&ringBuffer->head) == atomic_load(&ringBuffer->tail)) {
+        // Buffer is empty
+        return false;
+    } else {
 	*value = ringBuffer->buffer[ringBuffer->tail];
 	atomic_store(&ringBuffer->tail, (ringBuffer->tail + 1) % BUFFER_SIZE);
 	return true;
-    // }
+    }
 }
 
 
@@ -120,7 +120,7 @@ void c_direct_tsf_recording(uint32_t next_ist_to_source){
 	return;
 
 	if(!push(&ringBuffer, elem)){
-		printf("buffer is full\n");
+		//printf("buffer is full\n");
 	}
 
 	return;
@@ -657,7 +657,7 @@ void cfv_icall_ldmia_ret(uint32_t next_ist_to_source, uint32_t cpsr, uint32_t co
 		#endif
 		//saving branch decision
 		if(!push(&ringBuffer, elem)){
-			printf("buffer is full\n");
+			//printf("buffer is full\n");
 		}
 
 	}

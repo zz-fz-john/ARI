@@ -157,6 +157,8 @@ def _collect_autoconfig_files(cfg):
                 paths.append(p)
 
         for p in paths:
+            if p is None:
+                continue
             if p in cfg.files or not os.path.isfile(p):
                 continue
 
