@@ -143,7 +143,7 @@ extern "C"
 
 	    if(recording_cnt == 5){
 	        recording_flag = 0;
-			//recording_cnt=0;
+			recording_cnt=0;
 	    }
 	    else 
 	    if (recording_cnt < 5){
